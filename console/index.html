@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SurakshaVani — Maharashtra Cyber Police & Citizen Intake Layer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap');
+    body { font-family: 'Inter', 'Noto Sans Devanagari', sans-serif; background-color: #0F172A; }
+    .gold-accent { color: #D97706; }
+    .police-navy { background-color: #0B2545; }
+    .whatsapp-bg { background-color: #EFEAE2; }
+    .chat-bubble-user { background-color: #DCF8C6; color: #111827; }
+    .chat-bubble-bot { background-color: #FFFFFF; color: #1F2937; }
+    .scrollbar-thin::-webkit-scrollbar { width: 5px; height: 5px; }
+    .scrollbar-thin::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+  </style>
+</head>
+<body class="text-slate-100 flex flex-col h-screen overflow-hidden">
+
+  <!-- TOP POLICE HEADER -->
+  <header class="bg-[#0B1E36] border-b border-slate-700 px-6 py-2.5 flex items-center justify-between shrink-0">
+    <div class="flex items-center space-x-4">
+      <div class="w-9 h-9 rounded bg-amber-600 flex items-center justify-center font-bold text-slate-900 text-lg shadow">
+        <i class="fa-solid fa-shield-halved text-white"></i>
+      </div>
+      <div>
+        <div class="flex items-center space-x-2">
+          <span class="text-xs tracking-wider uppercase text-amber-400 font-semibold">Government of Maharashtra • Police Cyber Cell</span>
+          <span class="bg-red-500/20 text-red-400 text-[10px] font-mono px-2 py-0.5 rounded border border-red-500/40">1930 / CFCFRMS RELAY ACTIVE</span>
+        </div>
+        <h1 class="text-base font-bold text-white tracking-tight">SurakshaVani <span class="text-slate-400 font-normal text-xs ml-2">Intake Intelligence & Golden-Hour Operations</span></h1>
+      </div>
+    </div>
+
+    <!-- Right Controls -->
+    <div class="flex items-center space-x-4">
+      <div class="flex bg-slate-800 p-1 rounded-lg border border-slate-700 text-xs">
+        <button id="tab-operator-btn" onclick="switchMainView('operator')" class="px-3 py-1 rounded font-medium bg-blue-700 text-white transition">
+          <i class="fa-solid fa-desktop mr-1.5"></i> Operator Console
+        </button>
+        <button id="tab-simulator-btn" onclick="switchMainView('simulator')" class="px-3 py-1 rounded font-medium text-slate-300 hover:text-white transition">
+          <i class="fa-brands fa-whatsapp text-emerald-400 mr-1.5"></i> Citizen WhatsApp Simulator
+        </button>
+        <button id="tab-intel-btn" onclick="switchMainView('intel')" class="px-3 py-1 rounded font-medium text-slate-300 hover:text-white transition">
+          <i class="fa-solid fa-network-wired text-purple-400 mr-1.5"></i> Crime Intelligence
+        </button>
+      </div>
+
+      <div class="border-l border-slate-700 pl-4 flex items-center space-x-3 text-xs">
+        <div class="text-right">
+          <div class="font-medium text-slate-200">Insp. S. Shinde</div>
+          <div class="text-[10px] text-slate-400">Badge MH-CY-8812 • Mumbai</div>
+        </div>
+        <div class="w-8 h-8 rounded-full bg-slate-700 flex items-center justify-center text-slate-300 font-bold border border-slate-600">
+          SS
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN DUAL-PANEL WORKSPACE -->
+  <main class="flex-1 flex overflow-hidden">
+
+    <!-- VIEW 1: OPERATOR TERMINAL -->
+    <div id="view-operator" class="flex-1 flex overflow-hidden">
+      <!-- Left List Column -->
+      <div class="w-7/12 border-r border-slate-800 flex flex-col bg-slate-900">
+        <!-- Filter Toolbar -->
+        <div class="p-3.5 border-b border-slate-800 flex items-center justify-between bg-slate-900/80">
+          <div class="flex items-center space-x-2">
+            <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Priority Triage Queue</span>
+            <span id="case-count-badge" class="bg-blue-600 text-[11px] font-bold px-2 py-0.5 rounded-full text-white">0</span>
+          </div>
+
+          <div class="flex items-center space-x-2 text-xs">
+            <select id="filter-urgency" onchange="loadCases()" class="bg-slate-800 border border-slate-700 text-slate-300 rounded px-2.5 py-1 focus:outline-none">
+              <option value="">All Priorities</option>
+              <option value="CRITICAL">Critical (Golden Hour)</option>
+              <option value="HIGH">High Urgency</option>
+              <option value="NORMAL">Normal</option>
+            </select>
+            <button onclick="loadCases()" class="px-2.5 py-1 bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded text-slate-300">
+              <i class="fa-solid fa-rotate-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Cases Table -->
+        <div class="flex-1 overflow-y-auto scrollbar-thin">
+          <table class="w-full text-left text-xs text-slate-300">
+            <thead class="bg-slate-800/60 uppercase text-[10px] text-slate-400 sticky top-0 border-b border-slate-700">
+              <tr>
+                <th class="px-3.5 py-2.5">Priority / Ref</th>
+                <th class="px-3 py-2.5">Category & Subtype</th>
+                <th class="px-3 py-2.5">Loss Amount</th>
+                <th class="px-3 py-2.5">Suspect / Info</th>
+                <th class="px-3 py-2.5">Status</th>
+                <th class="px-3 py-2.5 text-right">Action</th>
+              </tr>
+            </thead>
+            <tbody id="cases-tbody" class="divide-y divide-slate-800/80 font-normal">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Right Inspection Column -->
+      <div class="w-5/12 flex flex-col bg-slate-950 overflow-y-auto scrollbar-thin p-5 space-y-5" id="case-inspector">
+        <div class="text-center py-20 text-slate-500">
+          <i class="fa-solid fa-folder-open text-4xl mb-3 text-slate-600"></i>
+          <p class="text-sm">Select a complaint from the triage queue to inspect evidence, verify fields, and trigger 1930 / CFCFRMS lien.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- VIEW 2: CITIZEN WHATSAPP SIMULATOR -->
+    <div id="view-simulator" class="hidden flex-1 flex items-center justify-center bg-slate-950 p-6">
+      <!-- Simulated Phone Container -->
+      <div class="w-[420px] h-[720px] bg-slate-900 rounded-[38px] shadow-2xl border-4 border-slate-700 flex flex-col overflow-hidden relative">
+        <!-- Phone Speaker Notch -->
+        <div class="w-full bg-[#075E54] pt-3 pb-2 px-4 flex items-center justify-between text-white shrink-0 shadow">
+          <div class="flex items-center space-x-3">
+            <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center font-bold text-sm">
+              <i class="fa-solid fa-shield-halved text-amber-300"></i>
+            </div>
+            <div>
+              <div class="font-bold text-xs flex items-center">
+                SurakshaVani MH
+                <i class="fa-solid fa-circle-check text-blue-300 text-[10px] ml-1.5" title="Verified Govt Channel"></i>
+              </div>
+              <div class="text-[10px] text-emerald-200">Official Cyber Assistance Bot</div>
+            </div>
+          </div>
+          <div class="flex space-x-2 text-xs">
+            <button onclick="resetSimulation()" class="text-emerald-200 hover:text-white" title="Restart Session">
+              <i class="fa-solid fa-rotate-left"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Chat Transcript Area -->
+        <div id="chat-messages" class="flex-1 whatsapp-bg overflow-y-auto p-3 space-y-2.5 scrollbar-thin flex flex-col">
+          <!-- Live messages inserted here -->
+        </div>
+
+        <!-- Interactive Voice Simulation Bar -->
+        <div class="bg-slate-800 p-2 border-t border-slate-700 shrink-0">
+          <div class="text-[10px] font-semibold text-slate-400 uppercase tracking-wider mb-1.5 flex justify-between">
+            <span>Voice / Demo Presets</span>
+            <span class="text-amber-400">Microphone Ready</span>
+          </div>
+          <div class="grid grid-cols-2 gap-1.5 text-xs mb-2">
+            <button onclick="sendPresetClip('msedcl')" class="bg-slate-700 hover:bg-slate-600 text-slate-200 text-left px-2 py-1.5 rounded truncate border border-slate-600">
+              ⚡ Marathi: MSEDCL Bill Scam
+            </button>
+            <button onclick="sendPresetClip('pension')" class="bg-slate-700 hover:bg-slate-600 text-slate-200 text-left px-2 py-1.5 rounded truncate border border-slate-600">
+              👴 Hindi: Senior Pension OTP
+            </button>
+            <button onclick="sendPresetClip('telegram')" class="bg-slate-700 hover:bg-slate-600 text-slate-200 text-left px-2 py-1.5 rounded truncate border border-slate-600">
+              📱 Hindi: Telegram Task Scam
+            </button>
+            <button onclick="sendPresetClip('extortion')" class="bg-slate-700 hover:bg-slate-600 text-slate-200 text-left px-2 py-1.5 rounded truncate border border-slate-600">
+              🛡️ English: Video Extortion
+            </button>
+          </div>
+
+          <!-- Bottom Text / Mic input -->
+          <div class="flex items-center space-x-2">
+            <input type="text" id="sim-input-text" placeholder="Type message in Marathi, Hindi, English..." class="flex-1 bg-slate-900 border border-slate-700 rounded-full px-3.5 py-1.5 text-xs text-white focus:outline-none focus:border-emerald-500" onkeydown="if(event.key==='Enter') sendSimText()">
+            <button onclick="simulateVoiceRecord()" class="w-8 h-8 rounded-full bg-emerald-600 hover:bg-emerald-500 flex items-center justify-center text-white text-xs shadow" title="Record Voice Note">
+              <i class="fa-solid fa-microphone"></i>
+            </button>
+            <button onclick="sendSimText()" class="w-8 h-8 rounded-full bg-blue-600 hover:bg-blue-500 flex items-center justify-center text-white text-xs shadow">
+              <i class="fa-solid fa-paper-plane"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VIEW 3: THREAT INTELLIGENCE -->
+    <div id="view-intel" class="hidden flex-1 flex flex-col bg-slate-900 p-6 overflow-y-auto scrollbar-thin space-y-6">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+        <div>
+          <h2 class="text-lg font-bold text-white">Financial Crime Threat Intelligence & Mule Syndicates</h2>
+          <p class="text-xs text-slate-400">Automated cross-case pattern clustering, repeat identifiers, and weekly police directives.</p>
+        </div>
+        <button onclick="loadIntel()" class="px-3.5 py-1.5 bg-blue-600 hover:bg-blue-500 text-white rounded text-xs font-semibold shadow">
+          <i class="fa-solid fa-arrows-rotate mr-1.5"></i> Run Clustering Pipeline
+        </button>
+      </div>
+
+      <!-- Intel Clusters Grid -->
+      <div class="grid grid-cols-2 gap-5" id="intel-clusters-container">
+        <!-- Dynamically injected -->
+      </div>
+
+      <!-- Weekly Leads Card -->
+      <div class="bg-slate-950 border border-slate-800 rounded-xl p-5 shadow">
+        <h3 class="text-sm font-bold text-amber-400 uppercase tracking-wider mb-2 flex items-center">
+          <i class="fa-solid fa-file-shield mr-2"></i> Weekly Directives for Maharashtra Cyber Cell & I4C
+        </h3>
+        <div id="intel-report-box" class="text-xs text-slate-300 space-y-3 font-mono bg-slate-900 p-4 rounded border border-slate-800">
+          Loading threat report...
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    let activeCaseId = null;
+    let simPhone = "+919890011223";
+
+    function switchMainView(view) {
+      document.getElementById('view-operator').classList.toggle('hidden', view !== 'operator');
+      document.getElementById('view-simulator').classList.toggle('hidden', view !== 'simulator');
+      document.getElementById('view-intel').classList.toggle('hidden', view !== 'intel');
+
+      document.getElementById('tab-operator-btn').className = view === 'operator' 
+        ? "px-3 py-1 rounded font-medium bg-blue-700 text-white transition"
+        : "px-3 py-1 rounded font-medium text-slate-300 hover:text-white transition";
+
+      document.getElementById('tab-simulator-btn').className = view === 'simulator' 
+        ? "px-3 py-1 rounded font-medium bg-emerald-700 text-white transition"
+        : "px-3 py-1 rounded font-medium text-slate-300 hover:text-white transition";
+
+      document.getElementById('tab-intel-btn').className = view === 'intel' 
+        ? "px-3 py-1 rounded font-medium bg-purple-700 text-white transition"
+        : "px-3 py-1 rounded font-medium text-slate-300 hover:text-white transition";
+
+      if (view === 'operator') loadCases();
+      if (view === 'intel') loadIntel();
+    }
+
+    async function loadCases() {
+      const urgency = document.getElementById('filter-urgency').value;
+      let url = '/cases';
+      if (urgency) url += `?urgency=${urgency}`;
+
+      try {
+        const res = await fetch(url);
+        const data = await res.json();
+        renderCasesTable(data);
+      } catch (err) {
+        console.error("Error loading cases:", err);
+      }
+    }
+
+    function renderCasesTable(cases) {
+      const tbody = document.getElementById('cases-tbody');
+      document.getElementById('case-count-badge').innerText = cases.length;
+      tbody.innerHTML = '';
+
+      if (cases.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="6" class="px-4 py-8 text-center text-slate-500">No complaints matching filter criteria.</td></tr>`;
+        return;
+      }
+
+      cases.forEach(c => {
+        const tr = document.createElement('tr');
+        tr.className = "hover:bg-slate-800/40 cursor-pointer border-b border-slate-800/60 transition";
+        if (c.id === activeCaseId) tr.classList.add('bg-slate-800');
+
+        let urgencyBadge = `<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-700 text-slate-300">${c.urgency}</span>`;
+        if (c.urgency === 'CRITICAL') {
+          urgencyBadge = `<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-red-900/80 text-red-200 border border-red-500/50">⚡ ${c.golden_hour_mins_left}m LEFT</span>`;
+        } else if (c.urgency === 'HIGH') {
+          urgencyBadge = `<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-900/60 text-amber-300 border border-amber-600/40">HIGH</span>`;
+        }
+
+        let statusClass = "text-blue-400";
+        if (c.status === 'FORWARDED') statusClass = "text-emerald-400";
+        if (c.status === 'UNDER_REVIEW') statusClass = "text-amber-400";
+
+        tr.onclick = () => selectCase(c.id);
+        tr.innerHTML = `
+          <td class="px-3.5 py-3">
+            <div class="font-mono font-bold text-white text-[11px]">${c.ref_no}</div>
+            <div class="mt-1">${urgencyBadge}</div>
+          </td>
+          <td class="px-3 py-3">
+            <div class="font-medium text-slate-200 capitalize">${c.subtype.replace(/_/g, ' ')}</div>
+            <div class="text-[10px] text-slate-400 capitalize">${c.category} • Lang: ${c.language}</div>
+          </td>
+          <td class="px-3 py-3 font-semibold text-slate-100">
+            ${c.amount_inr > 0 ? '₹' + c.amount_inr.toLocaleString('en-IN') : '<span class="text-slate-500">Threat / Nil</span>'}
+          </td>
+          <td class="px-3 py-3 text-[11px] text-slate-400 font-mono">
+            ${new Date(c.reported_at).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}
+          </td>
+          <td class="px-3 py-3 font-semibold ${statusClass} text-[11px]">
+            ${c.status}
+          </td>
+          <td class="px-3 py-3 text-right">
+            <button onclick="event.stopPropagation(); selectCase('${c.id}')" class="px-2.5 py-1 bg-slate-800 hover:bg-blue-600 hover:text-white rounded text-slate-300 text-[11px] transition">
+              Inspect
+            </button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    async function selectCase(caseId) {
+      activeCaseId = caseId;
+      const inspector = document.getElementById('case-inspector');
+      inspector.innerHTML = `<div class="text-center py-20 text-slate-400"><i class="fa-solid fa-spinner fa-spin text-2xl"></i><p class="mt-2 text-xs">Decrypting complaint dossier...</p></div>`;
+
+      try {
+        const res = await fetch(`/cases/${caseId}`);
+        const c = await res.json();
+        renderCaseInspector(c);
+      } catch (err) {
+        inspector.innerHTML = `<div class="text-red-400 text-xs p-4">Failed to decrypt case details.</div>`;
+      }
+    }
+
+    function renderCaseInspector(c) {
+      const inspector = document.getElementById('case-inspector');
+      const details = c.details || {};
+      const amt = c.amount_inr > 0 ? '₹' + c.amount_inr.toLocaleString('en-IN') : 'Nil / Threat Demanded';
+      const utrs = (details.transaction_ids || []).join(', ') || 'Pending Bank Statement';
+      const victimBank = details.victim_bank || 'Citizen Account';
+
+      let suspectListHtml = '';
+      (c.suspect_identifiers || []).forEach(s => {
+        suspectListHtml += `
+          <div class="flex items-center justify-between bg-slate-900 px-3 py-2 rounded border border-slate-800 text-xs">
+            <div class="font-mono text-slate-200">${s.preview || s.value}</div>
+            <span class="text-[10px] uppercase font-bold text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded">${s.kind} (${s.role})</span>
+          </div>
+        `;
+      });
+
+      let timelineHtml = '';
+      (c.timeline || []).forEach(t => {
+        timelineHtml += `
+          <div class="text-[11px] border-l-2 border-blue-500 pl-3 py-1">
+            <div class="font-bold text-slate-300">${t.event} <span class="font-normal text-slate-500 text-[10px] ml-1">${new Date(t.at).toLocaleTimeString()}</span></div>
+            <div class="text-slate-400">${t.note || ''}</div>
+          </div>
+        `;
+      });
+
+      inspector.innerHTML = `
+        <!-- Header Banner -->
+        <div class="border-b border-slate-800 pb-4">
+          <div class="flex items-center justify-between mb-2">
+            <span class="font-mono font-bold text-sm text-white">${c.ref_no}</span>
+            <span class="text-xs font-bold px-2 py-0.5 rounded ${c.urgency === 'CRITICAL' ? 'bg-red-500/20 text-red-300 border border-red-500/40' : 'bg-slate-800 text-slate-300'}">
+              ${c.urgency} PRIORITY
+            </span>
+          </div>
+          <div class="text-xs text-slate-400 capitalize">Subtype: <span class="text-slate-200 font-semibold">${c.subtype.replace(/_/g, ' ')}</span></div>
+        </div>
+
+        <!-- Quick Action Bar -->
+        <div class="bg-blue-950/40 border border-blue-800/40 p-3 rounded-lg flex items-center justify-between">
+          <div>
+            <div class="text-[10px] text-blue-300 uppercase tracking-wider font-bold">1930 / CFCFRMS Integration</div>
+            <div class="text-xs text-slate-300">Direct Emergency Lien Payload Ready</div>
+          </div>
+          <div class="flex space-x-2">
+            <button onclick="dispatchHandoff('${c.id}')" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-500 text-white rounded text-xs font-bold shadow">
+              <i class="fa-solid fa-paper-plane mr-1"></i> Dispatch to 1930
+            </button>
+            <a href="/cases/${c.id}/summary.pdf" target="_blank" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded text-xs font-bold border border-slate-700">
+              <i class="fa-solid fa-file-pdf mr-1 text-red-400"></i> PDF
+            </a>
+          </div>
+        </div>
+
+        <!-- Metric Details -->
+        <div class="grid grid-cols-2 gap-3">
+          <div class="bg-slate-900 p-3 rounded border border-slate-800">
+            <div class="text-[10px] text-slate-400 uppercase font-semibold">Disputed Amount</div>
+            <div class="text-base font-bold text-amber-400 mt-1">${amt}</div>
+          </div>
+          <div class="bg-slate-900 p-3 rounded border border-slate-800">
+            <div class="text-[10px] text-slate-400 uppercase font-semibold">Victim Bank</div>
+            <div class="text-sm font-semibold text-slate-200 mt-1">${victimBank}</div>
+          </div>
+        </div>
+
+        <!-- Suspect Identifiers -->
+        <div>
+          <div class="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2">Suspect Identifiers</div>
+          <div class="space-y-1.5">
+            ${suspectListHtml || '<div class="text-xs text-slate-500">None extracted.</div>'}
+          </div>
+        </div>
+
+        <!-- AI Narrative & Verbatim -->
+        <div class="bg-slate-900 p-3.5 rounded border border-slate-800 space-y-2">
+          <div class="text-[10px] text-slate-400 uppercase font-bold flex justify-between">
+            <span>Verified Complaint Summary</span>
+            <span class="text-emerald-400">Citizen Confirmed</span>
+          </div>
+          <p class="text-xs text-slate-200 leading-relaxed">${details.narrative_local || details.narrative_en || 'No narrative.'}</p>
+          <div class="pt-2 border-t border-slate-800/80 text-[11px] text-slate-400">
+            <span class="font-semibold text-slate-300">English Relay:</span> ${details.narrative_en || 'N/A'}
+          </div>
+        </div>
+
+        <!-- Status Controller -->
+        <div class="bg-slate-900 p-3 rounded border border-slate-800">
+          <div class="text-[10px] text-slate-400 uppercase font-bold mb-2">Update Investigation Status</div>
+          <div class="flex space-x-2">
+            <button onclick="updateCaseStatus('${c.id}', 'UNDER_REVIEW')" class="flex-1 py-1 bg-amber-600/20 text-amber-300 border border-amber-600/40 rounded text-xs hover:bg-amber-600/30">
+              Under Review
+            </button>
+            <button onclick="updateCaseStatus('${c.id}', 'FORWARDED')" class="flex-1 py-1 bg-emerald-600/20 text-emerald-300 border border-emerald-600/40 rounded text-xs hover:bg-emerald-600/30">
+              Forwarded (1930)
+            </button>
+            <button onclick="updateCaseStatus('${c.id}', 'CLOSED')" class="flex-1 py-1 bg-slate-800 text-slate-300 rounded text-xs hover:bg-slate-700">
+              Close Case
+            </button>
+          </div>
+        </div>
+
+        <!-- Audit Timeline -->
+        <div>
+          <div class="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2">Audit & State Timeline</div>
+          <div class="space-y-2 bg-slate-900/60 p-3 rounded border border-slate-800">
+            ${timelineHtml}
+          </div>
+        </div>
+      `;
+    }
+
+    async function dispatchHandoff(caseId) {
+      try {
+        const res = await fetch(`/cases/${caseId}/handoff`, {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({adapter: 'cfcfrms_lien'})
+        });
+        const data = await res.json();
+        alert(`SUCCESS: Emergency Lien Dispatched to CFCFRMS!\nRef Ack: ${data.ack_reference}`);
+        selectCase(caseId);
+      } catch (err) {
+        alert("Failed to dispatch handoff.");
+      }
+    }
+
+    async function updateCaseStatus(caseId, newStatus) {
+      try {
+        await fetch(`/cases/${caseId}/status`, {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({status: newStatus, note: `Status updated to ${newStatus} by Desk Officer.`})
+        });
+        loadCases();
+        selectCase(caseId);
+      } catch (err) {
+        alert("Status update failed.");
+      }
+    }
+
+    // SIMULATOR LOGIC
+    async function resetSimulation() {
+      const container = document.getElementById('chat-messages');
+      container.innerHTML = '';
+      sendSimPayload(null, 'lang_mr');
+    }
+
+    async function sendPresetClip(presetKey) {
+      let filename = 'msedcl_scam_marathi.wav';
+      if (presetKey === 'pension') filename = 'sbi_pension_otp_hindi.wav';
+      if (presetKey === 'telegram') filename = 'telegram_task_hindi.wav';
+      if (presetKey === 'extortion') filename = 'video_extortion_english.wav';
+
+      appendChatBubble("user", `[Voice Note: ${filename}]`);
+      sendSimPayload(null, null, filename);
+    }
+
+    async function simulateVoiceRecord() {
+      appendChatBubble("user", "🎤 [Simulated Voice Note: Recorded in Marathi (22s)]");
+      sendSimPayload(null, null, "msedcl_scam_marathi.wav");
+    }
+
+    function sendSimText() {
+      const input = document.getElementById('sim-input-text');
+      const txt = input.value.trim();
+      if (!txt) return;
+      input.value = '';
+      appendChatBubble("user", txt);
+      sendSimPayload(txt, null);
+    }
+
+    function handleSimButton(btnId) {
+      appendChatBubble("user", document.getElementById(`btn-${btnId}`)?.innerText || btnId);
+      sendSimPayload(null, btnId);
+    }
+
+    async function sendSimPayload(text, button_payload, audio_filename = "audio.wav") {
+      const container = document.getElementById('chat-messages');
+      const typingIndicator = document.createElement('div');
+      typingIndicator.id = 'typing-indicator';
+      typingIndicator.className = 'text-[10px] text-slate-500 italic p-1';
+      typingIndicator.innerText = "SurakshaVani is typing...";
+      container.appendChild(typingIndicator);
+      container.scrollTop = container.scrollHeight;
+
+      try {
+        const res = await fetch('/sim/messages', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({
+            phone_number: simPhone,
+            text: text,
+            button_payload: button_payload,
+            audio_filename: audio_filename
+          })
+        });
+        const data = await res.json();
+        document.getElementById('typing-indicator')?.remove();
+
+        (data.messages || []).forEach(m => {
+          appendChatBubble("bot", m.body, m.crisis);
+        });
+
+        // Render Buttons
+        if (data.buttons && data.buttons.length > 0) {
+          const btnGroup = document.createElement('div');
+          btnGroup.className = 'flex flex-col space-y-1.5 my-2';
+          data.buttons.forEach(b => {
+            const btn = document.createElement('button');
+            btn.id = `btn-${b.id}`;
+            btn.className = 'w-full py-2 px-3 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold shadow transition';
+            btn.innerText = b.label;
+            btn.onclick = () => handleSimButton(b.id);
+            btnGroup.appendChild(btn);
+          });
+          container.appendChild(btnGroup);
+        }
+
+        container.scrollTop = container.scrollHeight;
+
+        // If a new case was created, refresh operator table
+        if (data.case_ref) {
+          loadCases();
+        }
+      } catch (err) {
+        document.getElementById('typing-indicator')?.remove();
+        appendChatBubble("bot", "Error connecting to SurakshaVani engine.");
+      }
+    }
+
+    function appendChatBubble(sender, text, isCrisis = false) {
+      const container = document.getElementById('chat-messages');
+      const bubble = document.createElement('div');
+      bubble.className = `max-w-[85%] rounded-lg p-2.5 text-xs shadow ${
+        sender === 'user' ? 'chat-bubble-user self-end ml-auto' : 'chat-bubble-bot self-start mr-auto'
+      }`;
+      if (isCrisis) {
+        bubble.classList.add('border-2', 'border-red-500', 'bg-red-50', 'text-red-950');
+      }
+      bubble.innerHTML = text.replace(/\n/g, '<br>');
+      container.appendChild(bubble);
+      container.scrollTop = container.scrollHeight;
+    }
+
+    // THREAT INTEL LOGIC
+    async function loadIntel() {
+      const container = document.getElementById('intel-clusters-container');
+      const reportBox = document.getElementById('intel-report-box');
+      container.innerHTML = '<div class="col-span-2 text-center py-10 text-slate-400">Scanning network graph and complaint scripts...</div>';
+
+      try {
+        const [clRes, repRes] = await Promise.all([
+          fetch('/analytics/clusters'),
+          fetch('/analytics/report')
+        ]);
+        const clData = await clRes.json();
+        const repData = await repRes.json();
+
+        container.innerHTML = '';
+        (clData.clusters || []).forEach(cl => {
+          const div = document.createElement('div');
+          div.className = 'bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2 shadow';
+          div.innerHTML = `
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-sm text-purple-300">${cl.cluster_label}</span>
+              <span class="text-[10px] bg-purple-900/60 text-purple-200 border border-purple-600/40 px-2 py-0.5 rounded font-bold">
+                ${cl.case_count} Linked Cases
+              </span>
+            </div>
+            <div class="text-xs text-slate-300">Total Siphoned: <span class="font-bold text-amber-400">₹${cl.total_loss_inr.toLocaleString('en-IN')}</span></div>
+            <div class="text-xs text-slate-400">Linked Cases: <span class="font-mono text-slate-300">${cl.cases.join(', ')}</span></div>
+            <div class="text-[11px] text-emerald-400 mt-2"><i class="fa-solid fa-link mr-1"></i> Shared Suspect Identifiers isolated in graph.</div>
+          `;
+          container.appendChild(div);
+        });
+
+        reportBox.innerHTML = `
+JURISDICTION: ${repData.jurisdiction}
+TOTAL ANALYZED: ${repData.total_cases_analyzed} complaints
+TOTAL FINANCIAL LOSS: ₹${repData.total_financial_loss_inr.toLocaleString('en-IN')}
+
+DIRECTIVE RECOMMENDATIONS:
+${(repData.operational_recommendations || []).map((r, i) => `${i+1}. ${r}`).join('\n')}
+        `;
+      } catch (err) {
+        container.innerHTML = '<div class="col-span-2 text-red-400 text-xs">Failed to load intelligence data.</div>';
+      }
+    }
+
+    // Auto-init on load
+    window.onload = () => {
+      loadCases();
+      // Initialize simulator with first prompt
+      sendSimPayload(null, null);
+    };
+  </script>
+</body>
+</html>

@@ -1,0 +1,1730 @@
+[
+  {
+    "eval_id": "EVAL-001",
+    "canonical_ref": "SCAM-01",
+    "name": "MSEDCL Electricity Meter Disconnection Threat [Variant 1]",
+    "category": "fraud",
+    "subtype": "kyc_sim_scam",
+    "language": "mr",
+    "noise_condition": "Clean",
+    "transcript": "नमस्कार साहेब, मला आज दुपारी अडीच वाजता एका नंबरवरून फोन आला. तो म्हणाला की मी महावितरण ऑफिसमधून बोलतोय, तुमचं वीज बिल अपडेट नाही आणि आज रात्री ८ वाजता वीज कापली जाईल. मला घाबरवून त्याने मोबाईलवर एक ॲप डाउनलोड करायला लावलं आणि १० रुपयांचं बिल भरायला सांगितलं. मी जसा गुगल पे वरून १० रुपये भरले, तसे माझ्या बँक ऑफ महाराष्ट्र खात्यातून ५०,००० रुपये कट झाले. मेसेज आला की पैसे दुसऱ्या खात्यात गेले. मला फोन आला तो नंबर 9823412345 होता आणि मेसेज मध्ये UTR नंबर 429182736152 असा आला आहे. काय करू साहेब प्लीज मदत करा, अवघ्या वीस मिनिटांपूर्वीच हे घडलंय.",
+    "expected_entities": {
+      "amount_inr": 50000,
+      "incident_time_relative_mins": 20,
+      "urgency": "CRITICAL",
+      "payment_method": "upi",
+      "victim_bank": "Bank of Maharashtra",
+      "transaction_ids": [
+        "429182736152"
+      ],
+      "suspect_phone": "+919823412345",
+      "claimed_identity": "MSEDCL Mahavitaran Officer",
+      "flags": {
+        "money_moved_recently": true,
+        "minor_involved": false,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-002",
+    "canonical_ref": "SCAM-01",
+    "name": "MSEDCL Electricity Meter Disconnection Threat [Variant 2]",
+    "category": "fraud",
+    "subtype": "kyc_sim_scam",
+    "language": "mr",
+    "noise_condition": "Clean",
+    "transcript": "नमस्कार साहेब, मला आज दुपारी अडीच वाजता एका नंबरवरून फोन आला. तो म्हणाला की मी महावितरण ऑफिसमधून बोलतोय, तुमचं वीज बिल अपडेट नाही आणि आज रात्री ८ वाजता वीज कापली जाईल. मला घाबरवून त्याने मोबाईलवर एक ॲप डाउनलोड करायला लावलं आणि १० रुपयांचं बिल भरायला सांगितलं. मी जसा गुगल पे वरून १० रुपये भरले, तसे माझ्या बँक ऑफ महाराष्ट्र खात्यातून ५०,००० रुपये कट झाले. मेसेज आला की पैसे दुसऱ्या खात्यात गेले. मला फोन आला तो नंबर 9823412345 होता आणि मेसेज मध्ये UTR नंबर 429182736152 असा आला आहे. काय करू साहेब प्लीज मदत करा, अवघ्या वीस मिनिटांपूर्वीच हे घडलंय. अरे देवा, मी बरबाद झालो साहेब!",
+    "expected_entities": {
+      "amount_inr": 50000,
+      "incident_time_relative_mins": 20,
+      "urgency": "CRITICAL",
+      "payment_method": "upi",
+      "victim_bank": "Bank of Maharashtra",
+      "transaction_ids": [
+        "429182736152"
+      ],
+      "suspect_phone": "+919823412345",
+      "claimed_identity": "MSEDCL Mahavitaran Officer",
+      "flags": {
+        "money_moved_recently": true,
+        "minor_involved": false,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-003",
+    "canonical_ref": "SCAM-01",
+    "name": "MSEDCL Electricity Meter Disconnection Threat [Variant 3]",
+    "category": "fraud",
+    "subtype": "kyc_sim_scam",
+    "language": "mr",
+    "noise_condition": "Clean",
+    "transcript": "नमस्कार साहेब, मला आज दुपारी अडीच वाजता एका नंबरवरून फोन आला. तो म्हणाला की मी महावितरण ऑफिसमधून बोलतोय, तुमचं वीज बिल अपडेट नाही आणि आज रात्री ८ वाजता वीज कापली जाईल. मला घाबरवून त्याने मोबाईलवर एक ॲप डाउनलोड करायला लावलं आणि १० रुपयांचं बिल भरायला सांगितलं. मी जसा गुगल पे वरून १० रुपये भरले, तसे माझ्या बँक ऑफ महाराष्ट्र खात्यातून ५०,००० रुपये कट झाले. मेसेज आला की पैसे दुसऱ्या खात्यात गेले. मला फोन आला तो नंबर 9823412345 होता आणि मेसेज मध्ये UTR नंबर 429182736152 असा आला आहे. काय करू साहेब प्लीज मदत करा, अवघ्या वीस मिनिटांपूर्वीच हे घडलंय. Meri poori jama punji chali gayi bhai, bacha lo please.",
+    "expected_entities": {
+      "amount_inr": 50000,
+      "incident_time_relative_mins": 20,
+      "urgency": "CRITICAL",
+      "payment_method": "upi",
+      "victim_bank": "Bank of Maharashtra",
+      "transaction_ids": [
+        "429182736152"
+      ],
+      "suspect_phone": "+919823412345",
+      "claimed_identity": "MSEDCL Mahavitaran Officer",
+      "flags": {
+        "money_moved_recently": true,
+        "minor_involved": false,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-004",
+    "canonical_ref": "SCAM-01",
+    "name": "MSEDCL Electricity Meter Disconnection Threat [Variant 4]",
+    "category": "fraud",
+    "subtype": "kyc_sim_scam",
+    "language": "mr",
+    "noise_condition": "Clean",
+    "transcript": "नमस्कार साहेब, मला आज दुपारी अडीच वाजता एका नंबरवरून फोन आला. तो म्हणाला की मी महावितरण ऑफिसमधून बोलतोय, तुमचं वीज बिल अपडेट नाही आणि आज रात्री ८ वाजता वीज कापली जाईल. मला घाबरवून त्याने मोबाईलवर एक ॲप डाउनलोड करायला लावलं आणि १० रुपयांचं बिल भरायला सांगितलं. मी जसा गुगल पे वरून १० रुपये भरले, तसे माझ्या बँक ऑफ महाराष्ट्र खात्यातून ५०,००० रुपये कट झाले. मेसेज आला की पैसे दुसऱ्या खात्यात गेले. मला फोन आला तो नंबर 9823412345 होता आणि मेसेज मध्ये UTR नंबर 429182736152 असा आला आहे. काय करू साहेब प्लीज मदत करा, अवघ्या वीस मिनिटांपूर्वीच हे घडलंय. I'm completely devastated, this is all my mother's medical fund.",
+    "expected_entities": {
+      "amount_inr": 50000,
+      "incident_time_relative_mins": 20,
+      "urgency": "CRITICAL",
+      "payment_method": "upi",
+      "victim_bank": "Bank of Maharashtra",
+      "transaction_ids": [
+        "429182736152"
+      ],
+      "suspect_phone": "+919823412345",
+      "claimed_identity": "MSEDCL Mahavitaran Officer",
+      "flags": {
+        "money_moved_recently": true,
+        "minor_involved": false,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-005",
+    "canonical_ref": "SCAM-01",
+    "name": "MSEDCL Electricity Meter Disconnection Threat [Variant 5]",
+    "category": "fraud",
+    "subtype": "kyc_sim_scam",
+    "language": "mr",
+    "noise_condition": "[Heavy traffic background noise] ",
+    "transcript": "[Heavy traffic background noise] नमस्कार साहेब, मला आज दुपारी अडीच वाजता एका नंबरवरून फोन आला. तो म्हणाला की मी महावितरण ऑफिसमधून बोलतोय, तुमचं वीज बिल अपडेट नाही आणि आज रात्री ८ वाजता वीज कापली जाईल. मला घाबरवून त्याने मोबाईलवर एक ॲप डाउनलोड करायला लावलं आणि १० रुपयांचं बिल भरायला सांगितलं. मी जसा गुगल पे वरून १० रुपये भरले, तसे माझ्या बँक ऑफ महाराष्ट्र खात्यातून ५०,००० रुपये कट झाले. मेसेज आला की पैसे दुसऱ्या खात्यात गेले. मला फोन आला तो नंबर 9823412345 होता आणि मेसेज मध्ये UTR नंबर 429182736152 असा आला आहे. काय करू साहेब प्लीज मदत करा, अवघ्या वीस मिनिटांपूर्वीच हे घडलंय.",
+    "expected_entities": {
+      "amount_inr": 50000,
+      "incident_time_relative_mins": 20,
+      "urgency": "CRITICAL",
+      "payment_method": "upi",
+      "victim_bank": "Bank of Maharashtra",
+      "transaction_ids": [
+        "429182736152"
+      ],
+      "suspect_phone": "+919823412345",
+      "claimed_identity": "MSEDCL Mahavitaran Officer",
+      "flags": {
+        "money_moved_recently": true,
+        "minor_involved": false,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-006",
+    "canonical_ref": "SCAM-01",
+    "name": "MSEDCL Electricity Meter Disconnection Threat [Variant 6]",
+    "category": "fraud",
+    "subtype": "kyc_sim_scam",
+    "language": "mr",
+    "noise_condition": "[Heavy traffic background noise] ",
+    "transcript": "[Heavy traffic background noise] नमस्कार साहेब, मला आज दुपारी अडीच वाजता एका नंबरवरून फोन आला. तो म्हणाला की मी महावितरण ऑफिसमधून बोलतोय, तुमचं वीज बिल अपडेट नाही आणि आज रात्री ८ वाजता वीज कापली जाईल. मला घाबरवून त्याने मोबाईलवर एक ॲप डाउनलोड करायला लावलं आणि १० रुपयांचं बिल भरायला सांगितलं. मी जसा गुगल पे वरून १० रुपये भरले, तसे माझ्या बँक ऑफ महाराष्ट्र खात्यातून ५०,००० रुपये कट झाले. मेसेज आला की पैसे दुसऱ्या खात्यात गेले. मला फोन आला तो नंबर 9823412345 होता आणि मेसेज मध्ये UTR नंबर 429182736152 असा आला आहे. काय करू साहेब प्लीज मदत करा, अवघ्या वीस मिनिटांपूर्वीच हे घडलंय. अरे देवा, मी बरबाद झालो साहेब!",
+    "expected_entities": {
+      "amount_inr": 50000,
+      "incident_time_relative_mins": 20,
+      "urgency": "CRITICAL",
+      "payment_method": "upi",
+      "victim_bank": "Bank of Maharashtra",
+      "transaction_ids": [
+        "429182736152"
+      ],
+      "suspect_phone": "+919823412345",
+      "claimed_identity": "MSEDCL Mahavitaran Officer",
+      "flags": {
+        "money_moved_recently": true,
+        "minor_involved": false,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-007",
+    "canonical_ref": "SCAM-01",
+    "name": "MSEDCL Electricity Meter Disconnection Threat [Variant 7]",
+    "category": "fraud",
+    "subtype": "kyc_sim_scam",
+    "language": "mr",
+    "noise_condition": "[Heavy traffic background noise] ",
+    "transcript": "[Heavy traffic background noise] नमस्कार साहेब, मला आज दुपारी अडीच वाजता एका नंबरवरून फोन आला. तो म्हणाला की मी महावितरण ऑफिसमधून बोलतोय, तुमचं वीज बिल अपडेट नाही आणि आज रात्री ८ वाजता वीज कापली जाईल. मला घाबरवून त्याने मोबाईलवर एक ॲप डाउनलोड करायला लावलं आणि १० रुपयांचं बिल भरायला सांगितलं. मी जसा गुगल पे वरून १० रुपये भरले, तसे माझ्या बँक ऑफ महाराष्ट्र खात्यातून ५०,००० रुपये कट झाले. मेसेज आला की पैसे दुसऱ्या खात्यात गेले. मला फोन आला तो नंबर 9823412345 होता आणि मेसेज मध्ये UTR नंबर 429182736152 असा आला आहे. काय करू साहेब प्लीज मदत करा, अवघ्या वीस मिनिटांपूर्वीच हे घडलंय. Meri poori jama punji chali gayi bhai, bacha lo please.",
+    "expected_entities": {
+      "amount_inr": 50000,
+      "incident_time_relative_mins": 20,
+      "urgency": "CRITICAL",
+      "payment_method": "upi",
+      "victim_bank": "Bank of Maharashtra",
+      "transaction_ids": [
+        "429182736152"
+      ],
+      "suspect_phone": "+919823412345",
+      "claimed_identity": "MSEDCL Mahavitaran Officer",
+      "flags": {
+        "money_moved_recently": true,
+        "minor_involved": false,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-008",
+    "canonical_ref": "SCAM-01",
+    "name": "MSEDCL Electricity Meter Disconnection Threat [Variant 8]",
+    "category": "fraud",
+    "subtype": "kyc_sim_scam",
+    "language": "mr",
+    "noise_condition": "[Heavy traffic background noise] ",
+    "transcript": "[Heavy traffic background noise] नमस्कार साहेब, मला आज दुपारी अडीच वाजता एका नंबरवरून फोन आला. तो म्हणाला की मी महावितरण ऑफिसमधून बोलतोय, तुमचं वीज बिल अपडेट नाही आणि आज रात्री ८ वाजता वीज कापली जाईल. मला घाबरवून त्याने मोबाईलवर एक ॲप डाउनलोड करायला लावलं आणि १० रुपयांचं बिल भरायला सांगितलं. मी जसा गुगल पे वरून १० रुपये भरले, तसे माझ्या बँक ऑफ महाराष्ट्र खात्यातून ५०,००० रुपये कट झाले. मेसेज आला की पैसे दुसऱ्या खात्यात गेले. मला फोन आला तो नंबर 9823412345 होता आणि मेसेज मध्ये UTR नंबर 429182736152 असा आला आहे. काय करू साहेब प्लीज मदत करा, अवघ्या वीस मिनिटांपूर्वीच हे घडलंय. I'm completely devastated, this is all my mother's medical fund.",
+    "expected_entities": {
+      "amount_inr": 50000,
+      "incident_time_relative_mins": 20,
+      "urgency": "CRITICAL",
+      "payment_method": "upi",
+      "victim_bank": "Bank of Maharashtra",
+      "transaction_ids": [
+        "429182736152"
+      ],
+      "suspect_phone": "+919823412345",
+      "claimed_identity": "MSEDCL Mahavitaran Officer",
+      "flags": {
+        "money_moved_recently": true,
+        "minor_involved": false,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-009",
+    "canonical_ref": "SCAM-01",
+    "name": "MSEDCL Electricity Meter Disconnection Threat [Variant 9]",
+    "category": "fraud",
+    "subtype": "kyc_sim_scam",
+    "language": "mr",
+    "noise_condition": "[Caller crying/hyperventilating] ",
+    "transcript": "[Caller crying/hyperventilating] नमस्कार साहेब, मला आज दुपारी अडीच वाजता एका नंबरवरून फोन आला. तो म्हणाला की मी महावितरण ऑफिसमधून बोलतोय, तुमचं वीज बिल अपडेट नाही आणि आज रात्री ८ वाजता वीज कापली जाईल. मला घाबरवून त्याने मोबाईलवर एक ॲप डाउनलोड करायला लावलं आणि १० रुपयांचं बिल भरायला सांगितलं. मी जसा गुगल पे वरून १० रुपये भरले, तसे माझ्या बँक ऑफ महाराष्ट्र खात्यातून ५०,००० रुपये कट झाले. मेसेज आला की पैसे दुसऱ्या खात्यात गेले. मला फोन आला तो नंबर 9823412345 होता आणि मेसेज मध्ये UTR नंबर 429182736152 असा आला आहे. काय करू साहेब प्लीज मदत करा, अवघ्या वीस मिनिटांपूर्वीच हे घडलंय.",
+    "expected_entities": {
+      "amount_inr": 50000,
+      "incident_time_relative_mins": 20,
+      "urgency": "CRITICAL",
+      "payment_method": "upi",
+      "victim_bank": "Bank of Maharashtra",
+      "transaction_ids": [
+        "429182736152"
+      ],
+      "suspect_phone": "+919823412345",
+      "claimed_identity": "MSEDCL Mahavitaran Officer",
+      "flags": {
+        "money_moved_recently": true,
+        "minor_involved": false,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-010",
+    "canonical_ref": "SCAM-01",
+    "name": "MSEDCL Electricity Meter Disconnection Threat [Variant 10]",
+    "category": "fraud",
+    "subtype": "kyc_sim_scam",
+    "language": "mr",
+    "noise_condition": "[Caller crying/hyperventilating] ",
+    "transcript": "[Caller crying/hyperventilating] नमस्कार साहेब, मला आज दुपारी अडीच वाजता एका नंबरवरून फोन आला. तो म्हणाला की मी महावितरण ऑफिसमधून बोलतोय, तुमचं वीज बिल अपडेट नाही आणि आज रात्री ८ वाजता वीज कापली जाईल. मला घाबरवून त्याने मोबाईलवर एक ॲप डाउनलोड करायला लावलं आणि १० रुपयांचं बिल भरायला सांगितलं. मी जसा गुगल पे वरून १० रुपये भरले, तसे माझ्या बँक ऑफ महाराष्ट्र खात्यातून ५०,००० रुपये कट झाले. मेसेज आला की पैसे दुसऱ्या खात्यात गेले. मला फोन आला तो नंबर 9823412345 होता आणि मेसेज मध्ये UTR नंबर 429182736152 असा आला आहे. काय करू साहेब प्लीज मदत करा, अवघ्या वीस मिनिटांपूर्वीच हे घडलंय. अरे देवा, मी बरबाद झालो साहेब!",
+    "expected_entities": {
+      "amount_inr": 50000,
+      "incident_time_relative_mins": 20,
+      "urgency": "CRITICAL",
+      "payment_method": "upi",
+      "victim_bank": "Bank of Maharashtra",
+      "transaction_ids": [
+        "429182736152"
+      ],
+      "suspect_phone": "+919823412345",
+      "claimed_identity": "MSEDCL Mahavitaran Officer",
+      "flags": {
+        "money_moved_recently": true,
+        "minor_involved": false,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-011",
+    "canonical_ref": "SCAM-01",
+    "name": "MSEDCL Electricity Meter Disconnection Threat [Variant 11]",
+    "category": "fraud",
+    "subtype": "kyc_sim_scam",
+    "language": "mr",
+    "noise_condition": "[Caller crying/hyperventilating] ",
+    "transcript": "[Caller crying/hyperventilating] नमस्कार साहेब, मला आज दुपारी अडीच वाजता एका नंबरवरून फोन आला. तो म्हणाला की मी महावितरण ऑफिसमधून बोलतोय, तुमचं वीज बिल अपडेट नाही आणि आज रात्री ८ वाजता वीज कापली जाईल. मला घाबरवून त्याने मोबाईलवर एक ॲप डाउनलोड करायला लावलं आणि १० रुपयांचं बिल भरायला सांगितलं. मी जसा गुगल पे वरून १० रुपये भरले, तसे माझ्या बँक ऑफ महाराष्ट्र खात्यातून ५०,००० रुपये कट झाले. मेसेज आला की पैसे दुसऱ्या खात्यात गेले. मला फोन आला तो नंबर 9823412345 होता आणि मेसेज मध्ये UTR नंबर 429182736152 असा आला आहे. काय करू साहेब प्लीज मदत करा, अवघ्या वीस मिनिटांपूर्वीच हे घडलंय. Meri poori jama punji chali gayi bhai, bacha lo please.",
+    "expected_entities": {
+      "amount_inr": 50000,
+      "incident_time_relative_mins": 20,
+      "urgency": "CRITICAL",
+      "payment_method": "upi",
+      "victim_bank": "Bank of Maharashtra",
+      "transaction_ids": [
+        "429182736152"
+      ],
+      "suspect_phone": "+919823412345",
+      "claimed_identity": "MSEDCL Mahavitaran Officer",
+      "flags": {
+        "money_moved_recently": true,
+        "minor_involved": false,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-012",
+    "canonical_ref": "SCAM-01",
+    "name": "MSEDCL Electricity Meter Disconnection Threat [Variant 12]",
+    "category": "fraud",
+    "subtype": "kyc_sim_scam",
+    "language": "mr",
+    "noise_condition": "[Caller crying/hyperventilating] ",
+    "transcript": "[Caller crying/hyperventilating] नमस्कार साहेब, मला आज दुपारी अडीच वाजता एका नंबरवरून फोन आला. तो म्हणाला की मी महावितरण ऑफिसमधून बोलतोय, तुमचं वीज बिल अपडेट नाही आणि आज रात्री ८ वाजता वीज कापली जाईल. मला घाबरवून त्याने मोबाईलवर एक ॲप डाउनलोड करायला लावलं आणि १० रुपयांचं बिल भरायला सांगितलं. मी जसा गुगल पे वरून १० रुपये भरले, तसे माझ्या बँक ऑफ महाराष्ट्र खात्यातून ५०,००० रुपये कट झाले. मेसेज आला की पैसे दुसऱ्या खात्यात गेले. मला फोन आला तो नंबर 9823412345 होता आणि मेसेज मध्ये UTR नंबर 429182736152 असा आला आहे. काय करू साहेब प्लीज मदत करा, अवघ्या वीस मिनिटांपूर्वीच हे घडलंय. I'm completely devastated, this is all my mother's medical fund.",
+    "expected_entities": {
+      "amount_inr": 50000,
+      "incident_time_relative_mins": 20,
+      "urgency": "CRITICAL",
+      "payment_method": "upi",
+      "victim_bank": "Bank of Maharashtra",
+      "transaction_ids": [
+        "429182736152"
+      ],
+      "suspect_phone": "+919823412345",
+      "claimed_identity": "MSEDCL Mahavitaran Officer",
+      "flags": {
+        "money_moved_recently": true,
+        "minor_involved": false,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-013",
+    "canonical_ref": "SCAM-01",
+    "name": "MSEDCL Electricity Meter Disconnection Threat [Variant 13]",
+    "category": "fraud",
+    "subtype": "kyc_sim_scam",
+    "language": "mr",
+    "noise_condition": "[Call drops momentarily] ",
+    "transcript": "[Call drops momentarily] नमस्कार साहेब, मला आज दुपारी अडीच वाजता एका नंबरवरून फोन आला. तो म्हणाला की मी महावितरण ऑफिसमधून बोलतोय, तुमचं वीज बिल अपडेट नाही आणि आज रात्री ८ वाजता वीज कापली जाईल. मला घाबरवून त्याने मोबाईलवर एक ॲप डाउनलोड करायला लावलं आणि १० रुपयांचं बिल भरायला सांगितलं. मी जसा गुगल पे वरून १० रुपये भरले, तसे माझ्या बँक ऑफ महाराष्ट्र खात्यातून ५०,००० रुपये कट झाले. मेसेज आला की पैसे दुसऱ्या खात्यात गेले. मला फोन आला तो नंबर 9823412345 होता आणि मेसेज मध्ये UTR नंबर 429182736152 असा आला आहे. काय करू साहेब प्लीज मदत करा, अवघ्या वीस मिनिटांपूर्वीच हे घडलंय.",
+    "expected_entities": {
+      "amount_inr": 50000,
+      "incident_time_relative_mins": 20,
+      "urgency": "CRITICAL",
+      "payment_method": "upi",
+      "victim_bank": "Bank of Maharashtra",
+      "transaction_ids": [
+        "429182736152"
+      ],
+      "suspect_phone": "+919823412345",
+      "claimed_identity": "MSEDCL Mahavitaran Officer",
+      "flags": {
+        "money_moved_recently": true,
+        "minor_involved": false,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-014",
+    "canonical_ref": "SCAM-01",
+    "name": "MSEDCL Electricity Meter Disconnection Threat [Variant 14]",
+    "category": "fraud",
+    "subtype": "kyc_sim_scam",
+    "language": "mr",
+    "noise_condition": "[Call drops momentarily] ",
+    "transcript": "[Call drops momentarily] नमस्कार साहेब, मला आज दुपारी अडीच वाजता एका नंबरवरून फोन आला. तो म्हणाला की मी महावितरण ऑफिसमधून बोलतोय, तुमचं वीज बिल अपडेट नाही आणि आज रात्री ८ वाजता वीज कापली जाईल. मला घाबरवून त्याने मोबाईलवर एक ॲप डाउनलोड करायला लावलं आणि १० रुपयांचं बिल भरायला सांगितलं. मी जसा गुगल पे वरून १० रुपये भरले, तसे माझ्या बँक ऑफ महाराष्ट्र खात्यातून ५०,००० रुपये कट झाले. मेसेज आला की पैसे दुसऱ्या खात्यात गेले. मला फोन आला तो नंबर 9823412345 होता आणि मेसेज मध्ये UTR नंबर 429182736152 असा आला आहे. काय करू साहेब प्लीज मदत करा, अवघ्या वीस मिनिटांपूर्वीच हे घडलंय. अरे देवा, मी बरबाद झालो साहेब!",
+    "expected_entities": {
+      "amount_inr": 50000,
+      "incident_time_relative_mins": 20,
+      "urgency": "CRITICAL",
+      "payment_method": "upi",
+      "victim_bank": "Bank of Maharashtra",
+      "transaction_ids": [
+        "429182736152"
+      ],
+      "suspect_phone": "+919823412345",
+      "claimed_identity": "MSEDCL Mahavitaran Officer",
+      "flags": {
+        "money_moved_recently": true,
+        "minor_involved": false,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-015",
+    "canonical_ref": "SCAM-01",
+    "name": "MSEDCL Electricity Meter Disconnection Threat [Variant 15]",
+    "category": "fraud",
+    "subtype": "kyc_sim_scam",
+    "language": "mr",
+    "noise_condition": "[Call drops momentarily] ",
+    "transcript": "[Call drops momentarily] नमस्कार साहेब, मला आज दुपारी अडीच वाजता एका नंबरवरून फोन आला. तो म्हणाला की मी महावितरण ऑफिसमधून बोलतोय, तुमचं वीज बिल अपडेट नाही आणि आज रात्री ८ वाजता वीज कापली जाईल. मला घाबरवून त्याने मोबाईलवर एक ॲप डाउनलोड करायला लावलं आणि १० रुपयांचं बिल भरायला सांगितलं. मी जसा गुगल पे वरून १० रुपये भरले, तसे माझ्या बँक ऑफ महाराष्ट्र खात्यातून ५०,००० रुपये कट झाले. मेसेज आला की पैसे दुसऱ्या खात्यात गेले. मला फोन आला तो नंबर 9823412345 होता आणि मेसेज मध्ये UTR नंबर 429182736152 असा आला आहे. काय करू साहेब प्लीज मदत करा, अवघ्या वीस मिनिटांपूर्वीच हे घडलंय. Meri poori jama punji chali gayi bhai, bacha lo please. I am just a 16 year old high school boy.",
+    "expected_entities": {
+      "amount_inr": 50000,
+      "incident_time_relative_mins": 20,
+      "urgency": "CRITICAL",
+      "payment_method": "upi",
+      "victim_bank": "Bank of Maharashtra",
+      "transaction_ids": [
+        "429182736152"
+      ],
+      "suspect_phone": "+919823412345",
+      "claimed_identity": "MSEDCL Mahavitaran Officer",
+      "flags": {
+        "money_moved_recently": true,
+        "minor_involved": true,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-016",
+    "canonical_ref": "SCAM-01",
+    "name": "MSEDCL Electricity Meter Disconnection Threat [Variant 16]",
+    "category": "fraud",
+    "subtype": "kyc_sim_scam",
+    "language": "mr",
+    "noise_condition": "[Call drops momentarily] ",
+    "transcript": "[Call drops momentarily] नमस्कार साहेब, मला आज दुपारी अडीच वाजता एका नंबरवरून फोन आला. तो म्हणाला की मी महावितरण ऑफिसमधून बोलतोय, तुमचं वीज बिल अपडेट नाही आणि आज रात्री ८ वाजता वीज कापली जाईल. मला घाबरवून त्याने मोबाईलवर एक ॲप डाउनलोड करायला लावलं आणि १० रुपयांचं बिल भरायला सांगितलं. मी जसा गुगल पे वरून १० रुपये भरले, तसे माझ्या बँक ऑफ महाराष्ट्र खात्यातून ५०,००० रुपये कट झाले. मेसेज आला की पैसे दुसऱ्या खात्यात गेले. मला फोन आला तो नंबर 9823412345 होता आणि मेसेज मध्ये UTR नंबर 429182736152 असा आला आहे. काय करू साहेब प्लीज मदत करा, अवघ्या वीस मिनिटांपूर्वीच हे घडलंय. I'm completely devastated, this is all my mother's medical fund.",
+    "expected_entities": {
+      "amount_inr": 50000,
+      "incident_time_relative_mins": 20,
+      "urgency": "CRITICAL",
+      "payment_method": "upi",
+      "victim_bank": "Bank of Maharashtra",
+      "transaction_ids": [
+        "429182736152"
+      ],
+      "suspect_phone": "+919823412345",
+      "claimed_identity": "MSEDCL Mahavitaran Officer",
+      "flags": {
+        "money_moved_recently": true,
+        "minor_involved": false,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-017",
+    "canonical_ref": "SCAM-02",
+    "name": "Senior Pension Verification OTP Impersonation [Variant 1]",
+    "category": "fraud",
+    "subtype": "otp_impersonation",
+    "language": "hi",
+    "noise_condition": "Clean",
+    "transcript": "Hello, mera naam Ramesh Chandra hai. Aaj subah 11:15 baje mujhe ek call aaya. Saamne wale ne kaha ki wo SBI treasury branch se bol raha hai aur bola ki aapka Jeevan Pramaan Patra (Life Certificate) pension portal pe expire ho gaya hai. Usne mujhe SBI Pension verification link bheja aur bola ki aapke phone pe 6-digit ka verification PIN aaya hai, wo bata dijiye warna agle mahine ki pension band ho jayegi. Maine ghabrahat me use do baar OTP bata diya. Thodi der baad mere SBI pension account se 1,20,000 rupaye nikalne ka SMS aa gaya. Fraudster ka number 8877112233 tha aur transaction ID SBI908123456 hai. Ye 40 minute pehle hua hai.",
+    "expected_entities": {
+      "amount_inr": 120000,
+      "incident_time_relative_mins": 40,
+      "urgency": "CRITICAL",
+      "payment_method": "netbanking",
+      "victim_bank": "State Bank of India",
+      "transaction_ids": [
+        "SBI908123456"
+      ],
+      "suspect_phone": "+918877112233",
+      "claimed_identity": "SBI Treasury Pension Official",
+      "flags": {
+        "money_moved_recently": true,
+        "minor_involved": false,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-018",
+    "canonical_ref": "SCAM-02",
+    "name": "Senior Pension Verification OTP Impersonation [Variant 2]",
+    "category": "fraud",
+    "subtype": "otp_impersonation",
+    "language": "hi",
+    "noise_condition": "Clean",
+    "transcript": "Hello, mera naam Ramesh Chandra hai. Aaj subah 11:15 baje mujhe ek call aaya. Saamne wale ne kaha ki wo SBI treasury branch se bol raha hai aur bola ki aapka Jeevan Pramaan Patra (Life Certificate) pension portal pe expire ho gaya hai. Usne mujhe SBI Pension verification link bheja aur bola ki aapke phone pe 6-digit ka verification PIN aaya hai, wo bata dijiye warna agle mahine ki pension band ho jayegi. Maine ghabrahat me use do baar OTP bata diya. Thodi der baad mere SBI pension account se 1,20,000 rupaye nikalne ka SMS aa gaya. Fraudster ka number 8877112233 tha aur transaction ID SBI908123456 hai. Ye 40 minute pehle hua hai. अरे देवा, मी बरबाद झालो साहेब!",
+    "expected_entities": {
+      "amount_inr": 120000,
+      "incident_time_relative_mins": 40,
+      "urgency": "CRITICAL",
+      "payment_method": "netbanking",
+      "victim_bank": "State Bank of India",
+      "transaction_ids": [
+        "SBI908123456"
+      ],
+      "suspect_phone": "+918877112233",
+      "claimed_identity": "SBI Treasury Pension Official",
+      "flags": {
+        "money_moved_recently": true,
+        "minor_involved": false,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-019",
+    "canonical_ref": "SCAM-02",
+    "name": "Senior Pension Verification OTP Impersonation [Variant 3]",
+    "category": "fraud",
+    "subtype": "otp_impersonation",
+    "language": "hi",
+    "noise_condition": "Clean",
+    "transcript": "Hello, mera naam Ramesh Chandra hai. Aaj subah 11:15 baje mujhe ek call aaya. Saamne wale ne kaha ki wo SBI treasury branch se bol raha hai aur bola ki aapka Jeevan Pramaan Patra (Life Certificate) pension portal pe expire ho gaya hai. Usne mujhe SBI Pension verification link bheja aur bola ki aapke phone pe 6-digit ka verification PIN aaya hai, wo bata dijiye warna agle mahine ki pension band ho jayegi. Maine ghabrahat me use do baar OTP bata diya. Thodi der baad mere SBI pension account se 1,20,000 rupaye nikalne ka SMS aa gaya. Fraudster ka number 8877112233 tha aur transaction ID SBI908123456 hai. Ye 40 minute pehle hua hai. Meri poori jama punji chali gayi bhai, bacha lo please.",
+    "expected_entities": {
+      "amount_inr": 120000,
+      "incident_time_relative_mins": 40,
+      "urgency": "CRITICAL",
+      "payment_method": "netbanking",
+      "victim_bank": "State Bank of India",
+      "transaction_ids": [
+        "SBI908123456"
+      ],
+      "suspect_phone": "+918877112233",
+      "claimed_identity": "SBI Treasury Pension Official",
+      "flags": {
+        "money_moved_recently": true,
+        "minor_involved": false,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-020",
+    "canonical_ref": "SCAM-02",
+    "name": "Senior Pension Verification OTP Impersonation [Variant 4]",
+    "category": "fraud",
+    "subtype": "otp_impersonation",
+    "language": "hi",
+    "noise_condition": "Clean",
+    "transcript": "Hello, mera naam Ramesh Chandra hai. Aaj subah 11:15 baje mujhe ek call aaya. Saamne wale ne kaha ki wo SBI treasury branch se bol raha hai aur bola ki aapka Jeevan Pramaan Patra (Life Certificate) pension portal pe expire ho gaya hai. Usne mujhe SBI Pension verification link bheja aur bola ki aapke phone pe 6-digit ka verification PIN aaya hai, wo bata dijiye warna agle mahine ki pension band ho jayegi. Maine ghabrahat me use do baar OTP bata diya. Thodi der baad mere SBI pension account se 1,20,000 rupaye nikalne ka SMS aa gaya. Fraudster ka number 8877112233 tha aur transaction ID SBI908123456 hai. Ye 40 minute pehle hua hai. I'm completely devastated, this is all my mother's medical fund.",
+    "expected_entities": {
+      "amount_inr": 120000,
+      "incident_time_relative_mins": 40,
+      "urgency": "CRITICAL",
+      "payment_method": "netbanking",
+      "victim_bank": "State Bank of India",
+      "transaction_ids": [
+        "SBI908123456"
+      ],
+      "suspect_phone": "+918877112233",
+      "claimed_identity": "SBI Treasury Pension Official",
+      "flags": {
+        "money_moved_recently": true,
+        "minor_involved": false,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-021",
+    "canonical_ref": "SCAM-02",
+    "name": "Senior Pension Verification OTP Impersonation [Variant 5]",
+    "category": "fraud",
+    "subtype": "otp_impersonation",
+    "language": "hi",
+    "noise_condition": "[Heavy traffic background noise] ",
+    "transcript": "[Heavy traffic background noise] Hello, mera naam Ramesh Chandra hai. Aaj subah 11:15 baje mujhe ek call aaya. Saamne wale ne kaha ki wo SBI treasury branch se bol raha hai aur bola ki aapka Jeevan Pramaan Patra (Life Certificate) pension portal pe expire ho gaya hai. Usne mujhe SBI Pension verification link bheja aur bola ki aapke phone pe 6-digit ka verification PIN aaya hai, wo bata dijiye warna agle mahine ki pension band ho jayegi. Maine ghabrahat me use do baar OTP bata diya. Thodi der baad mere SBI pension account se 1,20,000 rupaye nikalne ka SMS aa gaya. Fraudster ka number 8877112233 tha aur transaction ID SBI908123456 hai. Ye 40 minute pehle hua hai.",
+    "expected_entities": {
+      "amount_inr": 120000,
+      "incident_time_relative_mins": 40,
+      "urgency": "CRITICAL",
+      "payment_method": "netbanking",
+      "victim_bank": "State Bank of India",
+      "transaction_ids": [
+        "SBI908123456"
+      ],
+      "suspect_phone": "+918877112233",
+      "claimed_identity": "SBI Treasury Pension Official",
+      "flags": {
+        "money_moved_recently": true,
+        "minor_involved": false,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-022",
+    "canonical_ref": "SCAM-02",
+    "name": "Senior Pension Verification OTP Impersonation [Variant 6]",
+    "category": "fraud",
+    "subtype": "otp_impersonation",
+    "language": "hi",
+    "noise_condition": "[Heavy traffic background noise] ",
+    "transcript": "[Heavy traffic background noise] Hello, mera naam Ramesh Chandra hai. Aaj subah 11:15 baje mujhe ek call aaya. Saamne wale ne kaha ki wo SBI treasury branch se bol raha hai aur bola ki aapka Jeevan Pramaan Patra (Life Certificate) pension portal pe expire ho gaya hai. Usne mujhe SBI Pension verification link bheja aur bola ki aapke phone pe 6-digit ka verification PIN aaya hai, wo bata dijiye warna agle mahine ki pension band ho jayegi. Maine ghabrahat me use do baar OTP bata diya. Thodi der baad mere SBI pension account se 1,20,000 rupaye nikalne ka SMS aa gaya. Fraudster ka number 8877112233 tha aur transaction ID SBI908123456 hai. Ye 40 minute pehle hua hai. अरे देवा, मी बरबाद झालो साहेब!",
+    "expected_entities": {
+      "amount_inr": 120000,
+      "incident_time_relative_mins": 40,
+      "urgency": "CRITICAL",
+      "payment_method": "netbanking",
+      "victim_bank": "State Bank of India",
+      "transaction_ids": [
+        "SBI908123456"
+      ],
+      "suspect_phone": "+918877112233",
+      "claimed_identity": "SBI Treasury Pension Official",
+      "flags": {
+        "money_moved_recently": true,
+        "minor_involved": false,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-023",
+    "canonical_ref": "SCAM-02",
+    "name": "Senior Pension Verification OTP Impersonation [Variant 7]",
+    "category": "fraud",
+    "subtype": "otp_impersonation",
+    "language": "hi",
+    "noise_condition": "[Heavy traffic background noise] ",
+    "transcript": "[Heavy traffic background noise] Hello, mera naam Ramesh Chandra hai. Aaj subah 11:15 baje mujhe ek call aaya. Saamne wale ne kaha ki wo SBI treasury branch se bol raha hai aur bola ki aapka Jeevan Pramaan Patra (Life Certificate) pension portal pe expire ho gaya hai. Usne mujhe SBI Pension verification link bheja aur bola ki aapke phone pe 6-digit ka verification PIN aaya hai, wo bata dijiye warna agle mahine ki pension band ho jayegi. Maine ghabrahat me use do baar OTP bata diya. Thodi der baad mere SBI pension account se 1,20,000 rupaye nikalne ka SMS aa gaya. Fraudster ka number 8877112233 tha aur transaction ID SBI908123456 hai. Ye 40 minute pehle hua hai. Meri poori jama punji chali gayi bhai, bacha lo please.",
+    "expected_entities": {
+      "amount_inr": 120000,
+      "incident_time_relative_mins": 40,
+      "urgency": "CRITICAL",
+      "payment_method": "netbanking",
+      "victim_bank": "State Bank of India",
+      "transaction_ids": [
+        "SBI908123456"
+      ],
+      "suspect_phone": "+918877112233",
+      "claimed_identity": "SBI Treasury Pension Official",
+      "flags": {
+        "money_moved_recently": true,
+        "minor_involved": false,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-024",
+    "canonical_ref": "SCAM-02",
+    "name": "Senior Pension Verification OTP Impersonation [Variant 8]",
+    "category": "fraud",
+    "subtype": "otp_impersonation",
+    "language": "hi",
+    "noise_condition": "[Heavy traffic background noise] ",
+    "transcript": "[Heavy traffic background noise] Hello, mera naam Ramesh Chandra hai. Aaj subah 11:15 baje mujhe ek call aaya. Saamne wale ne kaha ki wo SBI treasury branch se bol raha hai aur bola ki aapka Jeevan Pramaan Patra (Life Certificate) pension portal pe expire ho gaya hai. Usne mujhe SBI Pension verification link bheja aur bola ki aapke phone pe 6-digit ka verification PIN aaya hai, wo bata dijiye warna agle mahine ki pension band ho jayegi. Maine ghabrahat me use do baar OTP bata diya. Thodi der baad mere SBI pension account se 1,20,000 rupaye nikalne ka SMS aa gaya. Fraudster ka number 8877112233 tha aur transaction ID SBI908123456 hai. Ye 40 minute pehle hua hai. I'm completely devastated, this is all my mother's medical fund.",
+    "expected_entities": {
+      "amount_inr": 120000,
+      "incident_time_relative_mins": 40,
+      "urgency": "CRITICAL",
+      "payment_method": "netbanking",
+      "victim_bank": "State Bank of India",
+      "transaction_ids": [
+        "SBI908123456"
+      ],
+      "suspect_phone": "+918877112233",
+      "claimed_identity": "SBI Treasury Pension Official",
+      "flags": {
+        "money_moved_recently": true,
+        "minor_involved": false,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-025",
+    "canonical_ref": "SCAM-02",
+    "name": "Senior Pension Verification OTP Impersonation [Variant 9]",
+    "category": "fraud",
+    "subtype": "otp_impersonation",
+    "language": "hi",
+    "noise_condition": "[Caller crying/hyperventilating] ",
+    "transcript": "[Caller crying/hyperventilating] Hello, mera naam Ramesh Chandra hai. Aaj subah 11:15 baje mujhe ek call aaya. Saamne wale ne kaha ki wo SBI treasury branch se bol raha hai aur bola ki aapka Jeevan Pramaan Patra (Life Certificate) pension portal pe expire ho gaya hai. Usne mujhe SBI Pension verification link bheja aur bola ki aapke phone pe 6-digit ka verification PIN aaya hai, wo bata dijiye warna agle mahine ki pension band ho jayegi. Maine ghabrahat me use do baar OTP bata diya. Thodi der baad mere SBI pension account se 1,20,000 rupaye nikalne ka SMS aa gaya. Fraudster ka number 8877112233 tha aur transaction ID SBI908123456 hai. Ye 40 minute pehle hua hai.",
+    "expected_entities": {
+      "amount_inr": 120000,
+      "incident_time_relative_mins": 40,
+      "urgency": "CRITICAL",
+      "payment_method": "netbanking",
+      "victim_bank": "State Bank of India",
+      "transaction_ids": [
+        "SBI908123456"
+      ],
+      "suspect_phone": "+918877112233",
+      "claimed_identity": "SBI Treasury Pension Official",
+      "flags": {
+        "money_moved_recently": true,
+        "minor_involved": false,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-026",
+    "canonical_ref": "SCAM-02",
+    "name": "Senior Pension Verification OTP Impersonation [Variant 10]",
+    "category": "fraud",
+    "subtype": "otp_impersonation",
+    "language": "hi",
+    "noise_condition": "[Caller crying/hyperventilating] ",
+    "transcript": "[Caller crying/hyperventilating] Hello, mera naam Ramesh Chandra hai. Aaj subah 11:15 baje mujhe ek call aaya. Saamne wale ne kaha ki wo SBI treasury branch se bol raha hai aur bola ki aapka Jeevan Pramaan Patra (Life Certificate) pension portal pe expire ho gaya hai. Usne mujhe SBI Pension verification link bheja aur bola ki aapke phone pe 6-digit ka verification PIN aaya hai, wo bata dijiye warna agle mahine ki pension band ho jayegi. Maine ghabrahat me use do baar OTP bata diya. Thodi der baad mere SBI pension account se 1,20,000 rupaye nikalne ka SMS aa gaya. Fraudster ka number 8877112233 tha aur transaction ID SBI908123456 hai. Ye 40 minute pehle hua hai. अरे देवा, मी बरबाद झालो साहेब!",
+    "expected_entities": {
+      "amount_inr": 120000,
+      "incident_time_relative_mins": 40,
+      "urgency": "CRITICAL",
+      "payment_method": "netbanking",
+      "victim_bank": "State Bank of India",
+      "transaction_ids": [
+        "SBI908123456"
+      ],
+      "suspect_phone": "+918877112233",
+      "claimed_identity": "SBI Treasury Pension Official",
+      "flags": {
+        "money_moved_recently": true,
+        "minor_involved": false,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-027",
+    "canonical_ref": "SCAM-02",
+    "name": "Senior Pension Verification OTP Impersonation [Variant 11]",
+    "category": "fraud",
+    "subtype": "otp_impersonation",
+    "language": "hi",
+    "noise_condition": "[Caller crying/hyperventilating] ",
+    "transcript": "[Caller crying/hyperventilating] Hello, mera naam Ramesh Chandra hai. Aaj subah 11:15 baje mujhe ek call aaya. Saamne wale ne kaha ki wo SBI treasury branch se bol raha hai aur bola ki aapka Jeevan Pramaan Patra (Life Certificate) pension portal pe expire ho gaya hai. Usne mujhe SBI Pension verification link bheja aur bola ki aapke phone pe 6-digit ka verification PIN aaya hai, wo bata dijiye warna agle mahine ki pension band ho jayegi. Maine ghabrahat me use do baar OTP bata diya. Thodi der baad mere SBI pension account se 1,20,000 rupaye nikalne ka SMS aa gaya. Fraudster ka number 8877112233 tha aur transaction ID SBI908123456 hai. Ye 40 minute pehle hua hai. Meri poori jama punji chali gayi bhai, bacha lo please.",
+    "expected_entities": {
+      "amount_inr": 120000,
+      "incident_time_relative_mins": 40,
+      "urgency": "CRITICAL",
+      "payment_method": "netbanking",
+      "victim_bank": "State Bank of India",
+      "transaction_ids": [
+        "SBI908123456"
+      ],
+      "suspect_phone": "+918877112233",
+      "claimed_identity": "SBI Treasury Pension Official",
+      "flags": {
+        "money_moved_recently": true,
+        "minor_involved": false,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-028",
+    "canonical_ref": "SCAM-02",
+    "name": "Senior Pension Verification OTP Impersonation [Variant 12]",
+    "category": "fraud",
+    "subtype": "otp_impersonation",
+    "language": "hi",
+    "noise_condition": "[Caller crying/hyperventilating] ",
+    "transcript": "[Caller crying/hyperventilating] Hello, mera naam Ramesh Chandra hai. Aaj subah 11:15 baje mujhe ek call aaya. Saamne wale ne kaha ki wo SBI treasury branch se bol raha hai aur bola ki aapka Jeevan Pramaan Patra (Life Certificate) pension portal pe expire ho gaya hai. Usne mujhe SBI Pension verification link bheja aur bola ki aapke phone pe 6-digit ka verification PIN aaya hai, wo bata dijiye warna agle mahine ki pension band ho jayegi. Maine ghabrahat me use do baar OTP bata diya. Thodi der baad mere SBI pension account se 1,20,000 rupaye nikalne ka SMS aa gaya. Fraudster ka number 8877112233 tha aur transaction ID SBI908123456 hai. Ye 40 minute pehle hua hai. I'm completely devastated, this is all my mother's medical fund.",
+    "expected_entities": {
+      "amount_inr": 120000,
+      "incident_time_relative_mins": 40,
+      "urgency": "CRITICAL",
+      "payment_method": "netbanking",
+      "victim_bank": "State Bank of India",
+      "transaction_ids": [
+        "SBI908123456"
+      ],
+      "suspect_phone": "+918877112233",
+      "claimed_identity": "SBI Treasury Pension Official",
+      "flags": {
+        "money_moved_recently": true,
+        "minor_involved": false,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-029",
+    "canonical_ref": "SCAM-02",
+    "name": "Senior Pension Verification OTP Impersonation [Variant 13]",
+    "category": "fraud",
+    "subtype": "otp_impersonation",
+    "language": "hi",
+    "noise_condition": "[Call drops momentarily] ",
+    "transcript": "[Call drops momentarily] Hello, mera naam Ramesh Chandra hai. Aaj subah 11:15 baje mujhe ek call aaya. Saamne wale ne kaha ki wo SBI treasury branch se bol raha hai aur bola ki aapka Jeevan Pramaan Patra (Life Certificate) pension portal pe expire ho gaya hai. Usne mujhe SBI Pension verification link bheja aur bola ki aapke phone pe 6-digit ka verification PIN aaya hai, wo bata dijiye warna agle mahine ki pension band ho jayegi. Maine ghabrahat me use do baar OTP bata diya. Thodi der baad mere SBI pension account se 1,20,000 rupaye nikalne ka SMS aa gaya. Fraudster ka number 8877112233 tha aur transaction ID SBI908123456 hai. Ye 40 minute pehle hua hai.",
+    "expected_entities": {
+      "amount_inr": 120000,
+      "incident_time_relative_mins": 40,
+      "urgency": "CRITICAL",
+      "payment_method": "netbanking",
+      "victim_bank": "State Bank of India",
+      "transaction_ids": [
+        "SBI908123456"
+      ],
+      "suspect_phone": "+918877112233",
+      "claimed_identity": "SBI Treasury Pension Official",
+      "flags": {
+        "money_moved_recently": true,
+        "minor_involved": false,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-030",
+    "canonical_ref": "SCAM-02",
+    "name": "Senior Pension Verification OTP Impersonation [Variant 14]",
+    "category": "fraud",
+    "subtype": "otp_impersonation",
+    "language": "hi",
+    "noise_condition": "[Call drops momentarily] ",
+    "transcript": "[Call drops momentarily] Hello, mera naam Ramesh Chandra hai. Aaj subah 11:15 baje mujhe ek call aaya. Saamne wale ne kaha ki wo SBI treasury branch se bol raha hai aur bola ki aapka Jeevan Pramaan Patra (Life Certificate) pension portal pe expire ho gaya hai. Usne mujhe SBI Pension verification link bheja aur bola ki aapke phone pe 6-digit ka verification PIN aaya hai, wo bata dijiye warna agle mahine ki pension band ho jayegi. Maine ghabrahat me use do baar OTP bata diya. Thodi der baad mere SBI pension account se 1,20,000 rupaye nikalne ka SMS aa gaya. Fraudster ka number 8877112233 tha aur transaction ID SBI908123456 hai. Ye 40 minute pehle hua hai. अरे देवा, मी बरबाद झालो साहेब! I am just a 16 year old high school boy.",
+    "expected_entities": {
+      "amount_inr": 120000,
+      "incident_time_relative_mins": 40,
+      "urgency": "CRITICAL",
+      "payment_method": "netbanking",
+      "victim_bank": "State Bank of India",
+      "transaction_ids": [
+        "SBI908123456"
+      ],
+      "suspect_phone": "+918877112233",
+      "claimed_identity": "SBI Treasury Pension Official",
+      "flags": {
+        "money_moved_recently": true,
+        "minor_involved": true,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-031",
+    "canonical_ref": "SCAM-02",
+    "name": "Senior Pension Verification OTP Impersonation [Variant 15]",
+    "category": "fraud",
+    "subtype": "otp_impersonation",
+    "language": "hi",
+    "noise_condition": "[Call drops momentarily] ",
+    "transcript": "[Call drops momentarily] Hello, mera naam Ramesh Chandra hai. Aaj subah 11:15 baje mujhe ek call aaya. Saamne wale ne kaha ki wo SBI treasury branch se bol raha hai aur bola ki aapka Jeevan Pramaan Patra (Life Certificate) pension portal pe expire ho gaya hai. Usne mujhe SBI Pension verification link bheja aur bola ki aapke phone pe 6-digit ka verification PIN aaya hai, wo bata dijiye warna agle mahine ki pension band ho jayegi. Maine ghabrahat me use do baar OTP bata diya. Thodi der baad mere SBI pension account se 1,20,000 rupaye nikalne ka SMS aa gaya. Fraudster ka number 8877112233 tha aur transaction ID SBI908123456 hai. Ye 40 minute pehle hua hai. Meri poori jama punji chali gayi bhai, bacha lo please.",
+    "expected_entities": {
+      "amount_inr": 120000,
+      "incident_time_relative_mins": 40,
+      "urgency": "CRITICAL",
+      "payment_method": "netbanking",
+      "victim_bank": "State Bank of India",
+      "transaction_ids": [
+        "SBI908123456"
+      ],
+      "suspect_phone": "+918877112233",
+      "claimed_identity": "SBI Treasury Pension Official",
+      "flags": {
+        "money_moved_recently": true,
+        "minor_involved": false,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-032",
+    "canonical_ref": "SCAM-02",
+    "name": "Senior Pension Verification OTP Impersonation [Variant 16]",
+    "category": "fraud",
+    "subtype": "otp_impersonation",
+    "language": "hi",
+    "noise_condition": "[Call drops momentarily] ",
+    "transcript": "[Call drops momentarily] Hello, mera naam Ramesh Chandra hai. Aaj subah 11:15 baje mujhe ek call aaya. Saamne wale ne kaha ki wo SBI treasury branch se bol raha hai aur bola ki aapka Jeevan Pramaan Patra (Life Certificate) pension portal pe expire ho gaya hai. Usne mujhe SBI Pension verification link bheja aur bola ki aapke phone pe 6-digit ka verification PIN aaya hai, wo bata dijiye warna agle mahine ki pension band ho jayegi. Maine ghabrahat me use do baar OTP bata diya. Thodi der baad mere SBI pension account se 1,20,000 rupaye nikalne ka SMS aa gaya. Fraudster ka number 8877112233 tha aur transaction ID SBI908123456 hai. Ye 40 minute pehle hua hai. I'm completely devastated, this is all my mother's medical fund.",
+    "expected_entities": {
+      "amount_inr": 120000,
+      "incident_time_relative_mins": 40,
+      "urgency": "CRITICAL",
+      "payment_method": "netbanking",
+      "victim_bank": "State Bank of India",
+      "transaction_ids": [
+        "SBI908123456"
+      ],
+      "suspect_phone": "+918877112233",
+      "claimed_identity": "SBI Treasury Pension Official",
+      "flags": {
+        "money_moved_recently": true,
+        "minor_involved": false,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-033",
+    "canonical_ref": "SCAM-03",
+    "name": "Telegram Part-Time YouTube Review Task Scam [Variant 1]",
+    "category": "fraud",
+    "subtype": "task_job_scam",
+    "language": "hi",
+    "noise_condition": "Clean",
+    "transcript": "Bhaiya mere saath fraud ho gaya hai. Kal mujhe WhatsApp par ek message aaya tha part time job ke liye ki YouTube videos like karke paise kamaye. Shuru me unhone 200 aur 500 rupaye mere account me bheje. Fir unhone mujhe ek VIP Telegram group me add kiya jahan crypto task karne ko bola. Aaj subah 11 baje maine pehle 20,000 aur fir 12:30 baje 80,000 rupaye unke diye hue UPI ID payfast@icici par transfer kar diye. Total 1 lakh rupaye lag gaye mere. Ab wo bol rahe hain ki withdrawal ke liye 50,000 aur tax do tab paisa aayega. Main bahut pareshan hoon, meri poori savings chali gayi.",
+    "expected_entities": {
+      "amount_inr": 100000,
+      "incident_time_relative_mins": 120,
+      "urgency": "HIGH",
+      "payment_method": "upi",
+      "victim_bank": null,
+      "transaction_ids": [],
+      "suspect_upi": "payfast@icici",
+      "claimed_identity": "Part-Time Task Coordinator",
+      "flags": {
+        "money_moved_recently": false,
+        "minor_involved": false,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-034",
+    "canonical_ref": "SCAM-03",
+    "name": "Telegram Part-Time YouTube Review Task Scam [Variant 2]",
+    "category": "fraud",
+    "subtype": "task_job_scam",
+    "language": "hi",
+    "noise_condition": "Clean",
+    "transcript": "Bhaiya mere saath fraud ho gaya hai. Kal mujhe WhatsApp par ek message aaya tha part time job ke liye ki YouTube videos like karke paise kamaye. Shuru me unhone 200 aur 500 rupaye mere account me bheje. Fir unhone mujhe ek VIP Telegram group me add kiya jahan crypto task karne ko bola. Aaj subah 11 baje maine pehle 20,000 aur fir 12:30 baje 80,000 rupaye unke diye hue UPI ID payfast@icici par transfer kar diye. Total 1 lakh rupaye lag gaye mere. Ab wo bol rahe hain ki withdrawal ke liye 50,000 aur tax do tab paisa aayega. Main bahut pareshan hoon, meri poori savings chali gayi. अरे देवा, मी बरबाद झालो साहेब!",
+    "expected_entities": {
+      "amount_inr": 100000,
+      "incident_time_relative_mins": 120,
+      "urgency": "HIGH",
+      "payment_method": "upi",
+      "victim_bank": null,
+      "transaction_ids": [],
+      "suspect_upi": "payfast@icici",
+      "claimed_identity": "Part-Time Task Coordinator",
+      "flags": {
+        "money_moved_recently": false,
+        "minor_involved": false,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-035",
+    "canonical_ref": "SCAM-03",
+    "name": "Telegram Part-Time YouTube Review Task Scam [Variant 3]",
+    "category": "fraud",
+    "subtype": "task_job_scam",
+    "language": "hi",
+    "noise_condition": "Clean",
+    "transcript": "Bhaiya mere saath fraud ho gaya hai. Kal mujhe WhatsApp par ek message aaya tha part time job ke liye ki YouTube videos like karke paise kamaye. Shuru me unhone 200 aur 500 rupaye mere account me bheje. Fir unhone mujhe ek VIP Telegram group me add kiya jahan crypto task karne ko bola. Aaj subah 11 baje maine pehle 20,000 aur fir 12:30 baje 80,000 rupaye unke diye hue UPI ID payfast@icici par transfer kar diye. Total 1 lakh rupaye lag gaye mere. Ab wo bol rahe hain ki withdrawal ke liye 50,000 aur tax do tab paisa aayega. Main bahut pareshan hoon, meri poori savings chali gayi. Meri poori jama punji chali gayi bhai, bacha lo please.",
+    "expected_entities": {
+      "amount_inr": 100000,
+      "incident_time_relative_mins": 120,
+      "urgency": "HIGH",
+      "payment_method": "upi",
+      "victim_bank": null,
+      "transaction_ids": [],
+      "suspect_upi": "payfast@icici",
+      "claimed_identity": "Part-Time Task Coordinator",
+      "flags": {
+        "money_moved_recently": false,
+        "minor_involved": false,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-036",
+    "canonical_ref": "SCAM-03",
+    "name": "Telegram Part-Time YouTube Review Task Scam [Variant 4]",
+    "category": "fraud",
+    "subtype": "task_job_scam",
+    "language": "hi",
+    "noise_condition": "Clean",
+    "transcript": "Bhaiya mere saath fraud ho gaya hai. Kal mujhe WhatsApp par ek message aaya tha part time job ke liye ki YouTube videos like karke paise kamaye. Shuru me unhone 200 aur 500 rupaye mere account me bheje. Fir unhone mujhe ek VIP Telegram group me add kiya jahan crypto task karne ko bola. Aaj subah 11 baje maine pehle 20,000 aur fir 12:30 baje 80,000 rupaye unke diye hue UPI ID payfast@icici par transfer kar diye. Total 1 lakh rupaye lag gaye mere. Ab wo bol rahe hain ki withdrawal ke liye 50,000 aur tax do tab paisa aayega. Main bahut pareshan hoon, meri poori savings chali gayi. I'm completely devastated, this is all my mother's medical fund.",
+    "expected_entities": {
+      "amount_inr": 100000,
+      "incident_time_relative_mins": 120,
+      "urgency": "HIGH",
+      "payment_method": "upi",
+      "victim_bank": null,
+      "transaction_ids": [],
+      "suspect_upi": "payfast@icici",
+      "claimed_identity": "Part-Time Task Coordinator",
+      "flags": {
+        "money_moved_recently": false,
+        "minor_involved": false,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-037",
+    "canonical_ref": "SCAM-03",
+    "name": "Telegram Part-Time YouTube Review Task Scam [Variant 5]",
+    "category": "fraud",
+    "subtype": "task_job_scam",
+    "language": "hi",
+    "noise_condition": "[Heavy traffic background noise] ",
+    "transcript": "[Heavy traffic background noise] Bhaiya mere saath fraud ho gaya hai. Kal mujhe WhatsApp par ek message aaya tha part time job ke liye ki YouTube videos like karke paise kamaye. Shuru me unhone 200 aur 500 rupaye mere account me bheje. Fir unhone mujhe ek VIP Telegram group me add kiya jahan crypto task karne ko bola. Aaj subah 11 baje maine pehle 20,000 aur fir 12:30 baje 80,000 rupaye unke diye hue UPI ID payfast@icici par transfer kar diye. Total 1 lakh rupaye lag gaye mere. Ab wo bol rahe hain ki withdrawal ke liye 50,000 aur tax do tab paisa aayega. Main bahut pareshan hoon, meri poori savings chali gayi.",
+    "expected_entities": {
+      "amount_inr": 100000,
+      "incident_time_relative_mins": 120,
+      "urgency": "HIGH",
+      "payment_method": "upi",
+      "victim_bank": null,
+      "transaction_ids": [],
+      "suspect_upi": "payfast@icici",
+      "claimed_identity": "Part-Time Task Coordinator",
+      "flags": {
+        "money_moved_recently": false,
+        "minor_involved": false,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-038",
+    "canonical_ref": "SCAM-03",
+    "name": "Telegram Part-Time YouTube Review Task Scam [Variant 6]",
+    "category": "fraud",
+    "subtype": "task_job_scam",
+    "language": "hi",
+    "noise_condition": "[Heavy traffic background noise] ",
+    "transcript": "[Heavy traffic background noise] Bhaiya mere saath fraud ho gaya hai. Kal mujhe WhatsApp par ek message aaya tha part time job ke liye ki YouTube videos like karke paise kamaye. Shuru me unhone 200 aur 500 rupaye mere account me bheje. Fir unhone mujhe ek VIP Telegram group me add kiya jahan crypto task karne ko bola. Aaj subah 11 baje maine pehle 20,000 aur fir 12:30 baje 80,000 rupaye unke diye hue UPI ID payfast@icici par transfer kar diye. Total 1 lakh rupaye lag gaye mere. Ab wo bol rahe hain ki withdrawal ke liye 50,000 aur tax do tab paisa aayega. Main bahut pareshan hoon, meri poori savings chali gayi. अरे देवा, मी बरबाद झालो साहेब!",
+    "expected_entities": {
+      "amount_inr": 100000,
+      "incident_time_relative_mins": 120,
+      "urgency": "HIGH",
+      "payment_method": "upi",
+      "victim_bank": null,
+      "transaction_ids": [],
+      "suspect_upi": "payfast@icici",
+      "claimed_identity": "Part-Time Task Coordinator",
+      "flags": {
+        "money_moved_recently": false,
+        "minor_involved": false,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-039",
+    "canonical_ref": "SCAM-03",
+    "name": "Telegram Part-Time YouTube Review Task Scam [Variant 7]",
+    "category": "fraud",
+    "subtype": "task_job_scam",
+    "language": "hi",
+    "noise_condition": "[Heavy traffic background noise] ",
+    "transcript": "[Heavy traffic background noise] Bhaiya mere saath fraud ho gaya hai. Kal mujhe WhatsApp par ek message aaya tha part time job ke liye ki YouTube videos like karke paise kamaye. Shuru me unhone 200 aur 500 rupaye mere account me bheje. Fir unhone mujhe ek VIP Telegram group me add kiya jahan crypto task karne ko bola. Aaj subah 11 baje maine pehle 20,000 aur fir 12:30 baje 80,000 rupaye unke diye hue UPI ID payfast@icici par transfer kar diye. Total 1 lakh rupaye lag gaye mere. Ab wo bol rahe hain ki withdrawal ke liye 50,000 aur tax do tab paisa aayega. Main bahut pareshan hoon, meri poori savings chali gayi. Meri poori jama punji chali gayi bhai, bacha lo please.",
+    "expected_entities": {
+      "amount_inr": 100000,
+      "incident_time_relative_mins": 120,
+      "urgency": "HIGH",
+      "payment_method": "upi",
+      "victim_bank": null,
+      "transaction_ids": [],
+      "suspect_upi": "payfast@icici",
+      "claimed_identity": "Part-Time Task Coordinator",
+      "flags": {
+        "money_moved_recently": false,
+        "minor_involved": false,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-040",
+    "canonical_ref": "SCAM-03",
+    "name": "Telegram Part-Time YouTube Review Task Scam [Variant 8]",
+    "category": "fraud",
+    "subtype": "task_job_scam",
+    "language": "hi",
+    "noise_condition": "[Heavy traffic background noise] ",
+    "transcript": "[Heavy traffic background noise] Bhaiya mere saath fraud ho gaya hai. Kal mujhe WhatsApp par ek message aaya tha part time job ke liye ki YouTube videos like karke paise kamaye. Shuru me unhone 200 aur 500 rupaye mere account me bheje. Fir unhone mujhe ek VIP Telegram group me add kiya jahan crypto task karne ko bola. Aaj subah 11 baje maine pehle 20,000 aur fir 12:30 baje 80,000 rupaye unke diye hue UPI ID payfast@icici par transfer kar diye. Total 1 lakh rupaye lag gaye mere. Ab wo bol rahe hain ki withdrawal ke liye 50,000 aur tax do tab paisa aayega. Main bahut pareshan hoon, meri poori savings chali gayi. I'm completely devastated, this is all my mother's medical fund.",
+    "expected_entities": {
+      "amount_inr": 100000,
+      "incident_time_relative_mins": 120,
+      "urgency": "HIGH",
+      "payment_method": "upi",
+      "victim_bank": null,
+      "transaction_ids": [],
+      "suspect_upi": "payfast@icici",
+      "claimed_identity": "Part-Time Task Coordinator",
+      "flags": {
+        "money_moved_recently": false,
+        "minor_involved": false,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-041",
+    "canonical_ref": "SCAM-03",
+    "name": "Telegram Part-Time YouTube Review Task Scam [Variant 9]",
+    "category": "fraud",
+    "subtype": "task_job_scam",
+    "language": "hi",
+    "noise_condition": "[Caller crying/hyperventilating] ",
+    "transcript": "[Caller crying/hyperventilating] Bhaiya mere saath fraud ho gaya hai. Kal mujhe WhatsApp par ek message aaya tha part time job ke liye ki YouTube videos like karke paise kamaye. Shuru me unhone 200 aur 500 rupaye mere account me bheje. Fir unhone mujhe ek VIP Telegram group me add kiya jahan crypto task karne ko bola. Aaj subah 11 baje maine pehle 20,000 aur fir 12:30 baje 80,000 rupaye unke diye hue UPI ID payfast@icici par transfer kar diye. Total 1 lakh rupaye lag gaye mere. Ab wo bol rahe hain ki withdrawal ke liye 50,000 aur tax do tab paisa aayega. Main bahut pareshan hoon, meri poori savings chali gayi.",
+    "expected_entities": {
+      "amount_inr": 100000,
+      "incident_time_relative_mins": 120,
+      "urgency": "HIGH",
+      "payment_method": "upi",
+      "victim_bank": null,
+      "transaction_ids": [],
+      "suspect_upi": "payfast@icici",
+      "claimed_identity": "Part-Time Task Coordinator",
+      "flags": {
+        "money_moved_recently": false,
+        "minor_involved": false,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-042",
+    "canonical_ref": "SCAM-03",
+    "name": "Telegram Part-Time YouTube Review Task Scam [Variant 10]",
+    "category": "fraud",
+    "subtype": "task_job_scam",
+    "language": "hi",
+    "noise_condition": "[Caller crying/hyperventilating] ",
+    "transcript": "[Caller crying/hyperventilating] Bhaiya mere saath fraud ho gaya hai. Kal mujhe WhatsApp par ek message aaya tha part time job ke liye ki YouTube videos like karke paise kamaye. Shuru me unhone 200 aur 500 rupaye mere account me bheje. Fir unhone mujhe ek VIP Telegram group me add kiya jahan crypto task karne ko bola. Aaj subah 11 baje maine pehle 20,000 aur fir 12:30 baje 80,000 rupaye unke diye hue UPI ID payfast@icici par transfer kar diye. Total 1 lakh rupaye lag gaye mere. Ab wo bol rahe hain ki withdrawal ke liye 50,000 aur tax do tab paisa aayega. Main bahut pareshan hoon, meri poori savings chali gayi. अरे देवा, मी बरबाद झालो साहेब!",
+    "expected_entities": {
+      "amount_inr": 100000,
+      "incident_time_relative_mins": 120,
+      "urgency": "HIGH",
+      "payment_method": "upi",
+      "victim_bank": null,
+      "transaction_ids": [],
+      "suspect_upi": "payfast@icici",
+      "claimed_identity": "Part-Time Task Coordinator",
+      "flags": {
+        "money_moved_recently": false,
+        "minor_involved": false,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-043",
+    "canonical_ref": "SCAM-03",
+    "name": "Telegram Part-Time YouTube Review Task Scam [Variant 11]",
+    "category": "fraud",
+    "subtype": "task_job_scam",
+    "language": "hi",
+    "noise_condition": "[Caller crying/hyperventilating] ",
+    "transcript": "[Caller crying/hyperventilating] Bhaiya mere saath fraud ho gaya hai. Kal mujhe WhatsApp par ek message aaya tha part time job ke liye ki YouTube videos like karke paise kamaye. Shuru me unhone 200 aur 500 rupaye mere account me bheje. Fir unhone mujhe ek VIP Telegram group me add kiya jahan crypto task karne ko bola. Aaj subah 11 baje maine pehle 20,000 aur fir 12:30 baje 80,000 rupaye unke diye hue UPI ID payfast@icici par transfer kar diye. Total 1 lakh rupaye lag gaye mere. Ab wo bol rahe hain ki withdrawal ke liye 50,000 aur tax do tab paisa aayega. Main bahut pareshan hoon, meri poori savings chali gayi. Meri poori jama punji chali gayi bhai, bacha lo please.",
+    "expected_entities": {
+      "amount_inr": 100000,
+      "incident_time_relative_mins": 120,
+      "urgency": "HIGH",
+      "payment_method": "upi",
+      "victim_bank": null,
+      "transaction_ids": [],
+      "suspect_upi": "payfast@icici",
+      "claimed_identity": "Part-Time Task Coordinator",
+      "flags": {
+        "money_moved_recently": false,
+        "minor_involved": false,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-044",
+    "canonical_ref": "SCAM-03",
+    "name": "Telegram Part-Time YouTube Review Task Scam [Variant 12]",
+    "category": "fraud",
+    "subtype": "task_job_scam",
+    "language": "hi",
+    "noise_condition": "[Caller crying/hyperventilating] ",
+    "transcript": "[Caller crying/hyperventilating] Bhaiya mere saath fraud ho gaya hai. Kal mujhe WhatsApp par ek message aaya tha part time job ke liye ki YouTube videos like karke paise kamaye. Shuru me unhone 200 aur 500 rupaye mere account me bheje. Fir unhone mujhe ek VIP Telegram group me add kiya jahan crypto task karne ko bola. Aaj subah 11 baje maine pehle 20,000 aur fir 12:30 baje 80,000 rupaye unke diye hue UPI ID payfast@icici par transfer kar diye. Total 1 lakh rupaye lag gaye mere. Ab wo bol rahe hain ki withdrawal ke liye 50,000 aur tax do tab paisa aayega. Main bahut pareshan hoon, meri poori savings chali gayi. I'm completely devastated, this is all my mother's medical fund.",
+    "expected_entities": {
+      "amount_inr": 100000,
+      "incident_time_relative_mins": 120,
+      "urgency": "HIGH",
+      "payment_method": "upi",
+      "victim_bank": null,
+      "transaction_ids": [],
+      "suspect_upi": "payfast@icici",
+      "claimed_identity": "Part-Time Task Coordinator",
+      "flags": {
+        "money_moved_recently": false,
+        "minor_involved": false,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-045",
+    "canonical_ref": "SCAM-03",
+    "name": "Telegram Part-Time YouTube Review Task Scam [Variant 13]",
+    "category": "fraud",
+    "subtype": "task_job_scam",
+    "language": "hi",
+    "noise_condition": "[Call drops momentarily] ",
+    "transcript": "[Call drops momentarily] Bhaiya mere saath fraud ho gaya hai. Kal mujhe WhatsApp par ek message aaya tha part time job ke liye ki YouTube videos like karke paise kamaye. Shuru me unhone 200 aur 500 rupaye mere account me bheje. Fir unhone mujhe ek VIP Telegram group me add kiya jahan crypto task karne ko bola. Aaj subah 11 baje maine pehle 20,000 aur fir 12:30 baje 80,000 rupaye unke diye hue UPI ID payfast@icici par transfer kar diye. Total 1 lakh rupaye lag gaye mere. Ab wo bol rahe hain ki withdrawal ke liye 50,000 aur tax do tab paisa aayega. Main bahut pareshan hoon, meri poori savings chali gayi. I am just a 16 year old high school boy.",
+    "expected_entities": {
+      "amount_inr": 100000,
+      "incident_time_relative_mins": 120,
+      "urgency": "HIGH",
+      "payment_method": "upi",
+      "victim_bank": null,
+      "transaction_ids": [],
+      "suspect_upi": "payfast@icici",
+      "claimed_identity": "Part-Time Task Coordinator",
+      "flags": {
+        "money_moved_recently": false,
+        "minor_involved": true,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-046",
+    "canonical_ref": "SCAM-03",
+    "name": "Telegram Part-Time YouTube Review Task Scam [Variant 14]",
+    "category": "fraud",
+    "subtype": "task_job_scam",
+    "language": "hi",
+    "noise_condition": "[Call drops momentarily] ",
+    "transcript": "[Call drops momentarily] Bhaiya mere saath fraud ho gaya hai. Kal mujhe WhatsApp par ek message aaya tha part time job ke liye ki YouTube videos like karke paise kamaye. Shuru me unhone 200 aur 500 rupaye mere account me bheje. Fir unhone mujhe ek VIP Telegram group me add kiya jahan crypto task karne ko bola. Aaj subah 11 baje maine pehle 20,000 aur fir 12:30 baje 80,000 rupaye unke diye hue UPI ID payfast@icici par transfer kar diye. Total 1 lakh rupaye lag gaye mere. Ab wo bol rahe hain ki withdrawal ke liye 50,000 aur tax do tab paisa aayega. Main bahut pareshan hoon, meri poori savings chali gayi. अरे देवा, मी बरबाद झालो साहेब!",
+    "expected_entities": {
+      "amount_inr": 100000,
+      "incident_time_relative_mins": 120,
+      "urgency": "HIGH",
+      "payment_method": "upi",
+      "victim_bank": null,
+      "transaction_ids": [],
+      "suspect_upi": "payfast@icici",
+      "claimed_identity": "Part-Time Task Coordinator",
+      "flags": {
+        "money_moved_recently": false,
+        "minor_involved": false,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-047",
+    "canonical_ref": "SCAM-03",
+    "name": "Telegram Part-Time YouTube Review Task Scam [Variant 15]",
+    "category": "fraud",
+    "subtype": "task_job_scam",
+    "language": "hi",
+    "noise_condition": "[Call drops momentarily] ",
+    "transcript": "[Call drops momentarily] Bhaiya mere saath fraud ho gaya hai. Kal mujhe WhatsApp par ek message aaya tha part time job ke liye ki YouTube videos like karke paise kamaye. Shuru me unhone 200 aur 500 rupaye mere account me bheje. Fir unhone mujhe ek VIP Telegram group me add kiya jahan crypto task karne ko bola. Aaj subah 11 baje maine pehle 20,000 aur fir 12:30 baje 80,000 rupaye unke diye hue UPI ID payfast@icici par transfer kar diye. Total 1 lakh rupaye lag gaye mere. Ab wo bol rahe hain ki withdrawal ke liye 50,000 aur tax do tab paisa aayega. Main bahut pareshan hoon, meri poori savings chali gayi. Meri poori jama punji chali gayi bhai, bacha lo please.",
+    "expected_entities": {
+      "amount_inr": 100000,
+      "incident_time_relative_mins": 120,
+      "urgency": "HIGH",
+      "payment_method": "upi",
+      "victim_bank": null,
+      "transaction_ids": [],
+      "suspect_upi": "payfast@icici",
+      "claimed_identity": "Part-Time Task Coordinator",
+      "flags": {
+        "money_moved_recently": false,
+        "minor_involved": false,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-048",
+    "canonical_ref": "SCAM-03",
+    "name": "Telegram Part-Time YouTube Review Task Scam [Variant 16]",
+    "category": "fraud",
+    "subtype": "task_job_scam",
+    "language": "hi",
+    "noise_condition": "[Call drops momentarily] ",
+    "transcript": "[Call drops momentarily] Bhaiya mere saath fraud ho gaya hai. Kal mujhe WhatsApp par ek message aaya tha part time job ke liye ki YouTube videos like karke paise kamaye. Shuru me unhone 200 aur 500 rupaye mere account me bheje. Fir unhone mujhe ek VIP Telegram group me add kiya jahan crypto task karne ko bola. Aaj subah 11 baje maine pehle 20,000 aur fir 12:30 baje 80,000 rupaye unke diye hue UPI ID payfast@icici par transfer kar diye. Total 1 lakh rupaye lag gaye mere. Ab wo bol rahe hain ki withdrawal ke liye 50,000 aur tax do tab paisa aayega. Main bahut pareshan hoon, meri poori savings chali gayi. I'm completely devastated, this is all my mother's medical fund.",
+    "expected_entities": {
+      "amount_inr": 100000,
+      "incident_time_relative_mins": 120,
+      "urgency": "HIGH",
+      "payment_method": "upi",
+      "victim_bank": null,
+      "transaction_ids": [],
+      "suspect_upi": "payfast@icici",
+      "claimed_identity": "Part-Time Task Coordinator",
+      "flags": {
+        "money_moved_recently": false,
+        "minor_involved": false,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-049",
+    "canonical_ref": "SCAM-04",
+    "name": "Customs / FedEx / CBI Digital Arrest Scam [Variant 1]",
+    "category": "fraud",
+    "subtype": "digital_arrest",
+    "language": "en",
+    "noise_condition": "Clean",
+    "transcript": "I am calling in extreme distress. Three hours ago, at around 10:30 AM, I got an automated call saying a FedEx parcel addressed to Taiwan under my Aadhaar number was intercepted at Mumbai International Airport containing 5 expired passports and 150 grams of MDMA drugs. They transferred my call to a person claiming to be Inspector Sandeep Kumar of Mumbai Crime Branch who appeared on Skype in full police uniform. He placed me under so-called 'digital arrest' and threatened that the Enforcement Directorate would seize my assets unless I transferred all liquid funds for 'RBI judicial verification'. In sheer terror, I RTGS transferred ₹4,50,000 from my ICICI Bank account to their designated 'RBI clearance escrow account' with account number 001928374655 at Yes Bank. They kept me on camera until I transferred. Please freeze this account immediately.",
+    "expected_entities": {
+      "amount_inr": 450000,
+      "incident_time_relative_mins": 180,
+      "urgency": "HIGH",
+      "payment_method": "netbanking",
+      "victim_bank": "ICICI Bank",
+      "transaction_ids": [],
+      "suspect_account": "001928374655",
+      "claimed_identity": "Inspector Sandeep Kumar (Mumbai Crime Branch / CBI)",
+      "flags": {
+        "money_moved_recently": false,
+        "minor_involved": false,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-050",
+    "canonical_ref": "SCAM-04",
+    "name": "Customs / FedEx / CBI Digital Arrest Scam [Variant 2]",
+    "category": "fraud",
+    "subtype": "digital_arrest",
+    "language": "en",
+    "noise_condition": "Clean",
+    "transcript": "I am calling in extreme distress. Three hours ago, at around 10:30 AM, I got an automated call saying a FedEx parcel addressed to Taiwan under my Aadhaar number was intercepted at Mumbai International Airport containing 5 expired passports and 150 grams of MDMA drugs. They transferred my call to a person claiming to be Inspector Sandeep Kumar of Mumbai Crime Branch who appeared on Skype in full police uniform. He placed me under so-called 'digital arrest' and threatened that the Enforcement Directorate would seize my assets unless I transferred all liquid funds for 'RBI judicial verification'. In sheer terror, I RTGS transferred ₹4,50,000 from my ICICI Bank account to their designated 'RBI clearance escrow account' with account number 001928374655 at Yes Bank. They kept me on camera until I transferred. Please freeze this account immediately. अरे देवा, मी बरबाद झालो साहेब!",
+    "expected_entities": {
+      "amount_inr": 450000,
+      "incident_time_relative_mins": 180,
+      "urgency": "HIGH",
+      "payment_method": "netbanking",
+      "victim_bank": "ICICI Bank",
+      "transaction_ids": [],
+      "suspect_account": "001928374655",
+      "claimed_identity": "Inspector Sandeep Kumar (Mumbai Crime Branch / CBI)",
+      "flags": {
+        "money_moved_recently": false,
+        "minor_involved": false,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-051",
+    "canonical_ref": "SCAM-04",
+    "name": "Customs / FedEx / CBI Digital Arrest Scam [Variant 3]",
+    "category": "fraud",
+    "subtype": "digital_arrest",
+    "language": "en",
+    "noise_condition": "Clean",
+    "transcript": "I am calling in extreme distress. Three hours ago, at around 10:30 AM, I got an automated call saying a FedEx parcel addressed to Taiwan under my Aadhaar number was intercepted at Mumbai International Airport containing 5 expired passports and 150 grams of MDMA drugs. They transferred my call to a person claiming to be Inspector Sandeep Kumar of Mumbai Crime Branch who appeared on Skype in full police uniform. He placed me under so-called 'digital arrest' and threatened that the Enforcement Directorate would seize my assets unless I transferred all liquid funds for 'RBI judicial verification'. In sheer terror, I RTGS transferred ₹4,50,000 from my ICICI Bank account to their designated 'RBI clearance escrow account' with account number 001928374655 at Yes Bank. They kept me on camera until I transferred. Please freeze this account immediately. Meri poori jama punji chali gayi bhai, bacha lo please.",
+    "expected_entities": {
+      "amount_inr": 450000,
+      "incident_time_relative_mins": 180,
+      "urgency": "HIGH",
+      "payment_method": "netbanking",
+      "victim_bank": "ICICI Bank",
+      "transaction_ids": [],
+      "suspect_account": "001928374655",
+      "claimed_identity": "Inspector Sandeep Kumar (Mumbai Crime Branch / CBI)",
+      "flags": {
+        "money_moved_recently": false,
+        "minor_involved": false,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-052",
+    "canonical_ref": "SCAM-04",
+    "name": "Customs / FedEx / CBI Digital Arrest Scam [Variant 4]",
+    "category": "fraud",
+    "subtype": "digital_arrest",
+    "language": "en",
+    "noise_condition": "Clean",
+    "transcript": "I am calling in extreme distress. Three hours ago, at around 10:30 AM, I got an automated call saying a FedEx parcel addressed to Taiwan under my Aadhaar number was intercepted at Mumbai International Airport containing 5 expired passports and 150 grams of MDMA drugs. They transferred my call to a person claiming to be Inspector Sandeep Kumar of Mumbai Crime Branch who appeared on Skype in full police uniform. He placed me under so-called 'digital arrest' and threatened that the Enforcement Directorate would seize my assets unless I transferred all liquid funds for 'RBI judicial verification'. In sheer terror, I RTGS transferred ₹4,50,000 from my ICICI Bank account to their designated 'RBI clearance escrow account' with account number 001928374655 at Yes Bank. They kept me on camera until I transferred. Please freeze this account immediately. I'm completely devastated, this is all my mother's medical fund.",
+    "expected_entities": {
+      "amount_inr": 450000,
+      "incident_time_relative_mins": 180,
+      "urgency": "HIGH",
+      "payment_method": "netbanking",
+      "victim_bank": "ICICI Bank",
+      "transaction_ids": [],
+      "suspect_account": "001928374655",
+      "claimed_identity": "Inspector Sandeep Kumar (Mumbai Crime Branch / CBI)",
+      "flags": {
+        "money_moved_recently": false,
+        "minor_involved": false,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-053",
+    "canonical_ref": "SCAM-04",
+    "name": "Customs / FedEx / CBI Digital Arrest Scam [Variant 5]",
+    "category": "fraud",
+    "subtype": "digital_arrest",
+    "language": "en",
+    "noise_condition": "[Heavy traffic background noise] ",
+    "transcript": "[Heavy traffic background noise] I am calling in extreme distress. Three hours ago, at around 10:30 AM, I got an automated call saying a FedEx parcel addressed to Taiwan under my Aadhaar number was intercepted at Mumbai International Airport containing 5 expired passports and 150 grams of MDMA drugs. They transferred my call to a person claiming to be Inspector Sandeep Kumar of Mumbai Crime Branch who appeared on Skype in full police uniform. He placed me under so-called 'digital arrest' and threatened that the Enforcement Directorate would seize my assets unless I transferred all liquid funds for 'RBI judicial verification'. In sheer terror, I RTGS transferred ₹4,50,000 from my ICICI Bank account to their designated 'RBI clearance escrow account' with account number 001928374655 at Yes Bank. They kept me on camera until I transferred. Please freeze this account immediately.",
+    "expected_entities": {
+      "amount_inr": 450000,
+      "incident_time_relative_mins": 180,
+      "urgency": "HIGH",
+      "payment_method": "netbanking",
+      "victim_bank": "ICICI Bank",
+      "transaction_ids": [],
+      "suspect_account": "001928374655",
+      "claimed_identity": "Inspector Sandeep Kumar (Mumbai Crime Branch / CBI)",
+      "flags": {
+        "money_moved_recently": false,
+        "minor_involved": false,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-054",
+    "canonical_ref": "SCAM-04",
+    "name": "Customs / FedEx / CBI Digital Arrest Scam [Variant 6]",
+    "category": "fraud",
+    "subtype": "digital_arrest",
+    "language": "en",
+    "noise_condition": "[Heavy traffic background noise] ",
+    "transcript": "[Heavy traffic background noise] I am calling in extreme distress. Three hours ago, at around 10:30 AM, I got an automated call saying a FedEx parcel addressed to Taiwan under my Aadhaar number was intercepted at Mumbai International Airport containing 5 expired passports and 150 grams of MDMA drugs. They transferred my call to a person claiming to be Inspector Sandeep Kumar of Mumbai Crime Branch who appeared on Skype in full police uniform. He placed me under so-called 'digital arrest' and threatened that the Enforcement Directorate would seize my assets unless I transferred all liquid funds for 'RBI judicial verification'. In sheer terror, I RTGS transferred ₹4,50,000 from my ICICI Bank account to their designated 'RBI clearance escrow account' with account number 001928374655 at Yes Bank. They kept me on camera until I transferred. Please freeze this account immediately. अरे देवा, मी बरबाद झालो साहेब!",
+    "expected_entities": {
+      "amount_inr": 450000,
+      "incident_time_relative_mins": 180,
+      "urgency": "HIGH",
+      "payment_method": "netbanking",
+      "victim_bank": "ICICI Bank",
+      "transaction_ids": [],
+      "suspect_account": "001928374655",
+      "claimed_identity": "Inspector Sandeep Kumar (Mumbai Crime Branch / CBI)",
+      "flags": {
+        "money_moved_recently": false,
+        "minor_involved": false,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-055",
+    "canonical_ref": "SCAM-04",
+    "name": "Customs / FedEx / CBI Digital Arrest Scam [Variant 7]",
+    "category": "fraud",
+    "subtype": "digital_arrest",
+    "language": "en",
+    "noise_condition": "[Heavy traffic background noise] ",
+    "transcript": "[Heavy traffic background noise] I am calling in extreme distress. Three hours ago, at around 10:30 AM, I got an automated call saying a FedEx parcel addressed to Taiwan under my Aadhaar number was intercepted at Mumbai International Airport containing 5 expired passports and 150 grams of MDMA drugs. They transferred my call to a person claiming to be Inspector Sandeep Kumar of Mumbai Crime Branch who appeared on Skype in full police uniform. He placed me under so-called 'digital arrest' and threatened that the Enforcement Directorate would seize my assets unless I transferred all liquid funds for 'RBI judicial verification'. In sheer terror, I RTGS transferred ₹4,50,000 from my ICICI Bank account to their designated 'RBI clearance escrow account' with account number 001928374655 at Yes Bank. They kept me on camera until I transferred. Please freeze this account immediately. Meri poori jama punji chali gayi bhai, bacha lo please.",
+    "expected_entities": {
+      "amount_inr": 450000,
+      "incident_time_relative_mins": 180,
+      "urgency": "HIGH",
+      "payment_method": "netbanking",
+      "victim_bank": "ICICI Bank",
+      "transaction_ids": [],
+      "suspect_account": "001928374655",
+      "claimed_identity": "Inspector Sandeep Kumar (Mumbai Crime Branch / CBI)",
+      "flags": {
+        "money_moved_recently": false,
+        "minor_involved": false,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-056",
+    "canonical_ref": "SCAM-04",
+    "name": "Customs / FedEx / CBI Digital Arrest Scam [Variant 8]",
+    "category": "fraud",
+    "subtype": "digital_arrest",
+    "language": "en",
+    "noise_condition": "[Heavy traffic background noise] ",
+    "transcript": "[Heavy traffic background noise] I am calling in extreme distress. Three hours ago, at around 10:30 AM, I got an automated call saying a FedEx parcel addressed to Taiwan under my Aadhaar number was intercepted at Mumbai International Airport containing 5 expired passports and 150 grams of MDMA drugs. They transferred my call to a person claiming to be Inspector Sandeep Kumar of Mumbai Crime Branch who appeared on Skype in full police uniform. He placed me under so-called 'digital arrest' and threatened that the Enforcement Directorate would seize my assets unless I transferred all liquid funds for 'RBI judicial verification'. In sheer terror, I RTGS transferred ₹4,50,000 from my ICICI Bank account to their designated 'RBI clearance escrow account' with account number 001928374655 at Yes Bank. They kept me on camera until I transferred. Please freeze this account immediately. I'm completely devastated, this is all my mother's medical fund.",
+    "expected_entities": {
+      "amount_inr": 450000,
+      "incident_time_relative_mins": 180,
+      "urgency": "HIGH",
+      "payment_method": "netbanking",
+      "victim_bank": "ICICI Bank",
+      "transaction_ids": [],
+      "suspect_account": "001928374655",
+      "claimed_identity": "Inspector Sandeep Kumar (Mumbai Crime Branch / CBI)",
+      "flags": {
+        "money_moved_recently": false,
+        "minor_involved": false,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-057",
+    "canonical_ref": "SCAM-04",
+    "name": "Customs / FedEx / CBI Digital Arrest Scam [Variant 9]",
+    "category": "fraud",
+    "subtype": "digital_arrest",
+    "language": "en",
+    "noise_condition": "[Caller crying/hyperventilating] ",
+    "transcript": "[Caller crying/hyperventilating] I am calling in extreme distress. Three hours ago, at around 10:30 AM, I got an automated call saying a FedEx parcel addressed to Taiwan under my Aadhaar number was intercepted at Mumbai International Airport containing 5 expired passports and 150 grams of MDMA drugs. They transferred my call to a person claiming to be Inspector Sandeep Kumar of Mumbai Crime Branch who appeared on Skype in full police uniform. He placed me under so-called 'digital arrest' and threatened that the Enforcement Directorate would seize my assets unless I transferred all liquid funds for 'RBI judicial verification'. In sheer terror, I RTGS transferred ₹4,50,000 from my ICICI Bank account to their designated 'RBI clearance escrow account' with account number 001928374655 at Yes Bank. They kept me on camera until I transferred. Please freeze this account immediately.",
+    "expected_entities": {
+      "amount_inr": 450000,
+      "incident_time_relative_mins": 180,
+      "urgency": "HIGH",
+      "payment_method": "netbanking",
+      "victim_bank": "ICICI Bank",
+      "transaction_ids": [],
+      "suspect_account": "001928374655",
+      "claimed_identity": "Inspector Sandeep Kumar (Mumbai Crime Branch / CBI)",
+      "flags": {
+        "money_moved_recently": false,
+        "minor_involved": false,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-058",
+    "canonical_ref": "SCAM-04",
+    "name": "Customs / FedEx / CBI Digital Arrest Scam [Variant 10]",
+    "category": "fraud",
+    "subtype": "digital_arrest",
+    "language": "en",
+    "noise_condition": "[Caller crying/hyperventilating] ",
+    "transcript": "[Caller crying/hyperventilating] I am calling in extreme distress. Three hours ago, at around 10:30 AM, I got an automated call saying a FedEx parcel addressed to Taiwan under my Aadhaar number was intercepted at Mumbai International Airport containing 5 expired passports and 150 grams of MDMA drugs. They transferred my call to a person claiming to be Inspector Sandeep Kumar of Mumbai Crime Branch who appeared on Skype in full police uniform. He placed me under so-called 'digital arrest' and threatened that the Enforcement Directorate would seize my assets unless I transferred all liquid funds for 'RBI judicial verification'. In sheer terror, I RTGS transferred ₹4,50,000 from my ICICI Bank account to their designated 'RBI clearance escrow account' with account number 001928374655 at Yes Bank. They kept me on camera until I transferred. Please freeze this account immediately. अरे देवा, मी बरबाद झालो साहेब!",
+    "expected_entities": {
+      "amount_inr": 450000,
+      "incident_time_relative_mins": 180,
+      "urgency": "HIGH",
+      "payment_method": "netbanking",
+      "victim_bank": "ICICI Bank",
+      "transaction_ids": [],
+      "suspect_account": "001928374655",
+      "claimed_identity": "Inspector Sandeep Kumar (Mumbai Crime Branch / CBI)",
+      "flags": {
+        "money_moved_recently": false,
+        "minor_involved": false,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-059",
+    "canonical_ref": "SCAM-04",
+    "name": "Customs / FedEx / CBI Digital Arrest Scam [Variant 11]",
+    "category": "fraud",
+    "subtype": "digital_arrest",
+    "language": "en",
+    "noise_condition": "[Caller crying/hyperventilating] ",
+    "transcript": "[Caller crying/hyperventilating] I am calling in extreme distress. Three hours ago, at around 10:30 AM, I got an automated call saying a FedEx parcel addressed to Taiwan under my Aadhaar number was intercepted at Mumbai International Airport containing 5 expired passports and 150 grams of MDMA drugs. They transferred my call to a person claiming to be Inspector Sandeep Kumar of Mumbai Crime Branch who appeared on Skype in full police uniform. He placed me under so-called 'digital arrest' and threatened that the Enforcement Directorate would seize my assets unless I transferred all liquid funds for 'RBI judicial verification'. In sheer terror, I RTGS transferred ₹4,50,000 from my ICICI Bank account to their designated 'RBI clearance escrow account' with account number 001928374655 at Yes Bank. They kept me on camera until I transferred. Please freeze this account immediately. Meri poori jama punji chali gayi bhai, bacha lo please.",
+    "expected_entities": {
+      "amount_inr": 450000,
+      "incident_time_relative_mins": 180,
+      "urgency": "HIGH",
+      "payment_method": "netbanking",
+      "victim_bank": "ICICI Bank",
+      "transaction_ids": [],
+      "suspect_account": "001928374655",
+      "claimed_identity": "Inspector Sandeep Kumar (Mumbai Crime Branch / CBI)",
+      "flags": {
+        "money_moved_recently": false,
+        "minor_involved": false,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-060",
+    "canonical_ref": "SCAM-04",
+    "name": "Customs / FedEx / CBI Digital Arrest Scam [Variant 12]",
+    "category": "fraud",
+    "subtype": "digital_arrest",
+    "language": "en",
+    "noise_condition": "[Caller crying/hyperventilating] ",
+    "transcript": "[Caller crying/hyperventilating] I am calling in extreme distress. Three hours ago, at around 10:30 AM, I got an automated call saying a FedEx parcel addressed to Taiwan under my Aadhaar number was intercepted at Mumbai International Airport containing 5 expired passports and 150 grams of MDMA drugs. They transferred my call to a person claiming to be Inspector Sandeep Kumar of Mumbai Crime Branch who appeared on Skype in full police uniform. He placed me under so-called 'digital arrest' and threatened that the Enforcement Directorate would seize my assets unless I transferred all liquid funds for 'RBI judicial verification'. In sheer terror, I RTGS transferred ₹4,50,000 from my ICICI Bank account to their designated 'RBI clearance escrow account' with account number 001928374655 at Yes Bank. They kept me on camera until I transferred. Please freeze this account immediately. I'm completely devastated, this is all my mother's medical fund. I am just a 16 year old high school boy.",
+    "expected_entities": {
+      "amount_inr": 450000,
+      "incident_time_relative_mins": 180,
+      "urgency": "HIGH",
+      "payment_method": "netbanking",
+      "victim_bank": "ICICI Bank",
+      "transaction_ids": [],
+      "suspect_account": "001928374655",
+      "claimed_identity": "Inspector Sandeep Kumar (Mumbai Crime Branch / CBI)",
+      "flags": {
+        "money_moved_recently": false,
+        "minor_involved": true,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-061",
+    "canonical_ref": "SCAM-04",
+    "name": "Customs / FedEx / CBI Digital Arrest Scam [Variant 13]",
+    "category": "fraud",
+    "subtype": "digital_arrest",
+    "language": "en",
+    "noise_condition": "[Call drops momentarily] ",
+    "transcript": "[Call drops momentarily] I am calling in extreme distress. Three hours ago, at around 10:30 AM, I got an automated call saying a FedEx parcel addressed to Taiwan under my Aadhaar number was intercepted at Mumbai International Airport containing 5 expired passports and 150 grams of MDMA drugs. They transferred my call to a person claiming to be Inspector Sandeep Kumar of Mumbai Crime Branch who appeared on Skype in full police uniform. He placed me under so-called 'digital arrest' and threatened that the Enforcement Directorate would seize my assets unless I transferred all liquid funds for 'RBI judicial verification'. In sheer terror, I RTGS transferred ₹4,50,000 from my ICICI Bank account to their designated 'RBI clearance escrow account' with account number 001928374655 at Yes Bank. They kept me on camera until I transferred. Please freeze this account immediately.",
+    "expected_entities": {
+      "amount_inr": 450000,
+      "incident_time_relative_mins": 180,
+      "urgency": "HIGH",
+      "payment_method": "netbanking",
+      "victim_bank": "ICICI Bank",
+      "transaction_ids": [],
+      "suspect_account": "001928374655",
+      "claimed_identity": "Inspector Sandeep Kumar (Mumbai Crime Branch / CBI)",
+      "flags": {
+        "money_moved_recently": false,
+        "minor_involved": false,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-062",
+    "canonical_ref": "SCAM-04",
+    "name": "Customs / FedEx / CBI Digital Arrest Scam [Variant 14]",
+    "category": "fraud",
+    "subtype": "digital_arrest",
+    "language": "en",
+    "noise_condition": "[Call drops momentarily] ",
+    "transcript": "[Call drops momentarily] I am calling in extreme distress. Three hours ago, at around 10:30 AM, I got an automated call saying a FedEx parcel addressed to Taiwan under my Aadhaar number was intercepted at Mumbai International Airport containing 5 expired passports and 150 grams of MDMA drugs. They transferred my call to a person claiming to be Inspector Sandeep Kumar of Mumbai Crime Branch who appeared on Skype in full police uniform. He placed me under so-called 'digital arrest' and threatened that the Enforcement Directorate would seize my assets unless I transferred all liquid funds for 'RBI judicial verification'. In sheer terror, I RTGS transferred ₹4,50,000 from my ICICI Bank account to their designated 'RBI clearance escrow account' with account number 001928374655 at Yes Bank. They kept me on camera until I transferred. Please freeze this account immediately. अरे देवा, मी बरबाद झालो साहेब!",
+    "expected_entities": {
+      "amount_inr": 450000,
+      "incident_time_relative_mins": 180,
+      "urgency": "HIGH",
+      "payment_method": "netbanking",
+      "victim_bank": "ICICI Bank",
+      "transaction_ids": [],
+      "suspect_account": "001928374655",
+      "claimed_identity": "Inspector Sandeep Kumar (Mumbai Crime Branch / CBI)",
+      "flags": {
+        "money_moved_recently": false,
+        "minor_involved": false,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-063",
+    "canonical_ref": "SCAM-04",
+    "name": "Customs / FedEx / CBI Digital Arrest Scam [Variant 15]",
+    "category": "fraud",
+    "subtype": "digital_arrest",
+    "language": "en",
+    "noise_condition": "[Call drops momentarily] ",
+    "transcript": "[Call drops momentarily] I am calling in extreme distress. Three hours ago, at around 10:30 AM, I got an automated call saying a FedEx parcel addressed to Taiwan under my Aadhaar number was intercepted at Mumbai International Airport containing 5 expired passports and 150 grams of MDMA drugs. They transferred my call to a person claiming to be Inspector Sandeep Kumar of Mumbai Crime Branch who appeared on Skype in full police uniform. He placed me under so-called 'digital arrest' and threatened that the Enforcement Directorate would seize my assets unless I transferred all liquid funds for 'RBI judicial verification'. In sheer terror, I RTGS transferred ₹4,50,000 from my ICICI Bank account to their designated 'RBI clearance escrow account' with account number 001928374655 at Yes Bank. They kept me on camera until I transferred. Please freeze this account immediately. Meri poori jama punji chali gayi bhai, bacha lo please.",
+    "expected_entities": {
+      "amount_inr": 450000,
+      "incident_time_relative_mins": 180,
+      "urgency": "HIGH",
+      "payment_method": "netbanking",
+      "victim_bank": "ICICI Bank",
+      "transaction_ids": [],
+      "suspect_account": "001928374655",
+      "claimed_identity": "Inspector Sandeep Kumar (Mumbai Crime Branch / CBI)",
+      "flags": {
+        "money_moved_recently": false,
+        "minor_involved": false,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  },
+  {
+    "eval_id": "EVAL-064",
+    "canonical_ref": "SCAM-04",
+    "name": "Customs / FedEx / CBI Digital Arrest Scam [Variant 16]",
+    "category": "fraud",
+    "subtype": "digital_arrest",
+    "language": "en",
+    "noise_condition": "[Call drops momentarily] ",
+    "transcript": "[Call drops momentarily] I am calling in extreme distress. Three hours ago, at around 10:30 AM, I got an automated call saying a FedEx parcel addressed to Taiwan under my Aadhaar number was intercepted at Mumbai International Airport containing 5 expired passports and 150 grams of MDMA drugs. They transferred my call to a person claiming to be Inspector Sandeep Kumar of Mumbai Crime Branch who appeared on Skype in full police uniform. He placed me under so-called 'digital arrest' and threatened that the Enforcement Directorate would seize my assets unless I transferred all liquid funds for 'RBI judicial verification'. In sheer terror, I RTGS transferred ₹4,50,000 from my ICICI Bank account to their designated 'RBI clearance escrow account' with account number 001928374655 at Yes Bank. They kept me on camera until I transferred. Please freeze this account immediately. I'm completely devastated, this is all my mother's medical fund.",
+    "expected_entities": {
+      "amount_inr": 450000,
+      "incident_time_relative_mins": 180,
+      "urgency": "HIGH",
+      "payment_method": "netbanking",
+      "victim_bank": "ICICI Bank",
+      "transaction_ids": [],
+      "suspect_account": "001928374655",
+      "claimed_identity": "Inspector Sandeep Kumar (Mumbai Crime Branch / CBI)",
+      "flags": {
+        "money_moved_recently": false,
+        "minor_involved": false,
+        "self_harm_risk": false,
+        "intimate_images_involved": false
+      }
+    }
+  }
+]
