@@ -35,7 +35,7 @@
       </div>
     </div>
 
-    <!-- Right Controls -->
+    <!-- Navigation Tabs -->
     <div class="flex items-center space-x-4">
       <div class="flex bg-slate-800 p-1 rounded-lg border border-slate-700 text-xs">
         <button id="tab-operator-btn" onclick="switchMainView('operator')" class="px-3 py-1 rounded font-medium bg-blue-700 text-white transition">
@@ -46,6 +46,9 @@
         </button>
         <button id="tab-intel-btn" onclick="switchMainView('intel')" class="px-3 py-1 rounded font-medium text-slate-300 hover:text-white transition">
           <i class="fa-solid fa-network-wired text-purple-400 mr-1.5"></i> Crime Intelligence
+        </button>
+        <button id="tab-audit-btn" onclick="switchMainView('audit')" class="px-3 py-1 rounded font-medium text-slate-300 hover:text-white transition">
+          <i class="fa-solid fa-link text-emerald-400 mr-1.5"></i> Audit Ledger
         </button>
       </div>
 
@@ -96,7 +99,7 @@
                 <th class="px-3.5 py-2.5">Priority / Ref</th>
                 <th class="px-3 py-2.5">Category & Subtype</th>
                 <th class="px-3 py-2.5">Loss Amount</th>
-                <th class="px-3 py-2.5">Suspect / Info</th>
+                <th class="px-3 py-2.5">Reported</th>
                 <th class="px-3 py-2.5">Status</th>
                 <th class="px-3 py-2.5 text-right">Action</th>
               </tr>
@@ -118,10 +121,10 @@
     </div>
 
     <!-- VIEW 2: CITIZEN WHATSAPP SIMULATOR -->
-    <div id="view-simulator" class="hidden flex-1 flex items-center justify-center bg-slate-950 p-6">
+    <div id="view-simulator" class="hidden flex-1 flex items-center justify-center bg-slate-950 p-4">
       <!-- Simulated Phone Container -->
-      <div class="w-[420px] h-[720px] bg-slate-900 rounded-[38px] shadow-2xl border-4 border-slate-700 flex flex-col overflow-hidden relative">
-        <!-- Phone Speaker Notch -->
+      <div class="w-[430px] h-[740px] bg-slate-900 rounded-[38px] shadow-2xl border-4 border-slate-700 flex flex-col overflow-hidden relative">
+        <!-- Phone Top Header -->
         <div class="w-full bg-[#075E54] pt-3 pb-2 px-4 flex items-center justify-between text-white shrink-0 shadow">
           <div class="flex items-center space-x-3">
             <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center font-bold text-sm">
@@ -142,16 +145,32 @@
           </div>
         </div>
 
+        <!-- Global Quick Commands Bar -->
+        <div class="bg-slate-800/90 px-3 py-1.5 border-b border-slate-700 flex items-center justify-between text-[11px] shrink-0">
+          <button onclick="sendSimPayload(null, 'cmd_menu')" class="text-slate-300 hover:text-white font-medium">
+            <i class="fa-solid fa-house mr-1 text-blue-400"></i> Menu
+          </button>
+          <button onclick="sendSimPayload(null, 'cmd_lang')" class="text-slate-300 hover:text-white font-medium">
+            <i class="fa-solid fa-language mr-1 text-amber-400"></i> Language
+          </button>
+          <button onclick="sendSimPayload(null, 'cmd_help')" class="text-slate-300 hover:text-white font-medium">
+            <i class="fa-solid fa-circle-info mr-1 text-emerald-400"></i> Help
+          </button>
+          <button onclick="sendSimPayload('delete my data', null)" class="text-red-400 hover:text-red-300 font-medium">
+            <i class="fa-solid fa-trash mr-1"></i> Erase
+          </button>
+        </div>
+
         <!-- Chat Transcript Area -->
         <div id="chat-messages" class="flex-1 whatsapp-bg overflow-y-auto p-3 space-y-2.5 scrollbar-thin flex flex-col">
           <!-- Live messages inserted here -->
         </div>
 
         <!-- Interactive Voice Simulation Bar -->
-        <div class="bg-slate-800 p-2 border-t border-slate-700 shrink-0">
+        <div class="bg-slate-800 p-2.5 border-t border-slate-700 shrink-0">
           <div class="text-[10px] font-semibold text-slate-400 uppercase tracking-wider mb-1.5 flex justify-between">
             <span>Voice / Demo Presets</span>
-            <span class="text-amber-400">Microphone Ready</span>
+            <span class="text-emerald-400"><i class="fa-solid fa-circle text-[8px] animate-pulse mr-1"></i> Ready</span>
           </div>
           <div class="grid grid-cols-2 gap-1.5 text-xs mb-2">
             <button onclick="sendPresetClip('msedcl')" class="bg-slate-700 hover:bg-slate-600 text-slate-200 text-left px-2 py-1.5 rounded truncate border border-slate-600">
@@ -170,7 +189,7 @@
 
           <!-- Bottom Text / Mic input -->
           <div class="flex items-center space-x-2">
-            <input type="text" id="sim-input-text" placeholder="Type message in Marathi, Hindi, English..." class="flex-1 bg-slate-900 border border-slate-700 rounded-full px-3.5 py-1.5 text-xs text-white focus:outline-none focus:border-emerald-500" onkeydown="if(event.key==='Enter') sendSimText()">
+            <input type="text" id="sim-input-text" placeholder="Type in Marathi, Hindi, English..." class="flex-1 bg-slate-900 border border-slate-700 rounded-full px-3.5 py-1.5 text-xs text-white focus:outline-none focus:border-emerald-500" onkeydown="if(event.key==='Enter') sendSimText()">
             <button onclick="simulateVoiceRecord()" class="w-8 h-8 rounded-full bg-emerald-600 hover:bg-emerald-500 flex items-center justify-center text-white text-xs shadow" title="Record Voice Note">
               <i class="fa-solid fa-microphone"></i>
             </button>
@@ -210,6 +229,41 @@
       </div>
     </div>
 
+    <!-- VIEW 4: AUDIT LEDGER -->
+    <div id="view-audit" class="hidden flex-1 flex flex-col bg-slate-900 p-6 overflow-y-auto scrollbar-thin space-y-5">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+        <div>
+          <h2 class="text-lg font-bold text-white">Cryptographically Tamper-Evident Audit Ledger</h2>
+          <p class="text-xs text-slate-400">Immutable SHA-256 hash chaining of all operator actions, handoffs, and DPDP consent modifications.</p>
+        </div>
+        <div class="flex items-center space-x-3">
+          <button onclick="runRetentionPurge()" class="px-3 py-1.5 bg-red-900/60 hover:bg-red-800 border border-red-500/50 text-red-200 rounded text-xs font-semibold">
+            <i class="fa-solid fa-trash-can mr-1.5"></i> Run DPDP Retention Purge
+          </button>
+          <button onclick="loadAuditLogs()" class="px-3.5 py-1.5 bg-blue-600 hover:bg-blue-500 text-white rounded text-xs font-semibold shadow">
+            <i class="fa-solid fa-rotate-right mr-1.5"></i> Refresh Audit Trail
+          </button>
+        </div>
+      </div>
+
+      <div class="bg-slate-950 border border-slate-800 rounded-xl overflow-hidden shadow">
+        <table class="w-full text-left text-xs text-slate-300">
+          <thead class="bg-slate-800/80 uppercase text-[10px] text-slate-400 border-b border-slate-700">
+            <tr>
+              <th class="px-4 py-3">Timestamp / Actor</th>
+              <th class="px-4 py-3">Action</th>
+              <th class="px-4 py-3">Entity / Details</th>
+              <th class="px-4 py-3 font-mono">Previous Block Hash</th>
+              <th class="px-4 py-3 font-mono">Current Block Hash</th>
+            </tr>
+          </thead>
+          <tbody id="audit-tbody" class="divide-y divide-slate-800/80 font-normal">
+            <!-- Dynamically populated -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
   </main>
 
   <!-- JAVASCRIPT LOGIC -->
@@ -221,21 +275,21 @@
       document.getElementById('view-operator').classList.toggle('hidden', view !== 'operator');
       document.getElementById('view-simulator').classList.toggle('hidden', view !== 'simulator');
       document.getElementById('view-intel').classList.toggle('hidden', view !== 'intel');
+      document.getElementById('view-audit').classList.toggle('hidden', view !== 'audit');
 
-      document.getElementById('tab-operator-btn').className = view === 'operator' 
-        ? "px-3 py-1 rounded font-medium bg-blue-700 text-white transition"
-        : "px-3 py-1 rounded font-medium text-slate-300 hover:text-white transition";
-
-      document.getElementById('tab-simulator-btn').className = view === 'simulator' 
-        ? "px-3 py-1 rounded font-medium bg-emerald-700 text-white transition"
-        : "px-3 py-1 rounded font-medium text-slate-300 hover:text-white transition";
-
-      document.getElementById('tab-intel-btn').className = view === 'intel' 
-        ? "px-3 py-1 rounded font-medium bg-purple-700 text-white transition"
-        : "px-3 py-1 rounded font-medium text-slate-300 hover:text-white transition";
+      const tabs = ['operator', 'simulator', 'intel', 'audit'];
+      tabs.forEach(t => {
+        const btn = document.getElementById(`tab-${t}-btn`);
+        if (btn) {
+          btn.className = (t === view)
+            ? "px-3 py-1 rounded font-medium bg-blue-700 text-white transition"
+            : "px-3 py-1 rounded font-medium text-slate-300 hover:text-white transition";
+        }
+      });
 
       if (view === 'operator') loadCases();
       if (view === 'intel') loadIntel();
+      if (view === 'audit') loadAuditLogs();
     }
 
     async function loadCases() {
@@ -325,7 +379,6 @@
       const inspector = document.getElementById('case-inspector');
       const details = c.details || {};
       const amt = c.amount_inr > 0 ? '₹' + c.amount_inr.toLocaleString('en-IN') : 'Nil / Threat Demanded';
-      const utrs = (details.transaction_ids || []).join(', ') || 'Pending Bank Statement';
       const victimBank = details.victim_bank || 'Citizen Account';
 
       let suspectListHtml = '';
@@ -348,16 +401,26 @@
         `;
       });
 
+      let evidenceHtml = '';
+      (c.evidence || []).forEach(e => {
+        evidenceHtml += `
+          <div class="flex items-center justify-between bg-slate-900 p-2 rounded border border-slate-800 text-xs">
+            <span class="text-slate-300 font-mono truncate">${e.object_key}</span>
+            <span class="text-[10px] text-emerald-400 font-mono">SHA256: ${e.sha256.substring(0, 8)}...</span>
+          </div>
+        `;
+      });
+
       inspector.innerHTML = `
         <!-- Header Banner -->
-        <div class="border-b border-slate-800 pb-4">
-          <div class="flex items-center justify-between mb-2">
+        <div class="border-b border-slate-800 pb-3 flex items-center justify-between">
+          <div>
             <span class="font-mono font-bold text-sm text-white">${c.ref_no}</span>
-            <span class="text-xs font-bold px-2 py-0.5 rounded ${c.urgency === 'CRITICAL' ? 'bg-red-500/20 text-red-300 border border-red-500/40' : 'bg-slate-800 text-slate-300'}">
-              ${c.urgency} PRIORITY
-            </span>
+            <div class="text-xs text-slate-400 capitalize mt-0.5">Subtype: <span class="text-slate-200 font-semibold">${c.subtype.replace(/_/g, ' ')}</span></div>
           </div>
-          <div class="text-xs text-slate-400 capitalize">Subtype: <span class="text-slate-200 font-semibold">${c.subtype.replace(/_/g, ' ')}</span></div>
+          <span class="text-xs font-bold px-2 py-0.5 rounded ${c.urgency === 'CRITICAL' ? 'bg-red-500/20 text-red-300 border border-red-500/40' : 'bg-slate-800 text-slate-300'}">
+            ${c.urgency} PRIORITY
+          </span>
         </div>
 
         <!-- Quick Action Bar -->
@@ -368,7 +431,7 @@
           </div>
           <div class="flex space-x-2">
             <button onclick="dispatchHandoff('${c.id}')" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-500 text-white rounded text-xs font-bold shadow">
-              <i class="fa-solid fa-paper-plane mr-1"></i> Dispatch to 1930
+              <i class="fa-solid fa-paper-plane mr-1"></i> Dispatch 1930
             </button>
             <a href="/cases/${c.id}/summary.pdf" target="_blank" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded text-xs font-bold border border-slate-700">
               <i class="fa-solid fa-file-pdf mr-1 text-red-400"></i> PDF
@@ -376,15 +439,23 @@
           </div>
         </div>
 
-        <!-- Metric Details -->
-        <div class="grid grid-cols-2 gap-3">
-          <div class="bg-slate-900 p-3 rounded border border-slate-800">
-            <div class="text-[10px] text-slate-400 uppercase font-semibold">Disputed Amount</div>
-            <div class="text-base font-bold text-amber-400 mt-1">${amt}</div>
+        <!-- Metric Details & Verification Editor -->
+        <div class="bg-slate-900 p-3 rounded border border-slate-800 space-y-2">
+          <div class="flex justify-between items-center text-[10px] text-slate-400 uppercase font-semibold">
+            <span>Verified Financial Metrics</span>
+            <button onclick="promptEditCase('${c.id}', ${c.amount_inr}, '${victimBank}')" class="text-blue-400 hover:text-blue-300 lowercase font-medium">
+              <i class="fa-solid fa-pen-to-square mr-1"></i> edit
+            </button>
           </div>
-          <div class="bg-slate-900 p-3 rounded border border-slate-800">
-            <div class="text-[10px] text-slate-400 uppercase font-semibold">Victim Bank</div>
-            <div class="text-sm font-semibold text-slate-200 mt-1">${victimBank}</div>
+          <div class="grid grid-cols-2 gap-3 text-xs">
+            <div>
+              <div class="text-slate-400 text-[10px]">Loss Amount</div>
+              <div class="text-base font-bold text-amber-400 mt-0.5">${amt}</div>
+            </div>
+            <div>
+              <div class="text-slate-400 text-[10px]">Victim Bank</div>
+              <div class="text-sm font-semibold text-slate-200 mt-0.5">${victimBank}</div>
+            </div>
           </div>
         </div>
 
@@ -405,6 +476,19 @@
           <p class="text-xs text-slate-200 leading-relaxed">${details.narrative_local || details.narrative_en || 'No narrative.'}</p>
           <div class="pt-2 border-t border-slate-800/80 text-[11px] text-slate-400">
             <span class="font-semibold text-slate-300">English Relay:</span> ${details.narrative_en || 'N/A'}
+          </div>
+        </div>
+
+        <!-- Evidence Vault -->
+        <div>
+          <div class="flex items-center justify-between text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2">
+            <span>Evidence Vault</span>
+            <button onclick="attachSampleEvidence('${c.id}')" class="text-[10px] text-blue-400 hover:text-blue-300 lowercase font-medium">
+              <i class="fa-solid fa-plus mr-1"></i> add file
+            </button>
+          </div>
+          <div class="space-y-1.5">
+            ${evidenceHtml || '<div class="text-xs text-slate-500">No external evidence attached yet.</div>'}
           </div>
         </div>
 
@@ -432,6 +516,42 @@
           </div>
         </div>
       `;
+    }
+
+    async function promptEditCase(caseId, currentAmt, currentBank) {
+      const newAmtStr = prompt("Enter updated Loss Amount (INR):", currentAmt);
+      if (newAmtStr === null) return;
+      const newBank = prompt("Enter updated Victim Bank:", currentBank);
+      if (newBank === null) return;
+
+      const newAmt = parseFloat(newAmtStr) || currentAmt;
+      try {
+        await fetch(`/cases/${caseId}`, {
+          method: 'PATCH',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({amount_inr: newAmt, victim_bank: newBank, note: "Verified by Desk Officer"})
+        });
+        loadCases();
+        selectCase(caseId);
+      } catch (err) {
+        alert("Failed to update case.");
+      }
+    }
+
+    async function attachSampleEvidence(caseId) {
+      const fn = prompt("Enter filename of evidence to attach (e.g. gpay_receipt.png):", "bank_statement.pdf");
+      if (!fn) return;
+
+      try {
+        await fetch(`/cases/${caseId}/evidence`, {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({filename: fn, kind: "screenshot", size_bytes: 204800})
+        });
+        selectCase(caseId);
+      } catch (err) {
+        alert("Failed to upload evidence.");
+      }
     }
 
     async function dispatchHandoff(caseId) {
@@ -543,7 +663,6 @@
 
         container.scrollTop = container.scrollHeight;
 
-        // If a new case was created, refresh operator table
         if (data.case_ref) {
           loadCases();
         }
@@ -612,13 +731,67 @@ ${(repData.operational_recommendations || []).map((r, i) => `${i+1}. ${r}`).join
       }
     }
 
+    // AUDIT LOGS LOGIC
+    async function loadAuditLogs() {
+      const tbody = document.getElementById('audit-tbody');
+      tbody.innerHTML = '<tr><td colspan="5" class="px-4 py-8 text-center text-slate-500">Loading tamper-evident ledger...</td></tr>';
+
+      try {
+        const res = await fetch('/admin/audit');
+        const data = await res.json();
+        tbody.innerHTML = '';
+
+        if (!data || data.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="5" class="px-4 py-8 text-center text-slate-500">No audit events found.</td></tr>';
+          return;
+        }
+
+        data.forEach(log => {
+          const tr = document.createElement('tr');
+          tr.className = "hover:bg-slate-800/40 border-b border-slate-800/60 text-xs";
+          tr.innerHTML = `
+            <td class="px-4 py-3">
+              <div class="font-medium text-slate-200">${new Date(log.at).toLocaleString()}</div>
+              <div class="text-[10px] text-slate-500 uppercase">${log.actor_type}: ${log.actor_id || 'sys'}</div>
+            </td>
+            <td class="px-4 py-3 font-semibold text-blue-400">
+              ${log.action}
+            </td>
+            <td class="px-4 py-3">
+              <div class="text-slate-300">${log.entity}</div>
+              <div class="text-[10px] text-slate-500 font-mono truncate max-w-xs">${JSON.stringify(log.details)}</div>
+            </td>
+            <td class="px-4 py-3 font-mono text-[10px] text-slate-400">
+              ${log.prev_hash.substring(0, 16)}...
+            </td>
+            <td class="px-4 py-3 font-mono text-[10px] text-emerald-400">
+              ${log.hash.substring(0, 16)}...
+            </td>
+          `;
+          tbody.appendChild(tr);
+        });
+      } catch (err) {
+        tbody.innerHTML = '<tr><td colspan="5" class="px-4 py-8 text-center text-red-400">Failed to load audit logs.</td></tr>';
+      }
+    }
+
+    async function runRetentionPurge() {
+      if (!confirm("Are you sure you want to trigger the DPDP Retention Purge job now?")) return;
+      try {
+        const res = await fetch('/admin/retention/run', {method: 'POST'});
+        const data = await res.json();
+        alert(`DPDP PURGE SUCCESSFUL!\nPurged Messages: ${data.purged_messages_count}\nExecuted At: ${data.executed_at}`);
+        loadAuditLogs();
+      } catch (err) {
+        alert("Failed to execute retention purge.");
+      }
+    }
+
     // Auto-init on load
     window.onload = () => {
       loadCases();
-      // Initialize simulator with first prompt
       sendSimPayload(null, null);
     };
   </script>
 </body>
 </html>
-

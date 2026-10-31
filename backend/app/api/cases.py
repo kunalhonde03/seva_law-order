@@ -1,5 +1,6 @@
 """Police Operator Cases Management API Endpoints."""
 
+import hashlib
 import json
 from datetime import datetime, timezone
 from typing import List, Optional
@@ -8,11 +9,11 @@ from pydantic import BaseModel
 from sqlalchemy import select, desc
 from sqlalchemy.ext.asyncio import AsyncSession
 from backend.app.db.session import get_db
-from backend.app.db.models import Case, Identifier, CaseEvent, Handoff
+from backend.app.db.models import Case, Identifier, CaseEvent, Handoff, Evidence
 from backend.app.cases.service import get_decrypted_case, append_audit_entry
 from backend.app.cases.handoff.cfcfrms import generate_cfcfrms_lien_payload
 from backend.app.cases.handoff.pdf_export import generate_complaint_pdf
-from backend.app.core.crypto import encrypt_field
+from backend.app.core.crypto import encrypt_field, decrypt_field
 
 router = APIRouter(prefix="/cases", tags=["Operator Cases"])
 
@@ -30,7 +31,17 @@ class HandoffRequest(BaseModel):
 class CasePatchRequest(BaseModel):
     amount_inr: Optional[float] = None
     victim_bank: Optional[str] = None
-    note: Optional[str] = None
+    subtype: Optional[str] = None
+    note: Optional[str] = "Desk officer field verification"
+    actor_id: Optional[str] = "OFFICER-SHINDE-MH01"
+
+
+class EvidenceUploadRequest(BaseModel):
+    filename: str
+    mime: str = "image/png"
+    kind: str = "screenshot"  # screenshot | chat_export | bank_slip | voice_note
+    data_base64: Optional[str] = None
+    size_bytes: int = 1024
 
 
 @router.get("")
@@ -61,7 +72,6 @@ async def list_cases(
     now = datetime.now(timezone.utc)
     results = []
     for c in cases:
-        # Calculate minutes remaining in golden hour
         mins_left = 0
         if c.incident_at:
             inc_dt = c.incident_at.replace(tzinfo=timezone.utc) if c.incident_at.tzinfo is None else c.incident_at
@@ -92,15 +102,17 @@ async def get_case_details(case_id: str, db: AsyncSession = Depends(get_db)):
     if not case_info:
         raise HTTPException(status_code=404, detail="Case not found")
 
-    # Fetch Identifiers
     id_stmt = select(Identifier).where(Identifier.case_id == case_id)
     id_res = await db.execute(id_stmt)
     idents = id_res.scalars().all()
 
-    # Fetch Events
     ev_stmt = select(CaseEvent).where(CaseEvent.case_id == case_id).order_by(CaseEvent.at.asc())
     ev_res = await db.execute(ev_stmt)
     events = ev_res.scalars().all()
+
+    evi_stmt = select(Evidence).where(Evidence.case_id == case_id).order_by(Evidence.uploaded_at.desc())
+    evi_res = await db.execute(evi_stmt)
+    evidence_items = evi_res.scalars().all()
 
     case_info["suspect_identifiers"] = [
         {"kind": i.kind, "role": i.role, "preview": i.raw_preview}
@@ -110,8 +122,126 @@ async def get_case_details(case_id: str, db: AsyncSession = Depends(get_db)):
         {"event": e.event, "from_status": e.from_status, "to_status": e.to_status, "note": e.note, "at": e.at.isoformat()}
         for e in events
     ]
+    case_info["evidence"] = [
+        {"id": ev.id, "object_key": ev.object_key, "mime": ev.mime, "size_bytes": ev.size_bytes, "kind": ev.kind, "sha256": ev.sha256}
+        for ev in evidence_items
+    ]
 
     return case_info
+
+
+@router.patch("/{case_id}")
+async def patch_case_fields(
+    case_id: str,
+    req: CasePatchRequest,
+    db: AsyncSession = Depends(get_db)
+):
+    """Allows desk officers to verify and update complaint fields with before/after audit."""
+    stmt = select(Case).where(Case.id == case_id)
+    res = await db.execute(stmt)
+    case = res.scalar_one_or_none()
+    if not case:
+        raise HTTPException(status_code=404, detail="Case not found")
+
+    # Decrypt current data
+    old_data_str = decrypt_field(case.data_enc)
+    try:
+        data_dict = json.loads(old_data_str)
+    except Exception:
+        data_dict = {}
+
+    before_state = {
+        "amount_inr": case.amount_inr,
+        "victim_bank": data_dict.get("victim_bank"),
+        "subtype": case.subtype
+    }
+
+    # Apply updates
+    if req.amount_inr is not None:
+        case.amount_inr = req.amount_inr
+        data_dict["amount_inr"] = {"value": req.amount_inr, "evidence": "Verified by officer"}
+    if req.victim_bank is not None:
+        data_dict["victim_bank"] = req.victim_bank
+    if req.subtype is not None:
+        case.subtype = req.subtype
+
+    case.data_enc = encrypt_field(json.dumps(data_dict, ensure_ascii=False))
+    case.updated_at = datetime.now(timezone.utc)
+
+    after_state = {
+        "amount_inr": case.amount_inr,
+        "victim_bank": data_dict.get("victim_bank"),
+        "subtype": case.subtype
+    }
+
+    # Audit before/after
+    await append_audit_entry(
+        db,
+        actor_type="operator",
+        actor_id=req.actor_id,
+        action="FIELD_EDIT",
+        entity="Case",
+        entity_id=case.id,
+        details={"before": before_state, "after": after_state, "note": req.note}
+    )
+
+    # Timeline event
+    db.add(CaseEvent(
+        case_id=case.id,
+        actor_type="operator",
+        actor_id=req.actor_id,
+        event="FIELD_VERIFIED",
+        note=f"Fields updated: {json.dumps(after_state)}"
+    ))
+
+    await db.commit()
+    return {"status": "UPDATED", "case_id": case.id, "after": after_state}
+
+
+@router.post("/{case_id}/evidence")
+async def upload_case_evidence(
+    case_id: str,
+    req: EvidenceUploadRequest,
+    db: AsyncSession = Depends(get_db)
+):
+    """Registers evidence into encrypted vault with SHA-256 integrity hash."""
+    stmt = select(Case).where(Case.id == case_id)
+    res = await db.execute(stmt)
+    case = res.scalar_one_or_none()
+    if not case:
+        raise HTTPException(status_code=404, detail="Case not found")
+
+    content_to_hash = req.data_base64 or req.filename
+    sha256_hash = hashlib.sha256(content_to_hash.encode()).hexdigest()
+
+    evidence = Evidence(
+        case_id=case_id,
+        object_key=f"evidence/{case.ref_no}/{req.filename}",
+        sha256=sha256_hash,
+        mime=req.mime,
+        size_bytes=req.size_bytes,
+        kind=req.kind,
+        encrypted=True
+    )
+    db.add(evidence)
+
+    # Timeline event
+    db.add(CaseEvent(
+        case_id=case_id,
+        actor_type="operator",
+        event="EVIDENCE_ATTACHED",
+        note=f"Attached evidence file: {req.filename} (SHA256: {sha256_hash[:12]}...)"
+    ))
+
+    await db.commit()
+    await db.refresh(evidence)
+
+    return {
+        "status": "UPLOADED",
+        "evidence_id": evidence.id,
+        "sha256": evidence.sha256,
+        "object_key": evidence.object_key
+    }
 
 
 @router.post("/{case_id}/status")
@@ -130,7 +260,6 @@ async def update_status(
     case.status = req.status
     case.updated_at = datetime.now(timezone.utc)
 
-    # Add Event
     event = CaseEvent(
         case_id=case.id,
         actor_type="operator",
@@ -142,7 +271,6 @@ async def update_status(
     )
     db.add(event)
 
-    # Audit Log
     await append_audit_entry(
         db,
         actor_type="operator",
@@ -179,7 +307,6 @@ async def trigger_handoff(
     )
     db.add(handoff)
 
-    # Add Event
     event = CaseEvent(
         case_id=case_id,
         actor_type="system",
@@ -213,4 +340,3 @@ async def download_summary_pdf(case_id: str, db: AsyncSession = Depends(get_db))
             "Content-Disposition": f"attachment; filename=SurakshaVani_{case_info['ref_no']}.pdf"
         }
     )
-

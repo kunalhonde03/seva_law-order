@@ -118,7 +118,7 @@ async def process_user_input(
 
     current_state = ConvState(conv.state)
 
-    # 1. Global Interruption & Crisis Check
+    # 1. Audio Transcription & Input Normalization
     raw_user_text = text_content or ""
     if audio_bytes:
         asr_result = await _ASR_PROVIDER.transcribe(audio_bytes, audio_filename)
@@ -127,7 +127,65 @@ async def process_user_input(
             lang = asr_result["language"]
             reporter.language = lang
 
-    # Crisis Classifier Check
+    norm_input = raw_user_text.strip().lower()
+
+    # 2. Global Interruption Commands (Section 8.2 of Build Plan)
+    if button_payload == "cmd_menu" or norm_input in ["menu", "main menu", "home"]:
+        conv.state = ConvState.MENU.value
+        await session.commit()
+        return ConversationResponse(
+            messages=[{"type": "text", "body": get_text("menu_title", lang=lang)}],
+            state=conv.state,
+            buttons=[
+                {"id": "menu_fraud", "label": get_text("btn_menu_fraud", lang=lang)},
+                {"id": "menu_extortion", "label": get_text("btn_menu_extortion", lang=lang)},
+                {"id": "menu_nominee", "label": get_text("btn_menu_nominee", lang=lang)},
+                {"id": "menu_status", "label": get_text("btn_menu_status", lang=lang)},
+                {"id": "menu_erase", "label": get_text("btn_menu_erase", lang=lang)}
+            ]
+        )
+
+    if button_payload == "cmd_lang" or norm_input in ["language", "bhasha", "change language"]:
+        conv.state = ConvState.LANG_SELECT.value
+        await session.commit()
+        return ConversationResponse(
+            messages=[{"type": "text", "body": "Please select your preferred language / भाषा निवडा / भाषा चुनें:"}],
+            state=conv.state,
+            buttons=[
+                {"id": "lang_mr", "label": "मराठी (Marathi)"},
+                {"id": "lang_hi", "label": "हिन्दी (Hindi)"},
+                {"id": "lang_en", "label": "English"}
+            ]
+        )
+
+    if button_payload == "cmd_help" or norm_input in ["help", "madat", "sahayata"]:
+        help_msg = (
+            "🆘 SURAKSHAVANI EMERGENCY ASSISTANCE:\n"
+            "• Financial Cyber Fraud (Immediate Bank Freeze): Call 1930\n"
+            "• Physical / Police Emergency: Call 112\n"
+            "• Mental Health & Suicide Prevention (Tele-MANAS): Call 14416 (Toll-Free)\n"
+            "• Childline: Call 1098\n\n"
+            "Type 'menu' to return to options, or 'delete my data' to exercise DPDP erasure."
+        )
+        return ConversationResponse(
+            messages=[{"type": "text", "body": help_msg}],
+            state=conv.state,
+            buttons=[{"id": "cmd_menu", "label": "Main Menu"}]
+        )
+
+    if norm_input in ["delete my data", "delete data", "erase"]:
+        conv.state = ConvState.ERASE_CONFIRM.value
+        await session.commit()
+        return ConversationResponse(
+            messages=[{"type": "text", "body": get_text("erasure_confirm_prompt", lang=lang)}],
+            state=conv.state,
+            buttons=[
+                {"id": "confirm_erase_yes", "label": get_text("btn_confirm_erase", lang=lang)},
+                {"id": "confirm_erase_no", "label": get_text("btn_cancel_erase", lang=lang)}
+            ]
+        )
+
+    # 3. Crisis & Minor Safety Interruption (Section 8.1 of Build Plan)
     crisis = await _LLM_PROVIDER.classify_crisis(raw_user_text)
     if crisis.get("self_harm_risk"):
         conv.state = ConvState.SAFETY_ESCALATE.value
@@ -139,7 +197,25 @@ async def process_user_input(
             buttons=[{"id": "btn_call_14416", "label": "📞 Call Tele-MANAS (14416)"}]
         )
 
-    # 2. State Machine Transitions
+    if crisis.get("minor_involved") and current_state != ConvState.MINOR_ROUTE:
+        conv.state = ConvState.MINOR_ROUTE.value
+        minor_msg = (
+            "🛡️ SPECIAL CHILD & MINOR PROTECTION NOTICE:\n"
+            "We have detected that this report involves a minor under 18 years of age. "
+            "Please rest assured that your identity is protected under POCSO and DPDP guidelines. "
+            "You are NOT at fault. You can talk safely to a counselor:\n"
+            "• National Child Helpline: Call 1098 (24x7, Toll-Free)\n"
+            "• Police Emergency: Call 112\n"
+            "A Maharashtra Cyber specialized juvenile desk officer has been notified to assist you with discretion."
+        )
+        await session.commit()
+        return ConversationResponse(
+            messages=[{"type": "text", "body": minor_msg, "crisis": True}],
+            state=conv.state,
+            buttons=[{"id": "cmd_menu", "label": "Continue to Main Menu"}]
+        )
+
+    # 4. State Machine Transitions
     outbound_msgs: List[Dict[str, Any]] = []
     buttons: List[Dict[str, str]] = []
     case_ref = None
@@ -199,14 +275,15 @@ async def process_user_input(
         elif button_payload == "menu_extortion":
             conv.state = ConvState.EXT_SAFE_INTRO.value
             outbound_msgs.append({"type": "text", "body": get_text("extortion_intro", lang=lang)})
-            outbound_msgs.append({"type": "text", "body": get_text("extortion_evidence_guidance", lang=lang)})
-            buttons = [{"id": "menu_fraud", "label": "Submit Threat Details"}]
+            buttons = [
+                {"id": "btn_ext_start", "label": "🛡️ Proceed Confidentially"},
+                {"id": "cmd_menu", "label": "Return to Menu"}
+            ]
         elif button_payload == "menu_nominee":
             conv.state = ConvState.NOMINEE_SETUP.value
             outbound_msgs.append({"type": "text", "body": get_text("nominee_setup_prompt", lang=lang)})
         elif button_payload == "menu_status":
             conv.state = ConvState.STATUS_LOOKUP.value
-            # Check active cases
             stmt = select(Case).where(Case.reporter_id == reporter.id).order_by(Case.reported_at.desc()).limit(1)
             res = await session.execute(stmt)
             latest_case = res.scalar_one_or_none()
@@ -222,7 +299,7 @@ async def process_user_input(
                 )})
             else:
                 outbound_msgs.append({"type": "text", "body": get_text("status_not_found", lang=lang)})
-            buttons = [{"id": "back_menu", "label": "Main Menu"}]
+            buttons = [{"id": "cmd_menu", "label": "Main Menu"}]
         elif button_payload == "menu_erase":
             conv.state = ConvState.ERASE_CONFIRM.value
             outbound_msgs.append({"type": "text", "body": get_text("erasure_confirm_prompt", lang=lang)})
@@ -231,11 +308,41 @@ async def process_user_input(
                 {"id": "confirm_erase_no", "label": get_text("btn_cancel_erase", lang=lang)}
             ]
 
-    # STATE: FRAUD_PROMPT_VOICE / EXT_SAFE_INTRO -> EXTRACT & READBACK
-    elif current_state in [ConvState.FRAUD_PROMPT_VOICE, ConvState.EXT_SAFE_INTRO, ConvState.CORRECTING]:
-        user_input_to_parse = raw_user_text
-        if not user_input_to_parse:
-            user_input_to_parse = "Report submitted without audio."
+    # STATE: EXTORTION FLOW (EXT_SAFE_INTRO -> EXT_COLLECT -> EXT_EVIDENCE -> EXT_CONFIRM)
+    elif current_state == ConvState.EXT_SAFE_INTRO:
+        if button_payload == "btn_ext_start":
+            conv.state = ConvState.EXT_COLLECT.value
+            outbound_msgs.append({"type": "text", "body": "Please describe what the blackmailer or extortionist is saying or demanding (you can speak via voice note or type below):"})
+            outbound_msgs.append({"type": "text", "body": get_text("extortion_evidence_guidance", lang=lang)})
+        else:
+            conv.state = ConvState.MENU.value
+            outbound_msgs.append({"type": "text", "body": "Returning to main menu."})
+            buttons = [{"id": "cmd_menu", "label": "Main Menu"}]
+
+    elif current_state == ConvState.EXT_COLLECT:
+        # Extract extortion details
+        user_input_to_parse = raw_user_text or "Extortion incident reported."
+        extracted = await _LLM_PROVIDER.extract_complaint(
+            user_input_to_parse,
+            lang,
+            datetime.now(timezone.utc).isoformat()
+        )
+        context["draft_complaint"] = extracted
+        conv.state = ConvState.EXT_CONFIRM.value
+
+        summary_txt = extracted.get("narrative_local") or extracted.get("narrative_en")
+        suspects = [s["value"] for s in extracted.get("suspect_identifiers", [])]
+        suspect_str = ", ".join(suspects) if suspects else "Not stated"
+
+        outbound_msgs.append({"type": "text", "body": "CONFIDENTIAL EXTORTION REPORT SUMMARY:\n" f"• Type: {extracted.get('subtype', 'sextortion')}\n" f"• Suspect Contact/Handle: {suspect_str}\n" f"• Demanded Amount: ₹{extracted.get('amount_inr', {}).get('value') or 'Nil / Threat'}\n" f"• Synopsis: {summary_txt}\n\nWould you like to file this confidentially with Maharashtra Cyber?"})
+        buttons = [
+            {"id": "confirm_yes", "label": "🛡️ Submit Confidential Report"},
+            {"id": "confirm_cancel", "label": "❌ Cancel"}
+        ]
+
+    # STATE: FRAUD_PROMPT_VOICE / CORRECTING -> EXTRACT & READBACK
+    elif current_state in [ConvState.FRAUD_PROMPT_VOICE, ConvState.CORRECTING]:
+        user_input_to_parse = raw_user_text or "Report submitted without audio."
 
         # Extract structured complaint schema
         extracted = await _LLM_PROVIDER.extract_complaint(
@@ -244,6 +351,14 @@ async def process_user_input(
             datetime.now(timezone.utc).isoformat()
         )
         context["draft_complaint"] = extracted
+
+        # Check for single critical missing field (Missing Fields Loop)
+        missing = extracted.get("missing_fields", [])
+        if "amount_inr" in missing and not extracted.get("amount_inr", {}).get("value"):
+            conv.state = ConvState.MISSING_FIELDS.value
+            context["missing_target"] = "amount_inr"
+            outbound_msgs.append({"type": "text", "body": get_text("missing_field_prompt", lang=lang, field_name="amount lost (रक्कम)")})
+            return ConversationResponse(messages=outbound_msgs, state=conv.state, buttons=[{"id": "cmd_menu", "label": "Cancel"}])
 
         # Prepare read-back
         amt_val = extracted.get("amount_inr", {}).get("value")
@@ -276,8 +391,33 @@ async def process_user_input(
             {"id": "confirm_cancel", "label": get_text("btn_confirm_cancel", lang=lang)}
         ]
 
+    # STATE: MISSING_FIELDS loop
+    elif current_state == ConvState.MISSING_FIELDS:
+        target = context.get("missing_target", "amount_inr")
+        complaint = context.get("draft_complaint", {})
+
+        # Fill missing attribute
+        if target == "amount_inr":
+            import re
+            m = re.search(r"[\d,]+", raw_user_text)
+            if m:
+                complaint["amount_inr"] = {"value": float(m.group(0).replace(",", "")), "evidence": raw_user_text}
+                if "amount_inr" in complaint.get("missing_fields", []):
+                    complaint["missing_fields"].remove("amount_inr")
+
+        context["draft_complaint"] = complaint
+        conv.state = ConvState.CONFIRM.value
+
+        outbound_msgs.append({"type": "text", "body": "Thank you. Please review your updated complaint summary:"})
+        amt_val = complaint.get("amount_inr", {}).get("value", 0)
+        outbound_msgs.append({"type": "text", "body": f"• Disputed Amount: ₹{amt_val:,.2f}\n• Category: {complaint.get('subtype')}\n\nIs this ready to file?"})
+        buttons = [
+            {"id": "confirm_yes", "label": get_text("btn_confirm_yes", lang=lang)},
+            {"id": "confirm_cancel", "label": get_text("btn_confirm_cancel", lang=lang)}
+        ]
+
     # STATE: CONFIRM
-    elif current_state == ConvState.CONFIRM:
+    elif current_state in [ConvState.CONFIRM, ConvState.EXT_CONFIRM]:
         if button_payload == "confirm_yes":
             complaint_data = context.get("draft_complaint", {})
             new_case = await create_case_from_complaint(
@@ -291,7 +431,6 @@ async def process_user_input(
             conv.case_id = new_case.id
             conv.state = ConvState.AFTERCARE.value
 
-            # Submission success message
             outbound_msgs.append({"type": "text", "body": get_text(
                 "submission_success",
                 lang=lang,
@@ -319,11 +458,10 @@ async def process_user_input(
                     "body": f"👨‍👩‍👧 Nominee Alert dispatched to {nominee_phone}: \"{alert_text}\""
                 })
 
-            # Aftercare guidance
             outbound_msgs.append({"type": "text", "body": get_text("aftercare_steps", lang=lang)})
             buttons = [
                 {"id": "menu_status", "label": "Track Status"},
-                {"id": "back_menu", "label": "Main Menu"}
+                {"id": "cmd_menu", "label": "Main Menu"}
             ]
 
         elif button_payload == "confirm_edit":
@@ -332,7 +470,7 @@ async def process_user_input(
         else:
             conv.state = ConvState.MENU.value
             outbound_msgs.append({"type": "text", "body": "Report cancelled. Returning to main menu."})
-            buttons = [{"id": "back_menu", "label": "Main Menu"}]
+            buttons = [{"id": "cmd_menu", "label": "Main Menu"}]
 
     # STATE: NOMINEE_SETUP
     elif current_state == ConvState.NOMINEE_SETUP:
@@ -341,12 +479,11 @@ async def process_user_input(
         reporter.nominee_phone_hash = hmac_hash(nominee_ph)
         conv.state = ConvState.MENU.value
         outbound_msgs.append({"type": "text", "body": get_text("nominee_setup_success", lang=lang)})
-        buttons = [{"id": "back_menu", "label": "Main Menu"}]
+        buttons = [{"id": "cmd_menu", "label": "Main Menu"}]
 
     # STATE: ERASE_CONFIRM
     elif current_state == ConvState.ERASE_CONFIRM:
         if button_payload == "confirm_erase_yes":
-            # DPDP Right to Erasure
             reporter.phone_enc = b""
             reporter.nominee_phone_enc = b""
             reporter.deleted_at = datetime.now(timezone.utc)
@@ -355,7 +492,7 @@ async def process_user_input(
         else:
             conv.state = ConvState.MENU.value
             outbound_msgs.append({"type": "text", "body": "Data erasure cancelled. Your records remain protected."})
-            buttons = [{"id": "back_menu", "label": "Main Menu"}]
+            buttons = [{"id": "cmd_menu", "label": "Main Menu"}]
 
     # Default fallback
     else:
@@ -367,7 +504,6 @@ async def process_user_input(
             {"id": "menu_status", "label": get_text("btn_menu_status", lang=lang)}
         ]
 
-    # Save updated context and state
     conv.context_enc = encrypt_field(json.dumps(context))
     conv.last_activity_at = datetime.now(timezone.utc)
     await session.commit()
@@ -379,4 +515,3 @@ async def process_user_input(
         case_ref=case_ref,
         golden_hour=is_golden_hour
     )
-

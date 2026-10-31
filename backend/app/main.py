@@ -8,7 +8,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 from backend.app.config import settings
 from backend.app.db.session import engine, Base
-from backend.app.api import health, webhooks, sim, cases, analytics
+from backend.app.api import health, webhooks, sim, cases, analytics, admin
 from scripts.seed import seed_all
 
 
@@ -48,6 +48,8 @@ app.include_router(cases.router)
 app.include_router(cases.router, prefix="/api")
 app.include_router(analytics.router)
 app.include_router(analytics.router, prefix="/api")
+app.include_router(admin.router)
+app.include_router(admin.router, prefix="/api")
 
 # Static and Web UI serving
 STATIC_DIR = Path(__file__).parent.parent.parent / "console"
