@@ -37,12 +37,17 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Mount API Routers
+# Mount API Routers (both direct and /api prefixes)
 app.include_router(health.router)
+app.include_router(health.router, prefix="/api")
 app.include_router(webhooks.router)
+app.include_router(webhooks.router, prefix="/api")
 app.include_router(sim.router)
+app.include_router(sim.router, prefix="/api")
 app.include_router(cases.router)
+app.include_router(cases.router, prefix="/api")
 app.include_router(analytics.router)
+app.include_router(analytics.router, prefix="/api")
 
 # Static and Web UI serving
 STATIC_DIR = Path(__file__).parent.parent.parent / "console"
