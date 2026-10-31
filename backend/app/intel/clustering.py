@@ -7,8 +7,6 @@ to identify coordinated cyber-crime rings, repeat mule identifiers, and emerging
 from datetime import datetime, timezone
 from typing import Any, Dict, List
 import networkx as nx
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.cluster import DBSCAN
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 from backend.app.core.crypto import decrypt_field, hmac_hash

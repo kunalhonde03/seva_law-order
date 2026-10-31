@@ -6,6 +6,13 @@ from pydantic import Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
+def get_default_database_url() -> str:
+    # On Vercel serverless, root filesystem is read-only; /tmp is writable
+    if os.getenv("VERCEL"):
+        return "sqlite+aiosqlite:////tmp/surakshavani.db"
+    return "sqlite+aiosqlite:///./surakshavani.db"
+
+
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(
         env_file=".env",
@@ -20,7 +27,7 @@ class Settings(BaseSettings):
     
     # Database
     DATABASE_URL: str = Field(
-        default="sqlite+aiosqlite:///./surakshavani.db",
+        default_factory=get_default_database_url,
         description="Async database connection URL. Uses SQLite for zero-setup demo, Postgres in prod."
     )
     
@@ -54,4 +61,3 @@ class Settings(BaseSettings):
 
 
 settings = Settings()
-

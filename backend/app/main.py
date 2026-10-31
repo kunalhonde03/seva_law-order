@@ -52,16 +52,24 @@ app.include_router(admin.router)
 app.include_router(admin.router, prefix="/api")
 
 # Static and Web UI serving
-STATIC_DIR = Path(__file__).parent.parent.parent / "console"
+STATIC_DIRS = [
+    Path(__file__).resolve().parent.parent.parent / "console",
+    Path.cwd() / "console",
+    Path("/var/task/console"),
+]
+STATIC_DIR = next((d for d in STATIC_DIRS if d.exists()), STATIC_DIRS[0])
+
 if STATIC_DIR.exists():
     app.mount("/static", StaticFiles(directory=str(STATIC_DIR)), name="static")
 
 
 @app.get("/")
 async def root_index():
-    index_file = STATIC_DIR / "index.html"
-    if index_file.exists():
-        return FileResponse(index_file)
+    for d in STATIC_DIRS:
+        index_file = d / "index.html"
+        if index_file.exists():
+            from fastapi.responses import HTMLResponse
+            return HTMLResponse(content=index_file.read_text(encoding="utf-8"))
     return {
         "app": settings.APP_NAME,
         "status": "OPERATIONAL",
