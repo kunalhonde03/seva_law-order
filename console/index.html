@@ -10,20 +10,26 @@
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap');
     
     :root {
-      --navy-dark: #070D1E;
-      --navy-card: #0D162B;
-      --navy-border: #1E293B;
-      --police-blue: #1D4ED8;
-      --police-gold: #D97706;
-      --crimson-alert: #DC2626;
-      --whatsapp-green: #00A884;
-      --whatsapp-chat-bg: #0B141A;
+      --gov-navy: #0A2540;
+      --gov-navy-light: #16385C;
+      --gov-gold: #B45309;
+      --gov-saffron: #D97706;
+      --gov-border: #E2E8F0;
+      --gov-bg: #F8FAFC;
+      --gov-card: #FFFFFF;
+      --gov-text: #0F172A;
+      --gov-muted: #64748B;
+      --wa-green: #008069;
+      --wa-chat-bg: #EFEAE2;
+      --wa-bubble-user: #D9FDD3;
+      --wa-bubble-bot: #FFFFFF;
     }
 
     body {
       font-family: 'Inter', 'Noto Sans Devanagari', sans-serif;
-      background-color: var(--navy-dark);
-      color: #E2E8F0;
+      background-color: var(--gov-bg);
+      color: var(--gov-text);
+      font-feature-settings: 'tnum';
     }
 
     .font-mono-code {
@@ -31,126 +37,135 @@
     }
 
     .scrollbar-thin::-webkit-scrollbar {
-      width: 5px;
-      height: 5px;
+      width: 6px;
+      height: 6px;
     }
     .scrollbar-thin::-webkit-scrollbar-track {
-      background: #0B132B;
+      background: #F1F5F9;
     }
     .scrollbar-thin::-webkit-scrollbar-thumb {
-      background: #2A3B5C;
+      background: #CBD5E1;
       border-radius: 4px;
     }
-
-    .pulse-glow-critical {
-      box-shadow: 0 0 15px rgba(220, 38, 38, 0.45);
-      animation: pulse-border 2s infinite;
+    .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+      background: #94A3B8;
     }
 
-    @keyframes pulse-border {
-      0%, 100% { border-color: rgba(220, 38, 38, 0.8); }
-      50% { border-color: rgba(220, 38, 38, 0.3); }
+    .golden-hour-pulse {
+      animation: pulse-badge 2s infinite ease-in-out;
     }
 
-    .whatsapp-bubble-user {
-      background-color: #005C4B;
-      color: #E9EDEF;
+    @keyframes pulse-badge {
+      0%, 100% { background-color: #FEE2E2; border-color: #F87171; }
+      50% { background-color: #FECACA; border-color: #EF4444; }
     }
 
-    .whatsapp-bubble-bot {
-      background-color: #202C33;
-      color: #E9EDEF;
-    }
-
-    /* Modal Backdrop */
-    .modal-backdrop {
-      background: rgba(4, 9, 20, 0.85);
-      backdrop-filter: blur(4px);
+    /* WhatsApp Wallpaper Subtle Pattern */
+    .wa-bg-pattern {
+      background-color: #EFEAE2;
+      background-image: radial-gradient(#D1D7DB 0.75px, transparent 0.75px);
+      background-size: 16px 16px;
     }
   </style>
 </head>
-<body class="flex flex-col h-screen overflow-hidden text-slate-100 select-none">
+<body class="flex flex-col h-screen overflow-hidden bg-slate-50 text-slate-800 select-none">
 
-  <!-- TOP POLICE HEADER -->
-  <header class="bg-[#091124] border-b border-slate-800 px-6 py-2.5 flex items-center justify-between shrink-0 shadow-lg">
-    <div class="flex items-center space-x-4">
-      <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-amber-500 to-amber-700 flex items-center justify-center font-bold text-slate-950 text-xl shadow-md border border-amber-400/40">
-        <i class="fa-solid fa-shield-halved text-white drop-shadow"></i>
+  <!-- OFFICIAL MAHARASHTRA GOVERNMENT TOP BAR -->
+  <div class="bg-[#0A2540] text-slate-200 px-6 py-1 text-[11px] flex items-center justify-between border-b border-blue-950 font-medium">
+    <div class="flex items-center space-x-3">
+      <span class="text-amber-400 font-bold tracking-wide">महाराष्ट्र शासन • GOVERNMENT OF MAHARASHTRA</span>
+      <span class="text-slate-400">|</span>
+      <span>HOME DEPARTMENT (POLICE) • SPECIAL CYBER CRIME CELL</span>
+    </div>
+    <div class="flex items-center space-x-4 text-[10px]">
+      <span class="flex items-center text-emerald-400">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse mr-1.5"></span>
+        I4C / CFCFRMS National Gateway: Connected
+      </span>
+      <span class="text-slate-400">|</span>
+      <span class="font-mono text-slate-300">Helpline: 1930 / Emergency: 112</span>
+    </div>
+  </div>
+
+  <!-- MAIN NAVIGATION & COMMAND HEADER -->
+  <header class="bg-white border-b border-slate-200 px-6 py-3 flex items-center justify-between shrink-0 shadow-sm z-20">
+    <div class="flex items-center space-x-3.5">
+      <div class="w-11 h-11 rounded-lg bg-[#0A2540] flex items-center justify-center shadow text-white border border-slate-300">
+        <i class="fa-solid fa-building-shield text-xl text-amber-400"></i>
       </div>
       <div>
         <div class="flex items-center space-x-2">
-          <span class="text-[11px] tracking-wider uppercase text-amber-400 font-bold">Government of Maharashtra • Police Cyber Cell</span>
-          <span class="bg-red-500/20 text-red-400 text-[10px] font-mono px-2 py-0.5 rounded border border-red-500/40 flex items-center">
-            <span class="w-1.5 h-1.5 rounded-full bg-red-400 animate-ping mr-1.5"></span>
-            1930 / CFCFRMS RELAY ACTIVE
+          <h1 class="text-base font-bold text-slate-900 tracking-tight">SurakshaVani (सुरक्षावाणी)</h1>
+          <span class="bg-blue-50 text-blue-700 text-[10px] font-semibold px-2 py-0.5 rounded border border-blue-200">
+            State Intake Layer v1.0
           </span>
         </div>
-        <h1 class="text-base font-bold text-white tracking-tight flex items-center">
-          SurakshaVani (सुरक्षावाणी)
-          <span class="text-slate-400 font-normal text-xs ml-2.5 px-2 py-0.5 bg-slate-800 rounded border border-slate-700">Intake Intelligence & Golden-Hour Command</span>
-        </h1>
+        <p class="text-xs text-slate-500 font-normal">
+          Voice-First Golden-Hour Reporting & Financial Crime Intelligence Directorate
+        </p>
       </div>
     </div>
 
     <!-- Navigation Tabs -->
     <div class="flex items-center space-x-4">
-      <div class="flex bg-slate-900/90 p-1 rounded-lg border border-slate-700/80 text-xs shadow-inner">
-        <button id="tab-operator-btn" onclick="switchMainView('operator')" class="px-3.5 py-1.5 rounded-md font-semibold bg-blue-600 text-white shadow transition flex items-center">
-          <i class="fa-solid fa-desktop mr-2 text-blue-200"></i> Operator Console
+      <div class="flex bg-slate-100 p-1 rounded-xl border border-slate-200 text-xs shadow-inner">
+        <button id="tab-operator-btn" onclick="switchMainView('operator')" class="px-4 py-1.5 rounded-lg font-semibold bg-[#0A2540] text-white shadow-sm transition flex items-center">
+          <i class="fa-solid fa-desktop mr-2 text-amber-400"></i> Operator Desk
         </button>
-        <button id="tab-simulator-btn" onclick="switchMainView('simulator')" class="px-3.5 py-1.5 rounded-md font-medium text-slate-300 hover:text-white transition flex items-center">
-          <i class="fa-brands fa-whatsapp text-emerald-400 mr-2 text-sm"></i> WhatsApp Simulator
+        <button id="tab-simulator-btn" onclick="switchMainView('simulator')" class="px-4 py-1.5 rounded-lg font-medium text-slate-600 hover:text-slate-900 transition flex items-center">
+          <i class="fa-brands fa-whatsapp text-emerald-600 mr-2 text-sm"></i> Citizen WhatsApp
         </button>
-        <button id="tab-intel-btn" onclick="switchMainView('intel')" class="px-3.5 py-1.5 rounded-md font-medium text-slate-300 hover:text-white transition flex items-center">
-          <i class="fa-solid fa-network-wired text-purple-400 mr-2"></i> Threat Intelligence
+        <button id="tab-intel-btn" onclick="switchMainView('intel')" class="px-4 py-1.5 rounded-lg font-medium text-slate-600 hover:text-slate-900 transition flex items-center">
+          <i class="fa-solid fa-chart-network mr-2 text-blue-600"></i> Syndicate Intelligence
         </button>
-        <button id="tab-audit-btn" onclick="switchMainView('audit')" class="px-3.5 py-1.5 rounded-md font-medium text-slate-300 hover:text-white transition flex items-center">
-          <i class="fa-solid fa-link text-amber-400 mr-2"></i> Audit Ledger
+        <button id="tab-audit-btn" onclick="switchMainView('audit')" class="px-4 py-1.5 rounded-lg font-medium text-slate-600 hover:text-slate-900 transition flex items-center">
+          <i class="fa-solid fa-shield-halved text-purple-600 mr-2"></i> Audit Ledger
         </button>
       </div>
 
-      <div class="border-l border-slate-700 pl-4 flex items-center space-x-3 text-xs">
+      <!-- Officer Profile Card -->
+      <div class="border-l border-slate-200 pl-4 flex items-center space-x-3 text-xs">
         <div class="text-right">
-          <div class="font-semibold text-slate-200">Insp. S. Shinde</div>
-          <div class="text-[10px] text-slate-400">Badge MH-CY-8812 • Mumbai Desk</div>
+          <div class="font-bold text-slate-900">Insp. Sanjay Shinde</div>
+          <div class="text-[10px] text-slate-500 font-medium">Badge MH-CY-8812 • Mumbai City</div>
         </div>
-        <div class="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center text-amber-400 font-bold border border-amber-500/30 shadow">
+        <div class="w-9 h-9 rounded-full bg-slate-100 text-[#0A2540] flex items-center justify-center font-bold border border-slate-300 shadow-sm">
           SS
         </div>
       </div>
     </div>
   </header>
 
-  <!-- MAIN DUAL-PANEL WORKSPACE -->
+  <!-- MAIN WORKSPACE -->
   <main class="flex-1 flex overflow-hidden relative">
 
     <!-- VIEW 1: OPERATOR TERMINAL -->
     <div id="view-operator" class="flex-1 flex overflow-hidden">
       <!-- Left Column: Priority Triage Queue -->
-      <div class="w-7/12 border-r border-slate-800/80 flex flex-col bg-[#080E20]">
+      <div class="w-7/12 border-r border-slate-200 flex flex-col bg-white">
         <!-- Filter Toolbar -->
-        <div class="p-3.5 border-b border-slate-800/80 flex items-center justify-between bg-[#0B142A]/90">
+        <div class="p-3.5 border-b border-slate-200 flex items-center justify-between bg-slate-50/80">
           <div class="flex items-center space-x-3">
-            <span class="text-xs font-bold text-slate-300 uppercase tracking-wider flex items-center">
-              <i class="fa-solid fa-list-check text-blue-400 mr-2"></i> Live Triage Queue
+            <span class="text-xs font-bold text-slate-800 uppercase tracking-wider flex items-center">
+              <i class="fa-solid fa-inbox text-[#0A2540] mr-2"></i> Live Triage Queue
             </span>
-            <span id="case-count-badge" class="bg-blue-600/80 text-[11px] font-bold px-2 py-0.5 rounded-full text-white border border-blue-400/40">0</span>
+            <span id="case-count-badge" class="bg-[#0A2540] text-[11px] font-bold px-2 py-0.5 rounded-full text-white">0</span>
           </div>
 
           <div class="flex items-center space-x-2 text-xs">
             <div class="relative">
-              <i class="fa-solid fa-magnifying-glass absolute left-2.5 top-2 text-slate-500 text-[11px]"></i>
-              <input type="text" id="filter-search" oninput="filterCases()" placeholder="Search ref, phone, UPI..." class="bg-slate-900 border border-slate-700 text-slate-200 text-xs rounded pl-7 pr-2.5 py-1 w-44 focus:outline-none focus:border-blue-500">
+              <i class="fa-solid fa-magnifying-glass absolute left-2.5 top-2.5 text-slate-400 text-xs"></i>
+              <input type="text" id="filter-search" oninput="filterCases()" placeholder="Search Ref, Phone, UPI..." class="bg-white border border-slate-200 text-slate-800 text-xs rounded-lg pl-8 pr-3 py-1.5 w-48 focus:outline-none focus:border-blue-500 shadow-sm">
             </div>
 
-            <select id="filter-urgency" onchange="loadCases()" class="bg-slate-900 border border-slate-700 text-slate-300 rounded px-2.5 py-1 focus:outline-none text-xs">
+            <select id="filter-urgency" onchange="loadCases()" class="bg-white border border-slate-200 text-slate-700 rounded-lg px-3 py-1.5 focus:outline-none text-xs shadow-sm font-medium">
               <option value="">All Priorities</option>
               <option value="CRITICAL">Critical (Golden Hour)</option>
               <option value="HIGH">High Urgency</option>
               <option value="NORMAL">Normal</option>
             </select>
 
-            <button onclick="loadCases()" class="px-2.5 py-1 bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded text-slate-300 transition" title="Refresh">
+            <button onclick="loadCases()" class="p-2 bg-white hover:bg-slate-100 border border-slate-200 rounded-lg text-slate-600 transition shadow-sm" title="Refresh">
               <i class="fa-solid fa-rotate-right"></i>
             </button>
           </div>
@@ -158,18 +173,18 @@
 
         <!-- Cases Table -->
         <div class="flex-1 overflow-y-auto scrollbar-thin">
-          <table class="w-full text-left text-xs text-slate-300">
-            <thead class="bg-slate-900/80 uppercase text-[10px] text-slate-400 sticky top-0 border-b border-slate-800 backdrop-blur z-10">
+          <table class="w-full text-left text-xs text-slate-700">
+            <thead class="bg-slate-100 uppercase text-[10px] text-slate-500 font-bold sticky top-0 border-b border-slate-200 z-10 tracking-wider">
               <tr>
-                <th class="px-4 py-3">Ref ID & Urgency</th>
-                <th class="px-3 py-3">Category / Subtype</th>
-                <th class="px-3 py-3">Loss Amount</th>
-                <th class="px-3 py-3">Reported Time</th>
+                <th class="px-4 py-3">Case Reference & Urgency</th>
+                <th class="px-3 py-3">Category / Modus Operandi</th>
+                <th class="px-3 py-3">Disputed Amount</th>
+                <th class="px-3 py-3">Incident Time</th>
                 <th class="px-3 py-3">Status</th>
                 <th class="px-4 py-3 text-right">Action</th>
               </tr>
             </thead>
-            <tbody id="cases-tbody" class="divide-y divide-slate-800/60 font-normal">
+            <tbody id="cases-tbody" class="divide-y divide-slate-100 font-normal">
               <!-- Dynamically populated -->
             </tbody>
           </table>
@@ -177,123 +192,123 @@
       </div>
 
       <!-- Right Column: Case Inspection Drawer -->
-      <div class="w-5/12 flex flex-col bg-[#060B18] overflow-y-auto scrollbar-thin p-5 space-y-4" id="case-inspector">
-        <div class="text-center py-28 text-slate-500">
-          <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-slate-900 flex items-center justify-center border border-slate-800">
-            <i class="fa-solid fa-folder-closed text-3xl text-slate-600"></i>
+      <div class="w-5/12 flex flex-col bg-slate-50/60 overflow-y-auto scrollbar-thin p-5 space-y-4" id="case-inspector">
+        <div class="text-center py-28 text-slate-400">
+          <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-white shadow-sm flex items-center justify-center border border-slate-200">
+            <i class="fa-solid fa-folder-open text-3xl text-slate-400"></i>
           </div>
-          <h3 class="text-sm font-semibold text-slate-400">Select Complaint from Queue</h3>
-          <p class="text-xs text-slate-500 max-w-xs mx-auto mt-1">Review decrypted complaint dossier, verify fields, inspect forensic audio, and dispatch CFCFRMS liens.</p>
+          <h3 class="text-sm font-bold text-slate-700">No Case Selected</h3>
+          <p class="text-xs text-slate-500 max-w-xs mx-auto mt-1">Select an incident from the queue to decrypt details, inspect evidence, and dispatch the 1930 emergency freeze notice.</p>
         </div>
       </div>
     </div>
 
     <!-- VIEW 2: CITIZEN WHATSAPP SIMULATOR -->
-    <div id="view-simulator" class="hidden flex-1 flex items-center justify-center bg-[#050A14] p-4">
-      <!-- Simulated Phone Container -->
-      <div class="w-[430px] h-[750px] bg-[#111B21] rounded-[42px] shadow-2xl border-4 border-slate-700 flex flex-col overflow-hidden relative">
+    <div id="view-simulator" class="hidden flex-1 flex items-center justify-center bg-slate-100 p-4">
+      <!-- Simulated Phone Shell (Light / Clean) -->
+      <div class="w-[420px] h-[750px] bg-white rounded-[38px] shadow-xl border border-slate-300 flex flex-col overflow-hidden relative">
         <!-- Phone Top Notch Header -->
-        <div class="w-full bg-[#1F2C34] pt-4 pb-2.5 px-4 flex items-center justify-between text-white shrink-0 shadow border-b border-slate-800">
+        <div class="w-full bg-[#008069] pt-3.5 pb-2.5 px-4 flex items-center justify-between text-white shrink-0 shadow-md">
           <div class="flex items-center space-x-3">
-            <div class="w-9 h-9 rounded-full bg-gradient-to-tr from-amber-500 to-amber-600 flex items-center justify-center font-bold text-sm shadow">
-              <i class="fa-solid fa-shield-halved text-white text-xs"></i>
+            <div class="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center font-bold text-sm shadow">
+              <i class="fa-solid fa-shield-halved text-amber-300 text-xs"></i>
             </div>
             <div>
-              <div class="font-bold text-xs flex items-center">
+              <div class="font-bold text-xs flex items-center tracking-tight">
                 SurakshaVani Maharashtra
-                <i class="fa-solid fa-circle-check text-emerald-400 text-[11px] ml-1.5" title="Verified Govt Official"></i>
+                <i class="fa-solid fa-circle-check text-blue-200 text-[11px] ml-1.5" title="Verified Govt Bot"></i>
               </div>
-              <div class="text-[10px] text-slate-400 flex items-center">
-                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 mr-1.5"></span>
+              <div class="text-[10px] text-emerald-100 flex items-center">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-200 mr-1.5"></span>
                 Official Cybercrime Assistance Bot
               </div>
             </div>
           </div>
-          <button onclick="resetSimulation()" class="text-slate-400 hover:text-white text-xs p-1" title="Restart Conversation">
+          <button onclick="resetSimulation()" class="text-emerald-100 hover:text-white text-xs p-1" title="Restart Conversation">
             <i class="fa-solid fa-rotate-left"></i>
           </button>
         </div>
 
         <!-- Global Quick Commands Bar -->
-        <div class="bg-[#182229] px-3 py-1.5 border-b border-slate-800 flex items-center justify-between text-[11px] shrink-0 text-slate-300">
-          <button onclick="sendSimPayload(null, 'cmd_menu')" class="hover:text-amber-400 font-medium transition">
-            <i class="fa-solid fa-house mr-1 text-amber-500"></i> Menu
+        <div class="bg-slate-50 px-3 py-1.5 border-b border-slate-200 flex items-center justify-between text-[11px] shrink-0 text-slate-600 font-medium">
+          <button onclick="sendSimPayload(null, 'cmd_menu')" class="hover:text-amber-600 transition flex items-center">
+            <i class="fa-solid fa-house mr-1 text-amber-600"></i> Menu
           </button>
-          <button onclick="sendSimPayload(null, 'cmd_lang')" class="hover:text-blue-400 font-medium transition">
-            <i class="fa-solid fa-language mr-1 text-blue-400"></i> Language
+          <button onclick="sendSimPayload(null, 'cmd_lang')" class="hover:text-blue-600 transition flex items-center">
+            <i class="fa-solid fa-language mr-1 text-blue-600"></i> Language
           </button>
-          <button onclick="sendSimPayload(null, 'cmd_help')" class="hover:text-emerald-400 font-medium transition">
-            <i class="fa-solid fa-circle-info mr-1 text-emerald-400"></i> Help
+          <button onclick="sendSimPayload(null, 'cmd_help')" class="hover:text-emerald-600 transition flex items-center">
+            <i class="fa-solid fa-circle-info mr-1 text-emerald-600"></i> Help
           </button>
-          <button onclick="sendSimPayload('delete my data', null)" class="text-red-400 hover:text-red-300 font-medium transition">
+          <button onclick="sendSimPayload('delete my data', null)" class="text-red-600 hover:text-red-700 transition flex items-center">
             <i class="fa-solid fa-trash mr-1"></i> Erase
           </button>
         </div>
 
         <!-- Chat Transcript Area -->
-        <div id="chat-messages" class="flex-1 overflow-y-auto p-3.5 space-y-3 scrollbar-thin flex flex-col bg-[#0B141A]">
+        <div id="chat-messages" class="flex-1 overflow-y-auto p-3.5 space-y-3 scrollbar-thin flex flex-col wa-bg-pattern">
           <!-- Live messages dynamically inserted -->
         </div>
 
-        <!-- Live Audio Waveform Canvas (Hidden by default, shown during recording) -->
-        <div id="voice-recording-panel" class="hidden bg-[#182229] px-4 py-3 border-t border-slate-800 shrink-0">
+        <!-- Live Audio Waveform Canvas -->
+        <div id="voice-recording-panel" class="hidden bg-slate-50 px-4 py-3 border-t border-slate-200 shrink-0 shadow-inner">
           <div class="flex items-center justify-between mb-2">
-            <span class="text-xs text-red-400 font-semibold flex items-center">
-              <span class="w-2 h-2 rounded-full bg-red-500 animate-ping mr-2"></span>
+            <span class="text-xs text-red-600 font-bold flex items-center">
+              <span class="w-2 h-2 rounded-full bg-red-600 animate-ping mr-2"></span>
               Recording Voice Note in Marathi...
             </span>
-            <span id="recording-timer" class="text-xs font-mono text-slate-300">00:06</span>
+            <span id="recording-timer" class="text-xs font-mono font-bold text-slate-700">00:06</span>
           </div>
-          <div class="w-full h-8 bg-slate-900 rounded flex items-center justify-center overflow-hidden mb-2">
+          <div class="w-full h-8 bg-white border border-slate-200 rounded-lg flex items-center justify-center overflow-hidden mb-2">
             <div class="flex items-center space-x-1 h-full px-2">
-              <span class="w-1 bg-emerald-500 h-3 animate-pulse"></span>
-              <span class="w-1 bg-emerald-400 h-6 animate-pulse"></span>
-              <span class="w-1 bg-emerald-500 h-4 animate-pulse"></span>
-              <span class="w-1 bg-emerald-400 h-7 animate-pulse"></span>
-              <span class="w-1 bg-emerald-500 h-5 animate-pulse"></span>
-              <span class="w-1 bg-emerald-400 h-3 animate-pulse"></span>
+              <span class="w-1 bg-emerald-600 h-3 animate-pulse"></span>
               <span class="w-1 bg-emerald-500 h-6 animate-pulse"></span>
-              <span class="w-1 bg-emerald-400 h-4 animate-pulse"></span>
+              <span class="w-1 bg-emerald-600 h-4 animate-pulse"></span>
+              <span class="w-1 bg-emerald-500 h-7 animate-pulse"></span>
+              <span class="w-1 bg-emerald-600 h-5 animate-pulse"></span>
+              <span class="w-1 bg-emerald-500 h-3 animate-pulse"></span>
+              <span class="w-1 bg-emerald-600 h-6 animate-pulse"></span>
+              <span class="w-1 bg-emerald-500 h-4 animate-pulse"></span>
             </div>
           </div>
           <div class="flex space-x-2">
-            <button onclick="finishVoiceRecording()" class="flex-1 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded text-xs font-semibold shadow">
+            <button onclick="finishVoiceRecording()" class="flex-1 py-1.5 bg-[#008069] hover:bg-[#006A57] text-white rounded-lg text-xs font-semibold shadow">
               <i class="fa-solid fa-check mr-1.5"></i> Transcribe & Extract
             </button>
-            <button onclick="cancelVoiceRecording()" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded text-xs font-semibold">
+            <button onclick="cancelVoiceRecording()" class="px-3 py-1.5 bg-slate-200 hover:bg-slate-300 text-slate-700 rounded-lg text-xs font-semibold">
               Cancel
             </button>
           </div>
         </div>
 
         <!-- Interactive Voice Simulation Bar -->
-        <div id="standard-input-bar" class="bg-[#202C33] p-2.5 border-t border-slate-800 shrink-0">
-          <div class="text-[10px] font-semibold text-slate-400 uppercase tracking-wider mb-1.5 flex justify-between">
-            <span>Canonical Scenarios</span>
-            <span class="text-emerald-400"><i class="fa-solid fa-microphone-lines mr-1"></i> ASR Ready</span>
+        <div id="standard-input-bar" class="bg-white p-2.5 border-t border-slate-200 shrink-0">
+          <div class="text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5 flex justify-between">
+            <span>Demonstration Scenarios</span>
+            <span class="text-emerald-700 font-semibold"><i class="fa-solid fa-microphone-lines mr-1"></i> Faster-Whisper ASR</span>
           </div>
           <div class="grid grid-cols-2 gap-1.5 text-xs mb-2">
-            <button onclick="sendPresetClip('msedcl')" class="bg-[#111B21] hover:bg-[#2A3942] text-slate-200 text-left px-2 py-1.5 rounded truncate border border-slate-700 transition">
+            <button onclick="sendPresetClip('msedcl')" class="bg-slate-50 hover:bg-slate-100 text-slate-700 text-left px-2 py-1.5 rounded-lg truncate border border-slate-200 transition font-medium">
               ⚡ Marathi: MSEDCL Scam
             </button>
-            <button onclick="sendPresetClip('pension')" class="bg-[#111B21] hover:bg-[#2A3942] text-slate-200 text-left px-2 py-1.5 rounded truncate border border-slate-700 transition">
-              👴 Hindi: Pension OTP Scam
+            <button onclick="sendPresetClip('pension')" class="bg-slate-50 hover:bg-slate-100 text-slate-700 text-left px-2 py-1.5 rounded-lg truncate border border-slate-200 transition font-medium">
+              👴 Hindi: Pension OTP
             </button>
-            <button onclick="sendPresetClip('telegram')" class="bg-[#111B21] hover:bg-[#2A3942] text-slate-200 text-left px-2 py-1.5 rounded truncate border border-slate-700 transition">
+            <button onclick="sendPresetClip('telegram')" class="bg-slate-50 hover:bg-slate-100 text-slate-700 text-left px-2 py-1.5 rounded-lg truncate border border-slate-200 transition font-medium">
               📱 Hindi: Telegram Task
             </button>
-            <button onclick="sendPresetClip('extortion')" class="bg-[#111B21] hover:bg-[#2A3942] text-slate-200 text-left px-2 py-1.5 rounded truncate border border-slate-700 transition">
-              🛡️ English: Video Extortion
+            <button onclick="sendPresetClip('extortion')" class="bg-slate-50 hover:bg-slate-100 text-slate-700 text-left px-2 py-1.5 rounded-lg truncate border border-slate-200 transition font-medium">
+              🛡️ English: Video Blackmail
             </button>
           </div>
 
           <!-- Bottom Text / Mic input -->
           <div class="flex items-center space-x-2">
-            <input type="text" id="sim-input-text" placeholder="Type or click microphone..." class="flex-1 bg-[#111B21] border border-slate-700 rounded-full px-3.5 py-1.5 text-xs text-white focus:outline-none focus:border-emerald-500" onkeydown="if(event.key==='Enter') sendSimText()">
-            <button onclick="startVoiceRecording()" class="w-8 h-8 rounded-full bg-emerald-600 hover:bg-emerald-500 flex items-center justify-center text-white text-xs shadow" title="Record Voice Note">
+            <input type="text" id="sim-input-text" placeholder="Type or click microphone..." class="flex-1 bg-slate-50 border border-slate-200 rounded-full px-3.5 py-1.5 text-xs text-slate-800 focus:outline-none focus:border-[#008069]" onkeydown="if(event.key==='Enter') sendSimText()">
+            <button onclick="startVoiceRecording()" class="w-8 h-8 rounded-full bg-[#008069] hover:bg-[#006A57] flex items-center justify-center text-white text-xs shadow" title="Record Voice Note">
               <i class="fa-solid fa-microphone"></i>
             </button>
-            <button onclick="sendSimText()" class="w-8 h-8 rounded-full bg-blue-600 hover:bg-blue-500 flex items-center justify-center text-white text-xs shadow">
+            <button onclick="sendSimText()" class="w-8 h-8 rounded-full bg-[#0A2540] hover:bg-slate-800 flex items-center justify-center text-white text-xs shadow">
               <i class="fa-solid fa-paper-plane"></i>
             </button>
           </div>
@@ -302,16 +317,16 @@
     </div>
 
     <!-- VIEW 3: THREAT INTELLIGENCE -->
-    <div id="view-intel" class="hidden flex-1 flex flex-col bg-[#070D1E] p-6 overflow-y-auto scrollbar-thin space-y-6">
-      <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+    <div id="view-intel" class="hidden flex-1 flex flex-col bg-slate-50 p-6 overflow-y-auto scrollbar-thin space-y-6">
+      <div class="flex items-center justify-between border-b border-slate-200 pb-4">
         <div>
-          <h2 class="text-base font-bold text-white flex items-center">
-            <i class="fa-solid fa-network-wired text-purple-400 mr-2.5"></i>
+          <h2 class="text-base font-bold text-slate-900 flex items-center">
+            <i class="fa-solid fa-network-wired text-blue-600 mr-2.5"></i>
             Financial Crime Threat Intelligence & Mule Syndicates
           </h2>
-          <p class="text-xs text-slate-400 mt-0.5">Automated cross-complaint pattern clustering, repeat identifier graph discovery, and weekly directives.</p>
+          <p class="text-xs text-slate-500 mt-0.5">Automated cross-complaint pattern clustering, repeat identifier graph discovery, and weekly police directives.</p>
         </div>
-        <button onclick="loadIntel()" class="px-3.5 py-1.5 bg-blue-600 hover:bg-blue-500 text-white rounded text-xs font-semibold shadow transition">
+        <button onclick="loadIntel()" class="px-4 py-2 bg-[#0A2540] hover:bg-[#16385C] text-white rounded-lg text-xs font-semibold shadow-sm transition">
           <i class="fa-solid fa-arrows-rotate mr-1.5"></i> Re-Run Clustering Pipeline
         </button>
       </div>
@@ -322,39 +337,39 @@
       </div>
 
       <!-- Weekly Leads Card -->
-      <div class="bg-[#0D162B] border border-slate-800 rounded-xl p-5 shadow-lg">
-        <h3 class="text-xs font-bold text-amber-400 uppercase tracking-wider mb-2 flex items-center">
-          <i class="fa-solid fa-file-shield mr-2"></i> Weekly Directives for Maharashtra Cyber Cell & I4C
+      <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm">
+        <h3 class="text-xs font-bold text-[#0A2540] uppercase tracking-wider mb-2 flex items-center">
+          <i class="fa-solid fa-file-shield text-amber-600 mr-2"></i> Weekly Directives for Maharashtra Cyber Cell & I4C
         </h3>
-        <div id="intel-report-box" class="text-xs text-slate-300 space-y-3 font-mono bg-slate-950 p-4 rounded-lg border border-slate-800">
+        <div id="intel-report-box" class="text-xs text-slate-700 space-y-3 font-mono bg-slate-50 p-4 rounded-lg border border-slate-200">
           Loading threat report...
         </div>
       </div>
     </div>
 
     <!-- VIEW 4: AUDIT LEDGER -->
-    <div id="view-audit" class="hidden flex-1 flex flex-col bg-[#070D1E] p-6 overflow-y-auto scrollbar-thin space-y-5">
-      <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+    <div id="view-audit" class="hidden flex-1 flex flex-col bg-slate-50 p-6 overflow-y-auto scrollbar-thin space-y-5">
+      <div class="flex items-center justify-between border-b border-slate-200 pb-4">
         <div>
-          <h2 class="text-base font-bold text-white flex items-center">
-            <i class="fa-solid fa-link text-emerald-400 mr-2.5"></i>
+          <h2 class="text-base font-bold text-slate-900 flex items-center">
+            <i class="fa-solid fa-shield-halved text-purple-600 mr-2.5"></i>
             Cryptographically Tamper-Evident Audit Ledger
           </h2>
-          <p class="text-xs text-slate-400 mt-0.5">Immutable SHA-256 hash chaining of all operator actions, handoffs, and DPDP consent modifications.</p>
+          <p class="text-xs text-slate-500 mt-0.5">Immutable SHA-256 hash chaining of all operator actions, handoffs, and DPDP consent modifications.</p>
         </div>
         <div class="flex items-center space-x-3">
-          <button onclick="runRetentionPurge()" class="px-3 py-1.5 bg-red-900/60 hover:bg-red-800 border border-red-500/50 text-red-200 rounded text-xs font-semibold transition">
+          <button onclick="runRetentionPurge()" class="px-3.5 py-1.5 bg-red-50 hover:bg-red-100 border border-red-200 text-red-700 rounded-lg text-xs font-semibold transition">
             <i class="fa-solid fa-trash-can mr-1.5"></i> Run DPDP Retention Purge
           </button>
-          <button onclick="loadAuditLogs()" class="px-3.5 py-1.5 bg-blue-600 hover:bg-blue-500 text-white rounded text-xs font-semibold shadow transition">
+          <button onclick="loadAuditLogs()" class="px-3.5 py-1.5 bg-[#0A2540] hover:bg-[#16385C] text-white rounded-lg text-xs font-semibold shadow-sm transition">
             <i class="fa-solid fa-rotate-right mr-1.5"></i> Refresh Audit Trail
           </button>
         </div>
       </div>
 
-      <div class="bg-[#0D162B] border border-slate-800 rounded-xl overflow-hidden shadow-lg">
-        <table class="w-full text-left text-xs text-slate-300">
-          <thead class="bg-slate-900/90 uppercase text-[10px] text-slate-400 border-b border-slate-800">
+      <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm">
+        <table class="w-full text-left text-xs text-slate-700">
+          <thead class="bg-slate-100 uppercase text-[10px] text-slate-500 font-bold border-b border-slate-200 tracking-wider">
             <tr>
               <th class="px-4 py-3">Timestamp / Actor</th>
               <th class="px-4 py-3">Action</th>
@@ -363,7 +378,7 @@
               <th class="px-4 py-3 font-mono">Current Block Hash</th>
             </tr>
           </thead>
-          <tbody id="audit-tbody" class="divide-y divide-slate-800/80 font-normal">
+          <tbody id="audit-tbody" class="divide-y divide-slate-100 font-normal">
             <!-- Dynamically populated -->
           </tbody>
         </table>
@@ -385,17 +400,17 @@
       const container = document.getElementById('toast-container');
       const toast = document.createElement('div');
       const colors = {
-        success: 'bg-emerald-950 border-emerald-500 text-emerald-200',
-        error: 'bg-red-950 border-red-500 text-red-200',
-        info: 'bg-blue-950 border-blue-500 text-blue-200'
+        success: 'bg-white border-emerald-500 text-slate-800 shadow-lg',
+        error: 'bg-white border-red-500 text-slate-800 shadow-lg',
+        info: 'bg-white border-blue-500 text-slate-800 shadow-lg'
       };
 
-      toast.className = `p-3 rounded-lg border shadow-xl flex items-start space-x-3 text-xs transition transform duration-300 translate-y-2 ${colors[type] || colors.info}`;
+      toast.className = `p-3.5 rounded-xl border-l-4 border flex items-start space-x-3 text-xs transition transform duration-300 translate-y-2 ${colors[type] || colors.info}`;
       toast.innerHTML = `
-        <div class="mt-0.5"><i class="fa-solid ${type === 'success' ? 'fa-circle-check text-emerald-400' : (type === 'error' ? 'fa-triangle-exclamation text-red-400' : 'fa-circle-info text-blue-400')}"></i></div>
+        <div class="mt-0.5"><i class="fa-solid ${type === 'success' ? 'fa-circle-check text-emerald-600 text-base' : (type === 'error' ? 'fa-triangle-exclamation text-red-600 text-base' : 'fa-circle-info text-blue-600 text-base')}"></i></div>
         <div>
-          <div class="font-bold">${title}</div>
-          <div class="text-[11px] opacity-90">${message}</div>
+          <div class="font-bold text-slate-900">${title}</div>
+          <div class="text-[11px] text-slate-500 mt-0.5">${message}</div>
         </div>
       `;
       container.appendChild(toast);
@@ -416,8 +431,8 @@
         const btn = document.getElementById(`tab-${t}-btn`);
         if (btn) {
           btn.className = (t === view)
-            ? "px-3.5 py-1.5 rounded-md font-semibold bg-blue-600 text-white shadow transition flex items-center"
-            : "px-3.5 py-1.5 rounded-md font-medium text-slate-300 hover:text-white transition flex items-center";
+            ? "px-4 py-1.5 rounded-lg font-semibold bg-[#0A2540] text-white shadow-sm transition flex items-center"
+            : "px-4 py-1.5 rounded-lg font-medium text-slate-600 hover:text-slate-900 transition flex items-center";
         }
       });
 
@@ -458,47 +473,47 @@
       tbody.innerHTML = '';
 
       if (cases.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="6" class="px-4 py-8 text-center text-slate-500">No complaints matching filter criteria.</td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="6" class="px-4 py-8 text-center text-slate-400">No complaints matching filter criteria.</td></tr>`;
         return;
       }
 
       cases.forEach(c => {
         const tr = document.createElement('tr');
-        tr.className = "hover:bg-slate-800/40 cursor-pointer border-b border-slate-800/60 transition";
-        if (c.id === activeCaseId) tr.classList.add('bg-slate-800/80');
+        tr.className = "hover:bg-slate-50 cursor-pointer border-b border-slate-100 transition";
+        if (c.id === activeCaseId) tr.classList.add('bg-blue-50/60');
 
-        let urgencyBadge = `<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-800 text-slate-300 border border-slate-700">${c.urgency}</span>`;
+        let urgencyBadge = `<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-600 border border-slate-200">${c.urgency}</span>`;
         if (c.urgency === 'CRITICAL') {
-          urgencyBadge = `<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-red-950 text-red-300 border border-red-500/60 pulse-glow-critical">⚡ ${c.golden_hour_mins_left}m LEFT</span>`;
+          urgencyBadge = `<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-red-50 text-red-700 border border-red-300 golden-hour-pulse">⚡ ${c.golden_hour_mins_left}m GOLDEN HOUR</span>`;
         } else if (c.urgency === 'HIGH') {
-          urgencyBadge = `<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-950 text-amber-300 border border-amber-600/50">HIGH</span>`;
+          urgencyBadge = `<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-50 text-amber-700 border border-amber-300">HIGH</span>`;
         }
 
-        let statusClass = "text-blue-400";
-        if (c.status === 'FORWARDED') statusClass = "text-emerald-400";
-        if (c.status === 'UNDER_REVIEW') statusClass = "text-amber-400";
+        let statusClass = "text-blue-700 bg-blue-50 border-blue-200";
+        if (c.status === 'FORWARDED') statusClass = "text-emerald-700 bg-emerald-50 border-emerald-200";
+        if (c.status === 'UNDER_REVIEW') statusClass = "text-amber-700 bg-amber-50 border-amber-200";
 
         tr.onclick = () => selectCase(c.id);
         tr.innerHTML = `
-          <td class="px-4 py-3">
-            <div class="font-mono font-bold text-white text-[11px]">${c.ref_no}</div>
+          <td class="px-4 py-3.5">
+            <div class="font-mono font-bold text-slate-900 text-xs">${c.ref_no}</div>
             <div class="mt-1">${urgencyBadge}</div>
           </td>
-          <td class="px-3 py-3">
-            <div class="font-semibold text-slate-200 capitalize">${c.subtype.replace(/_/g, ' ')}</div>
-            <div class="text-[10px] text-slate-400 capitalize">${c.category} • Lang: ${c.language}</div>
+          <td class="px-3 py-3.5">
+            <div class="font-semibold text-slate-800 capitalize text-xs">${c.subtype.replace(/_/g, ' ')}</div>
+            <div class="text-[10px] text-slate-500 capitalize font-medium">${c.category} • Lang: ${c.language.toUpperCase()}</div>
           </td>
-          <td class="px-3 py-3 font-semibold text-slate-100">
-            ${c.amount_inr > 0 ? '₹' + c.amount_inr.toLocaleString('en-IN') : '<span class="text-slate-500">Nil / Extortion</span>'}
+          <td class="px-3 py-3.5 font-bold text-slate-900 text-xs">
+            ${c.amount_inr > 0 ? '₹' + c.amount_inr.toLocaleString('en-IN') : '<span class="text-slate-400 font-normal">Threat / Extortion</span>'}
           </td>
-          <td class="px-3 py-3 text-[11px] text-slate-400 font-mono">
+          <td class="px-3 py-3.5 text-[11px] text-slate-500 font-mono">
             ${new Date(c.reported_at).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}
           </td>
-          <td class="px-3 py-3 font-semibold ${statusClass} text-[11px]">
-            ${c.status}
+          <td class="px-3 py-3.5">
+            <span class="px-2 py-0.5 rounded text-[10px] font-bold border ${statusClass}">${c.status}</span>
           </td>
-          <td class="px-4 py-3 text-right">
-            <button onclick="event.stopPropagation(); selectCase('${c.id}')" class="px-2.5 py-1 bg-slate-800 hover:bg-blue-600 hover:text-white rounded text-slate-300 text-[11px] font-medium border border-slate-700 transition">
+          <td class="px-4 py-3.5 text-right">
+            <button onclick="event.stopPropagation(); selectCase('${c.id}')" class="px-3 py-1 bg-white hover:bg-slate-100 rounded-lg text-slate-700 text-xs font-semibold border border-slate-300 transition shadow-sm">
               Inspect
             </button>
           </td>
@@ -510,14 +525,14 @@
     async function selectCase(caseId) {
       activeCaseId = caseId;
       const inspector = document.getElementById('case-inspector');
-      inspector.innerHTML = `<div class="text-center py-24 text-slate-400"><i class="fa-solid fa-spinner fa-spin text-2xl text-blue-500"></i><p class="mt-2 text-xs">Decrypting AES-256-GCM Complaint Dossier...</p></div>`;
+      inspector.innerHTML = `<div class="text-center py-24 text-slate-400"><i class="fa-solid fa-spinner fa-spin text-2xl text-[#0A2540]"></i><p class="mt-2 text-xs font-medium">Decrypting AES-256-GCM Complaint Dossier...</p></div>`;
 
       try {
         const res = await fetch(`/cases/${caseId}`);
         const c = await res.json();
         renderCaseInspector(c);
       } catch (err) {
-        inspector.innerHTML = `<div class="text-red-400 text-xs p-4">Failed to decrypt case details.</div>`;
+        inspector.innerHTML = `<div class="text-red-600 text-xs p-4 bg-red-50 rounded border border-red-200">Failed to decrypt case details.</div>`;
       }
     }
 
@@ -531,9 +546,9 @@
       let suspectListHtml = '';
       (c.suspect_identifiers || []).forEach(s => {
         suspectListHtml += `
-          <div class="flex items-center justify-between bg-slate-900 px-3 py-2 rounded-lg border border-slate-800 text-xs">
-            <div class="font-mono text-slate-200">${s.preview || s.value}</div>
-            <span class="text-[10px] uppercase font-bold text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">${s.kind} (${s.role})</span>
+          <div class="flex items-center justify-between bg-white px-3 py-2 rounded-lg border border-slate-200 text-xs shadow-sm">
+            <div class="font-mono font-medium text-slate-800">${s.preview || s.value}</div>
+            <span class="text-[10px] uppercase font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded border border-amber-200">${s.kind} (${s.role})</span>
           </div>
         `;
       });
@@ -541,9 +556,9 @@
       let timelineHtml = '';
       (c.timeline || []).forEach(t => {
         timelineHtml += `
-          <div class="text-[11px] border-l-2 border-blue-500 pl-3 py-1">
-            <div class="font-bold text-slate-300">${t.event} <span class="font-normal text-slate-500 text-[10px] ml-1">${new Date(t.at).toLocaleTimeString()}</span></div>
-            <div class="text-slate-400">${t.note || ''}</div>
+          <div class="text-[11px] border-l-2 border-[#0A2540] pl-3 py-1">
+            <div class="font-bold text-slate-800">${t.event} <span class="font-normal text-slate-400 text-[10px] ml-1">${new Date(t.at).toLocaleTimeString()}</span></div>
+            <div class="text-slate-600 mt-0.5">${t.note || ''}</div>
           </div>
         `;
       });
@@ -551,110 +566,112 @@
       let evidenceHtml = '';
       (c.evidence || []).forEach(e => {
         evidenceHtml += `
-          <div class="flex items-center justify-between bg-slate-900 p-2.5 rounded border border-slate-800 text-xs">
-            <span class="text-slate-300 font-mono truncate max-w-[200px]">${e.object_key}</span>
-            <span class="text-[10px] text-emerald-400 font-mono">SHA256: ${e.sha256.substring(0, 8)}...</span>
+          <div class="flex items-center justify-between bg-white p-2.5 rounded-lg border border-slate-200 text-xs shadow-sm">
+            <span class="text-slate-700 font-mono truncate max-w-[200px]">${e.object_key}</span>
+            <span class="text-[10px] text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200 font-mono font-semibold">SHA256: ${e.sha256.substring(0, 8)}...</span>
           </div>
         `;
       });
 
       inspector.innerHTML = `
-        <!-- Header Banner -->
-        <div class="border-b border-slate-800 pb-3 flex items-center justify-between">
+        <!-- Case Header -->
+        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center justify-between">
           <div>
-            <span class="font-mono font-bold text-sm text-white">${c.ref_no}</span>
-            <div class="text-xs text-slate-400 capitalize mt-0.5">Subtype: <span class="text-slate-200 font-semibold">${c.subtype.replace(/_/g, ' ')}</span></div>
+            <div class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">OFFICIAL INCIDENT DOSSIER</div>
+            <span class="font-mono font-bold text-base text-slate-900">${c.ref_no}</span>
+            <div class="text-xs text-slate-500 capitalize mt-0.5">Subtype: <span class="text-slate-800 font-semibold">${c.subtype.replace(/_/g, ' ')}</span></div>
           </div>
-          <span class="text-xs font-bold px-2.5 py-0.5 rounded-full ${c.urgency === 'CRITICAL' ? 'bg-red-500/20 text-red-300 border border-red-500/40' : 'bg-slate-800 text-slate-300'}">
+          <span class="text-xs font-bold px-3 py-1 rounded-full ${c.urgency === 'CRITICAL' ? 'bg-red-50 text-red-700 border border-red-300' : 'bg-slate-100 text-slate-700'}">
             ${c.urgency} PRIORITY
           </span>
         </div>
 
         <!-- 1930 / CFCFRMS Quick Action Bar -->
-        <div class="bg-gradient-to-r from-blue-950/60 to-slate-900 border border-blue-800/40 p-3 rounded-xl flex items-center justify-between shadow">
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 p-3.5 rounded-xl flex items-center justify-between shadow-sm">
           <div>
-            <div class="text-[10px] text-blue-300 uppercase tracking-wider font-bold flex items-center">
-              <i class="fa-solid fa-bolt text-amber-400 mr-1.5"></i> 1930 / CFCFRMS Nodal Action
+            <div class="text-[10px] text-blue-900 uppercase tracking-wider font-bold flex items-center">
+              <i class="fa-solid fa-bolt text-amber-500 mr-1.5"></i> 1930 / CFCFRMS Nodal Action
             </div>
-            <div class="text-xs text-slate-300 mt-0.5">Automated Emergency Lien Notice</div>
+            <div class="text-xs text-slate-600 mt-0.5">Automated Emergency Lien Notice</div>
           </div>
           <div class="flex space-x-2">
-            <button onclick="dispatchHandoff('${c.id}')" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-500 text-white rounded-lg text-xs font-bold shadow transition flex items-center">
-              <i class="fa-solid fa-paper-plane mr-1.5"></i> Dispatch 1930
+            <button onclick="dispatchHandoff('${c.id}')" class="px-3.5 py-1.5 bg-[#0A2540] hover:bg-[#16385C] text-white rounded-lg text-xs font-bold shadow-sm transition flex items-center">
+              <i class="fa-solid fa-paper-plane mr-1.5 text-amber-400"></i> Dispatch 1930
             </button>
-            <a href="/cases/${c.id}/summary.pdf" target="_blank" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-xs font-bold border border-slate-700 transition flex items-center">
-              <i class="fa-solid fa-file-pdf mr-1.5 text-red-400"></i> PDF
+            <a href="/cases/${c.id}/summary.pdf" target="_blank" class="px-3 py-1.5 bg-white hover:bg-slate-100 text-slate-700 rounded-lg text-xs font-bold border border-slate-300 transition flex items-center shadow-sm">
+              <i class="fa-solid fa-file-pdf mr-1.5 text-red-600"></i> PDF
             </a>
           </div>
         </div>
 
         <!-- Metric Details & Verification Editor -->
-        <div class="bg-[#0B1428] p-3 rounded-xl border border-slate-800 space-y-2">
-          <div class="flex justify-between items-center text-[10px] text-slate-400 uppercase font-semibold">
-            <span>Verified Financial Metrics</span>
-            <button onclick="promptEditCase('${c.id}', ${c.amount_inr}, '${victimBank}')" class="text-blue-400 hover:text-blue-300 lowercase font-medium flex items-center">
+        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm space-y-2.5">
+          <div class="flex justify-between items-center text-[10px] text-slate-400 uppercase font-bold tracking-wider">
+            <span>Verified Financial Interception</span>
+            <button onclick="promptEditCase('${c.id}', ${c.amount_inr}, '${victimBank}')" class="text-blue-600 hover:text-blue-800 lowercase font-medium flex items-center">
               <i class="fa-solid fa-pen-to-square mr-1"></i> edit
             </button>
           </div>
           <div class="grid grid-cols-2 gap-3 text-xs">
-            <div>
-              <div class="text-slate-400 text-[10px]">Disputed Loss</div>
-              <div class="text-base font-bold text-amber-400 mt-0.5">${amt}</div>
+            <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-200">
+              <div class="text-slate-500 text-[10px] font-medium">Disputed Loss</div>
+              <div class="text-base font-bold text-amber-700 mt-0.5">${amt}</div>
             </div>
-            <div>
-              <div class="text-slate-400 text-[10px]">Victim Bank Account</div>
-              <div class="text-sm font-semibold text-slate-200 mt-0.5">${victimBank}</div>
+            <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-200">
+              <div class="text-slate-500 text-[10px] font-medium">Victim Account</div>
+              <div class="text-xs font-bold text-slate-800 mt-1 truncate">${victimBank}</div>
             </div>
           </div>
-          <div class="pt-2 border-t border-slate-800 text-[11px] text-slate-400">
-            <span class="font-medium text-slate-300">Transaction UTR:</span> <span class="font-mono text-slate-200">${utrs}</span>
+          <div class="pt-2 border-t border-slate-100 text-[11px] text-slate-600 flex justify-between">
+            <span class="font-medium text-slate-500">Transaction UTR:</span>
+            <span class="font-mono text-slate-900 font-semibold">${utrs}</span>
           </div>
         </div>
 
         <!-- Suspect Identifiers -->
         <div>
-          <div class="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2">Isolated Suspect Identifiers</div>
+          <div class="text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-2">Isolated Suspect Identifiers</div>
           <div class="space-y-1.5">
-            ${suspectListHtml || '<div class="text-xs text-slate-500">None extracted.</div>'}
+            ${suspectListHtml || '<div class="text-xs text-slate-400 bg-white p-3 rounded-lg border border-slate-200">None extracted.</div>'}
           </div>
         </div>
 
         <!-- AI Narrative & Verbatim -->
-        <div class="bg-[#0B1428] p-3.5 rounded-xl border border-slate-800 space-y-2">
-          <div class="text-[10px] text-slate-400 uppercase font-bold flex justify-between">
+        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm space-y-2">
+          <div class="text-[10px] text-slate-400 uppercase font-bold tracking-wider flex justify-between">
             <span>Verified Citizen Narrative</span>
-            <span class="text-emerald-400 flex items-center"><i class="fa-solid fa-circle-check mr-1"></i> Confirmed</span>
+            <span class="text-emerald-700 font-semibold flex items-center"><i class="fa-solid fa-circle-check mr-1"></i> Confirmed by Victim</span>
           </div>
-          <p class="text-xs text-slate-200 leading-relaxed">${details.narrative_local || details.narrative_en || 'No narrative.'}</p>
-          <div class="pt-2 border-t border-slate-800/80 text-[11px] text-slate-400">
-            <span class="font-semibold text-slate-300">English Relay:</span> ${details.narrative_en || 'N/A'}
+          <p class="text-xs text-slate-700 leading-relaxed">${details.narrative_local || details.narrative_en || 'No narrative.'}</p>
+          <div class="pt-2 border-t border-slate-100 text-[11px] text-slate-500">
+            <span class="font-semibold text-slate-700">English Relay:</span> ${details.narrative_en || 'N/A'}
           </div>
         </div>
 
         <!-- Evidence Vault -->
         <div>
-          <div class="flex items-center justify-between text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2">
+          <div class="flex items-center justify-between text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-2">
             <span>Evidence Vault</span>
-            <button onclick="attachSampleEvidence('${c.id}')" class="text-[10px] text-blue-400 hover:text-blue-300 lowercase font-medium">
+            <button onclick="attachSampleEvidence('${c.id}')" class="text-[10px] text-blue-600 hover:text-blue-800 lowercase font-medium flex items-center">
               <i class="fa-solid fa-plus mr-1"></i> add file
             </button>
           </div>
           <div class="space-y-1.5">
-            ${evidenceHtml || '<div class="text-xs text-slate-500">No external evidence files attached yet.</div>'}
+            ${evidenceHtml || '<div class="text-xs text-slate-400 bg-white p-3 rounded-lg border border-slate-200">No external evidence files attached yet.</div>'}
           </div>
         </div>
 
         <!-- Status Controller -->
-        <div class="bg-[#0B1428] p-3 rounded-xl border border-slate-800">
-          <div class="text-[10px] text-slate-400 uppercase font-bold mb-2">Update Investigation Status</div>
+        <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm">
+          <div class="text-[10px] text-slate-400 uppercase font-bold tracking-wider mb-2">Update Investigation Status</div>
           <div class="flex space-x-2">
-            <button onclick="updateCaseStatus('${c.id}', 'UNDER_REVIEW')" class="flex-1 py-1.5 bg-amber-600/20 text-amber-300 border border-amber-600/40 rounded text-xs hover:bg-amber-600/30 transition">
+            <button onclick="updateCaseStatus('${c.id}', 'UNDER_REVIEW')" class="flex-1 py-1.5 bg-amber-50 text-amber-800 border border-amber-300 rounded-lg text-xs font-semibold hover:bg-amber-100 transition">
               Under Review
             </button>
-            <button onclick="updateCaseStatus('${c.id}', 'FORWARDED')" class="flex-1 py-1.5 bg-emerald-600/20 text-emerald-300 border border-emerald-600/40 rounded text-xs hover:bg-emerald-600/30 transition">
+            <button onclick="updateCaseStatus('${c.id}', 'FORWARDED')" class="flex-1 py-1.5 bg-emerald-50 text-emerald-800 border border-emerald-300 rounded-lg text-xs font-semibold hover:bg-emerald-100 transition">
               Forwarded (1930)
             </button>
-            <button onclick="updateCaseStatus('${c.id}', 'CLOSED')" class="flex-1 py-1.5 bg-slate-800 text-slate-300 rounded text-xs hover:bg-slate-700 transition">
+            <button onclick="updateCaseStatus('${c.id}', 'CLOSED')" class="flex-1 py-1.5 bg-slate-100 text-slate-700 rounded-lg text-xs font-semibold hover:bg-slate-200 transition">
               Close Case
             </button>
           </div>
@@ -662,8 +679,8 @@
 
         <!-- Audit Timeline -->
         <div>
-          <div class="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2">Case Audit Timeline</div>
-          <div class="space-y-2 bg-[#0B1428]/60 p-3 rounded-xl border border-slate-800">
+          <div class="text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-2">Case Audit Timeline</div>
+          <div class="space-y-2 bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm">
             ${timelineHtml}
           </div>
         </div>
@@ -701,7 +718,7 @@
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({filename: fn, kind: "bank_slip", size_bytes: 204800})
         });
-        showToast("Evidence Uploaded", `File ${fn} added with SHA-256 hash.`);
+        showToast("Evidence Uploaded", `File ${fn} registered with SHA-256 hash.`);
         selectCase(caseId);
       } catch (err) {
         showToast("Upload Failed", "Could not attach evidence.", "error");
@@ -803,8 +820,8 @@
       const container = document.getElementById('chat-messages');
       const typingIndicator = document.createElement('div');
       typingIndicator.id = 'typing-indicator';
-      typingIndicator.className = 'text-[10px] text-slate-400 italic p-1 flex items-center';
-      typingIndicator.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-1.5"></i> SurakshaVani processing...';
+      typingIndicator.className = 'text-[10px] text-slate-500 italic p-1 flex items-center';
+      typingIndicator.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-1.5 text-[#008069]"></i> SurakshaVani processing...';
       container.appendChild(typingIndicator);
       container.scrollTop = container.scrollHeight;
 
@@ -833,7 +850,7 @@
           data.buttons.forEach(b => {
             const btn = document.createElement('button');
             btn.id = `btn-${b.id}`;
-            btn.className = 'w-full py-2 px-3 rounded-xl bg-[#00A884] hover:bg-[#008f6f] text-white text-xs font-semibold shadow transition';
+            btn.className = 'w-full py-2 px-3 rounded-xl bg-[#008069] hover:bg-[#006A57] text-white text-xs font-semibold shadow transition';
             btn.innerText = b.label;
             btn.onclick = () => handleSimButton(b.id);
             btnGroup.appendChild(btn);
@@ -856,11 +873,11 @@
     function appendChatBubble(sender, text, isCrisis = false) {
       const container = document.getElementById('chat-messages');
       const bubble = document.createElement('div');
-      bubble.className = `max-w-[85%] rounded-2xl p-3 text-xs shadow-md ${
-        sender === 'user' ? 'whatsapp-bubble-user self-end ml-auto' : 'whatsapp-bubble-bot self-start mr-auto'
+      bubble.className = `max-w-[85%] rounded-2xl p-3 text-xs shadow-sm ${
+        sender === 'user' ? 'bg-[#D9FDD3] text-slate-900 self-end ml-auto' : 'bg-white text-slate-800 self-start mr-auto border border-slate-100'
       }`;
       if (isCrisis) {
-        bubble.classList.add('border-2', 'border-red-500', 'bg-red-950', 'text-red-100');
+        bubble.classList.add('border-2', 'border-red-400', 'bg-red-50', 'text-red-900');
       }
       bubble.innerHTML = text.replace(/\n/g, '<br>');
       container.appendChild(bubble);
@@ -884,18 +901,18 @@
         container.innerHTML = '';
         (clData.clusters || []).forEach(cl => {
           const div = document.createElement('div');
-          div.className = 'bg-[#0D162B] p-5 rounded-xl border border-slate-800 space-y-3 shadow-lg';
+          div.className = 'bg-white p-5 rounded-xl border border-slate-200 space-y-3 shadow-sm';
           div.innerHTML = `
             <div class="flex items-center justify-between">
-              <span class="font-bold text-sm text-purple-300">${cl.cluster_label}</span>
-              <span class="text-[10px] bg-purple-900/60 text-purple-200 border border-purple-600/40 px-2 py-0.5 rounded font-bold">
+              <span class="font-bold text-sm text-slate-900">${cl.cluster_label}</span>
+              <span class="text-[10px] bg-purple-50 text-purple-700 border border-purple-200 px-2 py-0.5 rounded font-bold">
                 ${cl.case_count} Linked Cases
               </span>
             </div>
-            <div class="text-xs text-slate-300">Total Siphoned: <span class="font-bold text-amber-400">₹${cl.total_loss_inr.toLocaleString('en-IN')}</span></div>
-            <div class="text-xs text-slate-400">Linked References: <span class="font-mono text-slate-200">${cl.cases.join(', ')}</span></div>
-            <div class="text-[11px] text-emerald-400 bg-emerald-950/40 p-2 rounded border border-emerald-800/40">
-              <i class="fa-solid fa-link mr-1.5"></i> Repeat Suspect Phone / UPI identified across districts.
+            <div class="text-xs text-slate-600">Total Siphoned: <span class="font-bold text-amber-700">₹${cl.total_loss_inr.toLocaleString('en-IN')}</span></div>
+            <div class="text-xs text-slate-500">Linked References: <span class="font-mono text-slate-800 font-semibold">${cl.cases.join(', ')}</span></div>
+            <div class="text-[11px] text-emerald-800 bg-emerald-50 p-2.5 rounded-lg border border-emerald-200 flex items-center">
+              <i class="fa-solid fa-link text-emerald-600 mr-2"></i> Repeat Suspect Phone / UPI isolated across Maharashtra districts.
             </div>
           `;
           container.appendChild(div);
@@ -904,20 +921,20 @@
         reportBox.innerHTML = `
 JURISDICTION: ${repData.jurisdiction}
 TOTAL ANALYZED: ${repData.total_cases_analyzed} complaints
-TOTAL DISPUTED AMOUNT: ₹${repData.total_financial_loss_inr.toLocaleString('en-IN')}
+TOTAL DISPUTED LOSS: ₹${repData.total_financial_loss_inr.toLocaleString('en-IN')}
 
-OPERATIONAL POLICE DIRECTIVES:
+ACTIONABLE DIRECTIVES FOR DISTRICT CYBER CELLS:
 ${(repData.operational_recommendations || []).map((r, i) => `${i+1}. ${r}`).join('\n')}
         `;
       } catch (err) {
-        container.innerHTML = '<div class="col-span-2 text-red-400 text-xs">Failed to load intelligence data.</div>';
+        container.innerHTML = '<div class="col-span-2 text-red-600 text-xs">Failed to load intelligence data.</div>';
       }
     }
 
     // AUDIT LOGS LOGIC
     async function loadAuditLogs() {
       const tbody = document.getElementById('audit-tbody');
-      tbody.innerHTML = '<tr><td colspan="5" class="px-4 py-8 text-center text-slate-500">Loading tamper-evident ledger...</td></tr>';
+      tbody.innerHTML = '<tr><td colspan="5" class="px-4 py-8 text-center text-slate-400">Loading tamper-evident ledger...</td></tr>';
 
       try {
         const res = await fetch('/admin/audit');
@@ -925,36 +942,36 @@ ${(repData.operational_recommendations || []).map((r, i) => `${i+1}. ${r}`).join
         tbody.innerHTML = '';
 
         if (!data || data.length === 0) {
-          tbody.innerHTML = '<tr><td colspan="5" class="px-4 py-8 text-center text-slate-500">No audit events found.</td></tr>';
+          tbody.innerHTML = '<tr><td colspan="5" class="px-4 py-8 text-center text-slate-400">No audit events found.</td></tr>';
           return;
         }
 
         data.forEach(log => {
           const tr = document.createElement('tr');
-          tr.className = "hover:bg-slate-800/40 border-b border-slate-800/60 text-xs";
+          tr.className = "hover:bg-slate-50 border-b border-slate-100 text-xs";
           tr.innerHTML = `
             <td class="px-4 py-3">
-              <div class="font-medium text-slate-200">${new Date(log.at).toLocaleString()}</div>
-              <div class="text-[10px] text-slate-500 uppercase">${log.actor_type}: ${log.actor_id || 'sys'}</div>
+              <div class="font-medium text-slate-800">${new Date(log.at).toLocaleString()}</div>
+              <div class="text-[10px] text-slate-400 uppercase font-semibold">${log.actor_type}: ${log.actor_id || 'sys'}</div>
             </td>
-            <td class="px-4 py-3 font-semibold text-blue-400">
+            <td class="px-4 py-3 font-bold text-blue-700">
               ${log.action}
             </td>
             <td class="px-4 py-3">
-              <div class="text-slate-300 font-medium">${log.entity}</div>
+              <div class="text-slate-700 font-semibold">${log.entity}</div>
               <div class="text-[10px] text-slate-500 font-mono truncate max-w-xs">${JSON.stringify(log.details)}</div>
             </td>
-            <td class="px-4 py-3 font-mono text-[10px] text-slate-400">
+            <td class="px-4 py-3 font-mono text-[10px] text-slate-500">
               ${log.prev_hash.substring(0, 16)}...
             </td>
-            <td class="px-4 py-3 font-mono text-[10px] text-emerald-400">
+            <td class="px-4 py-3 font-mono text-[10px] text-emerald-700 font-bold">
               ${log.hash.substring(0, 16)}...
             </td>
           `;
           tbody.appendChild(tr);
         });
       } catch (err) {
-        tbody.innerHTML = '<tr><td colspan="5" class="px-4 py-8 text-center text-red-400">Failed to load audit logs.</td></tr>';
+        tbody.innerHTML = '<tr><td colspan="5" class="px-4 py-8 text-center text-red-600">Failed to load audit logs.</td></tr>';
       }
     }
 
