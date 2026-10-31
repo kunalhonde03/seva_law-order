@@ -57,3 +57,4 @@ async def generate_weekly_leads_report(session: AsyncSession) -> Dict[str, Any]:
             "Broadcast targeted cyber awareness warning in Pune & Mumbai regarding MSEDCL fake SMS links."
         ]
     }
+

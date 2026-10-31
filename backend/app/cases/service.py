@@ -191,3 +191,4 @@ async def get_decrypted_case(session: AsyncSession, case_id: str) -> Optional[Di
         "flags": case.flags_json,
         "details": data_dict
     }
+

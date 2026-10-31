@@ -21,3 +21,4 @@ down:
 clean:
 	rm -f surakshavani.db
 	find . -type d -name __pycache__ -exec rm -rf {} +
+

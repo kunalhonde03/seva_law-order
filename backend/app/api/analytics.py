@@ -25,3 +25,4 @@ async def get_weekly_leads(db: AsyncSession = Depends(get_db)):
     """Generates Weekly Police Leads Report for Maharashtra Cyber Cell and I4C."""
     report = await generate_weekly_leads_report(db)
     return report
+

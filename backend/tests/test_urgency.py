@@ -48,3 +48,4 @@ def test_minor_sextortion_critical():
         category="extortion"
     )
     assert urgency == "CRITICAL"
+

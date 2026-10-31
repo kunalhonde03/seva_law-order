@@ -287,3 +287,4 @@ CREATE TABLE alerts (
 
 CREATE INDEX idx_alerts_unack ON alerts(acknowledged_at) WHERE acknowledged_at IS NULL;
 ```
+

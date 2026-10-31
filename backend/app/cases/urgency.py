@@ -49,3 +49,4 @@ def calculate_case_urgency(
         return "CRITICAL"
 
     return "NORMAL"
+

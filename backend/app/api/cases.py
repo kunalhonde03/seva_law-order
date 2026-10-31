@@ -213,3 +213,4 @@ async def download_summary_pdf(case_id: str, db: AsyncSession = Depends(get_db))
             "Content-Disposition": f"attachment; filename=SurakshaVani_{case_info['ref_no']}.pdf"
         }
     )
+

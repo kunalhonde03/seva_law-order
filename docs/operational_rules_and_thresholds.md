@@ -58,3 +58,4 @@ SurakshaVani never takes irreversible actions or submits low-confidence garbage 
    - `suspect_identifier`: Validated against standard E.164 phone formats or VPA (`user@bank`) regex.
 3. **Mandatory Read-Back Confirmation Rule**:
    - No case may enter `FORWARDED` status without explicit confirmation (`CONFIRM_YES`) by the victim, OR explicit operator manual verification on the console.
+

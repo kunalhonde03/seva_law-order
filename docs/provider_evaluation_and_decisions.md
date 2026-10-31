@@ -36,3 +36,4 @@ Under the **Digital Personal Data Protection Act (DPDP), 2023** and law enforcem
 ### Decision for LLM:
 - **Default Prototype Mode**: `recorded` provider that uses local pattern matching and synthetic script fixtures.
 - **Production Deployment Recommendation**: **Claude 3.5 Haiku on AWS Bedrock Mumbai (`ap-south-1`)** or **Azure OpenAI Pune**, guaranteeing that no citizen PII leaves Maharashtra / India.
+

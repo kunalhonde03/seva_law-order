@@ -379,3 +379,4 @@ async def process_user_input(
         case_ref=case_ref,
         golden_hour=is_golden_hour
     )
+

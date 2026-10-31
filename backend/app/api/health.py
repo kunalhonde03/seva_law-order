@@ -24,3 +24,4 @@ async def readiness_check():
         "llm_provider": settings.LLM_PROVIDER,
         "dpdp_encryption": "ACTIVE"
     }
+

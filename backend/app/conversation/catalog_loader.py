@@ -33,3 +33,4 @@ def get_text(key: str, lang: str = "mr", **kwargs: Any) -> str:
 
 # Initial load
 load_catalogs()
+

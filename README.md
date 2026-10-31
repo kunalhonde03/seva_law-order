@@ -149,3 +149,4 @@ When you open **[http://localhost:8000](http://localhost:8000)**:
 | **5. Government Department** | **Home Department (Maharashtra Police Cyber Cell)**, Command and Control Centre, Mahape, Navi Mumbai (Addressed to: Special Inspector General of Police, Cyber). |
 | **6. Scaling Plan** | **Stage 1**: Single District Pilot (Mumbai or Nagpur Cyber Cell) $\rightarrow$ **Stage 2**: 5 Maharashtra Districts $\rightarrow$ **Stage 3**: State-wide Rollout $\rightarrow$ **Stage 4**: I4C National Integration. |
 | **7. Finances** | Work Order: ₹10 Lakh (₹3L engineering, ₹1.5L India-region cloud/LLM, ₹1L WhatsApp messaging, ₹1L Marathi tuning, ₹1.5L security audit, ₹1L operations, ₹1L contingency). |
+

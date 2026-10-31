@@ -60,3 +60,4 @@ def compute_audit_hash(prev_hash: str, entry_dict: Dict[str, Any]) -> str:
     serialized = json.dumps(entry_dict, sort_keys=True)
     combined = f"{prev_hash}:{serialized}"
     return hashlib.sha256(combined.encode("utf-8")).hexdigest()
+

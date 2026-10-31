@@ -21,3 +21,4 @@ A citizen sends a voice note or text in Marathi, Hindi, or English. The system t
 - **AI & NLP**: Multi-tier architecture supporting Anthropic Claude 3.5 Haiku (AWS Bedrock Mumbai) and local deterministic recorded fallback.
 - **ASR**: Local Faster-Whisper / Sarvam Saaras with mock demonstration audio clips.
 - **Reporting**: ReportLab official PDF generator.
+

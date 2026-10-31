@@ -17,3 +17,4 @@ class BaseASRProvider(ABC):
             - duration_seconds: float
         """
         pass
+

@@ -46,3 +46,4 @@ def generate_cfcfrms_lien_payload(case_data: Dict[str, Any], ref_no: str) -> Dic
             "victim_bank": case_data.get("victim_bank")
         }
     }
+

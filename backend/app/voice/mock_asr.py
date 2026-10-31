@@ -41,3 +41,4 @@ class MockASRProvider(BaseASRProvider):
                 "confidence": 0.98,
                 "duration_seconds": 22.1
             }
+

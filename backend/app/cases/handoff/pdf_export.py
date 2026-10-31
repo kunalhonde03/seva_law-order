@@ -194,3 +194,4 @@ def generate_complaint_pdf(case_dict: Dict[str, Any], ref_no: str) -> bytes:
     pdf_bytes = buffer.getvalue()
     buffer.close()
     return pdf_bytes
+

@@ -282,3 +282,4 @@ class Alert(Base):
     created_at = Column(DateTime, default=get_utc_now, nullable=False)
     acknowledged_by = Column(String(36), ForeignKey("users.id", ondelete="SET NULL"), nullable=True)
     acknowledged_at = Column(DateTime, nullable=True)
+

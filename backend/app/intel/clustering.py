@@ -114,3 +114,4 @@ async def run_scam_clustering_pipeline(session: AsyncSession) -> List[Dict[str, 
 
     await session.commit()
     return syndicates
+

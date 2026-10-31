@@ -39,3 +39,4 @@ class ConvState(str, Enum):
     # Safety Interruption States
     SAFETY_ESCALATE = "SAFETY_ESCALATE"
     MINOR_ROUTE = "MINOR_ROUTE"
+

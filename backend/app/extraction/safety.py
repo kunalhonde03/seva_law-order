@@ -45,3 +45,4 @@ def classify_safety_rules(text: str) -> Dict[str, Any]:
         "crisis_triggered": is_crisis,
         "crisis_reason": "Self-harm signal detected" if self_harm else ("Minor + Intimate Media" if (minor and intimate) else None)
     }
+

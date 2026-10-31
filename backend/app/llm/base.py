@@ -19,3 +19,4 @@ class BaseLLMProvider(ABC):
     async def classify_crisis(self, text: str) -> Dict[str, Any]:
         """Classifies safety risk flags."""
         pass
+

@@ -55,3 +55,4 @@ class ComplaintSchema(BaseModel):
     flags: SafetyFlags = Field(default_factory=SafetyFlags)
     missing_fields: List[str] = Field(default_factory=list)
     field_confidence: dict = Field(default_factory=dict)
+

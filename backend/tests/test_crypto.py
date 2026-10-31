@@ -35,3 +35,4 @@ def test_audit_hash_chaining():
 
     assert h1 == h2
     assert len(h1) == 64
+
