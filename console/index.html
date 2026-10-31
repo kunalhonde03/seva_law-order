@@ -68,66 +68,66 @@
     }
   </style>
 </head>
-<body class="flex flex-col h-screen overflow-hidden bg-slate-50 text-slate-800 select-none">
+<body class="flex flex-col h-screen h-[100dvh] overflow-hidden bg-slate-50 text-slate-800 select-none">
 
   <!-- OFFICIAL MAHARASHTRA GOVERNMENT TOP BAR -->
-  <div class="bg-[#0A2540] text-slate-200 px-6 py-1 text-[11px] flex items-center justify-between border-b border-blue-950 font-medium">
-    <div class="flex items-center space-x-3">
+  <div class="bg-[#0A2540] text-slate-200 px-3 sm:px-6 py-1 text-[10px] sm:text-[11px] flex flex-col sm:flex-row items-center justify-between border-b border-blue-950 font-medium gap-1 text-center sm:text-left">
+    <div class="flex items-center space-x-2 sm:space-x-3 truncate">
       <span class="text-amber-400 font-bold tracking-wide">महाराष्ट्र शासन • GOVERNMENT OF MAHARASHTRA</span>
-      <span class="text-slate-400">|</span>
-      <span>HOME DEPARTMENT (POLICE) • SPECIAL CYBER CRIME CELL</span>
+      <span class="hidden sm:inline text-slate-400">|</span>
+      <span class="hidden sm:inline">HOME DEPARTMENT • SPECIAL CYBER CRIME CELL</span>
     </div>
-    <div class="flex items-center space-x-4 text-[10px]">
+    <div class="flex items-center space-x-3 text-[10px]">
       <span class="flex items-center text-emerald-400">
         <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse mr-1.5"></span>
-        I4C / CFCFRMS National Gateway: Connected
+        I4C Gateway: Connected
       </span>
       <span class="text-slate-400">|</span>
-      <span class="font-mono text-slate-300">Helpline: 1930 / Emergency: 112</span>
+      <span class="font-mono text-slate-300">Helpline: 1930 / 112</span>
     </div>
   </div>
 
   <!-- MAIN NAVIGATION & COMMAND HEADER -->
-  <header class="bg-white border-b border-slate-200 px-6 py-3 flex items-center justify-between shrink-0 shadow-sm z-20">
-    <div class="flex items-center space-x-3.5">
-      <div class="w-11 h-11 rounded-lg bg-[#0A2540] flex items-center justify-center shadow text-white border border-slate-300">
-        <i class="fa-solid fa-building-shield text-xl text-amber-400"></i>
+  <header class="bg-white border-b border-slate-200 px-3 sm:px-6 py-2 sm:py-3 flex flex-col md:flex-row items-stretch md:items-center justify-between shrink-0 shadow-sm z-20 gap-2.5">
+    <div class="flex items-center space-x-3">
+      <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-lg bg-[#0A2540] flex items-center justify-center shadow text-white border border-slate-300 shrink-0">
+        <i class="fa-solid fa-building-shield text-lg sm:text-xl text-amber-400"></i>
       </div>
-      <div>
+      <div class="truncate">
         <div class="flex items-center space-x-2">
-          <h1 class="text-base font-bold text-slate-900 tracking-tight">SurakshaVani (सुरक्षावाणी)</h1>
-          <span class="bg-blue-50 text-blue-700 text-[10px] font-semibold px-2 py-0.5 rounded border border-blue-200">
+          <h1 class="text-sm sm:text-base font-bold text-slate-900 tracking-tight truncate">SurakshaVani (सुरक्षावाणी)</h1>
+          <span class="bg-blue-50 text-blue-700 text-[10px] font-semibold px-2 py-0.5 rounded border border-blue-200 shrink-0">
             State Intake Layer v1.0
           </span>
         </div>
-        <p class="text-xs text-slate-500 font-normal">
+        <p class="text-[11px] sm:text-xs text-slate-500 font-normal truncate">
           Voice-First Golden-Hour Reporting & Financial Crime Intelligence Directorate
         </p>
       </div>
     </div>
 
-    <!-- Navigation Tabs -->
-    <div class="flex items-center space-x-4">
-      <div class="flex bg-slate-100 p-1 rounded-xl border border-slate-200 text-xs shadow-inner">
-        <button id="tab-operator-btn" onclick="switchMainView('operator')" class="px-3 py-1.5 rounded-lg font-semibold bg-[#0A2540] text-white shadow-sm transition flex items-center">
-          <i class="fa-solid fa-desktop mr-1.5 text-amber-400"></i> Operator Desk
+    <!-- Navigation Tabs & Officer Profile -->
+    <div class="flex items-center justify-between md:justify-end space-x-2 sm:space-x-4 overflow-x-auto">
+      <div class="flex bg-slate-100 p-1 rounded-xl border border-slate-200 text-xs shadow-inner overflow-x-auto whitespace-nowrap scrollbar-thin">
+        <button id="tab-operator-btn" onclick="switchMainView('operator')" class="px-2.5 sm:px-3 py-1.5 rounded-lg font-semibold bg-[#0A2540] text-white shadow-sm transition flex items-center shrink-0">
+          <i class="fa-solid fa-desktop mr-1 sm:mr-1.5 text-amber-400 text-xs"></i> <span class="text-[11px] sm:text-xs">Operator</span>
         </button>
-        <button id="tab-simulator-btn" onclick="switchMainView('simulator')" class="px-3 py-1.5 rounded-lg font-medium text-slate-600 hover:text-slate-900 transition flex items-center">
-          <i class="fa-brands fa-whatsapp text-emerald-600 mr-1.5 text-sm"></i> Citizen WhatsApp
+        <button id="tab-simulator-btn" onclick="switchMainView('simulator')" class="px-2.5 sm:px-3 py-1.5 rounded-lg font-medium text-slate-600 hover:text-slate-900 transition flex items-center shrink-0">
+          <i class="fa-brands fa-whatsapp text-emerald-600 mr-1 sm:mr-1.5 text-sm"></i> <span class="text-[11px] sm:text-xs">WhatsApp</span>
         </button>
-        <button id="tab-map-btn" onclick="switchMainView('map')" class="px-3 py-1.5 rounded-lg font-medium text-slate-600 hover:text-slate-900 transition flex items-center">
-          <i class="fa-solid fa-map-location-dot text-indigo-600 mr-1.5"></i> District Heatmap
+        <button id="tab-map-btn" onclick="switchMainView('map')" class="px-2.5 sm:px-3 py-1.5 rounded-lg font-medium text-slate-600 hover:text-slate-900 transition flex items-center shrink-0">
+          <i class="fa-solid fa-map-location-dot text-indigo-600 mr-1 sm:mr-1.5 text-xs"></i> <span class="text-[11px] sm:text-xs">Heatmap</span>
         </button>
-        <button id="tab-intel-btn" onclick="switchMainView('intel')" class="px-3 py-1.5 rounded-lg font-medium text-slate-600 hover:text-slate-900 transition flex items-center">
-          <i class="fa-solid fa-network-wired text-blue-600 mr-1.5"></i> Syndicate Intel
+        <button id="tab-intel-btn" onclick="switchMainView('intel')" class="px-2.5 sm:px-3 py-1.5 rounded-lg font-medium text-slate-600 hover:text-slate-900 transition flex items-center shrink-0">
+          <i class="fa-solid fa-network-wired text-blue-600 mr-1 sm:mr-1.5 text-xs"></i> <span class="text-[11px] sm:text-xs">Intel</span>
         </button>
-        <button id="tab-audit-btn" onclick="switchMainView('audit')" class="px-3 py-1.5 rounded-lg font-medium text-slate-600 hover:text-slate-900 transition flex items-center">
-          <i class="fa-solid fa-shield-halved text-purple-600 mr-1.5"></i> Audit Ledger
+        <button id="tab-audit-btn" onclick="switchMainView('audit')" class="px-2.5 sm:px-3 py-1.5 rounded-lg font-medium text-slate-600 hover:text-slate-900 transition flex items-center shrink-0">
+          <i class="fa-solid fa-shield-halved text-purple-600 mr-1 sm:mr-1.5 text-xs"></i> <span class="text-[11px] sm:text-xs">Audit</span>
         </button>
       </div>
 
       <!-- Officer Profile Card -->
-      <div class="border-l border-slate-200 pl-4 flex items-center space-x-3 text-xs">
+      <div class="hidden xl:flex border-l border-slate-200 pl-4 items-center space-x-3 text-xs shrink-0">
         <div class="text-right">
           <div class="font-bold text-slate-900">Insp. Sanjay Shinde</div>
           <div class="text-[10px] text-slate-500 font-medium">Badge MH-CY-8812 • Mumbai City</div>
@@ -140,27 +140,27 @@
   </header>
 
   <!-- SEVA FIRST INNOVATION CHALLENGE 2026 COMPETITION BANNER & IMPACT METRICS -->
-  <div class="bg-gradient-to-r from-[#071b2f] via-[#0A2540] to-[#123153] text-slate-100 px-6 py-2 border-b border-amber-500/40 shadow-sm flex items-center justify-between shrink-0 z-10">
-    <div class="flex items-center space-x-3 text-xs">
-      <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-500/20 text-amber-300 border border-amber-400/40 tracking-wide">
+  <div class="bg-gradient-to-r from-[#071b2f] via-[#0A2540] to-[#123153] text-slate-100 px-3 sm:px-6 py-2 border-b border-amber-500/40 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between shrink-0 z-10 gap-2">
+    <div class="flex flex-wrap items-center gap-1.5 sm:gap-3 text-xs">
+      <span class="inline-flex items-center px-2 sm:px-2.5 py-0.5 rounded-full text-[10px] sm:text-[11px] font-bold bg-amber-500/20 text-amber-300 border border-amber-400/40 tracking-wide shrink-0">
         <i class="fa-solid fa-trophy mr-1.5 text-amber-400"></i> Seva First Innovation Challenge 2026
       </span>
       <span class="text-slate-400 font-semibold">•</span>
-      <span class="text-slate-200 font-medium text-[11px]">Sector 2: Law & Order</span>
+      <span class="text-slate-200 font-medium text-[10px] sm:text-[11px]">Sector 2: Law & Order</span>
       <span class="text-slate-400 font-semibold">•</span>
-      <span class="text-amber-200 font-medium text-[11px]">Sub-theme: Cyber-Fraud & Financial-Crime Intelligence</span>
+      <span class="text-amber-200 font-medium text-[10px] sm:text-[11px]">Sub-theme: Cyber-Fraud & Financial Intelligence</span>
     </div>
 
-    <div class="flex items-center space-x-4 text-[11px]">
-      <div class="hidden md:flex items-center space-x-1.5 text-emerald-300 bg-emerald-950/50 px-2.5 py-0.5 rounded border border-emerald-500/30">
+    <div class="flex items-center justify-between w-full md:w-auto space-x-2 sm:space-x-4 text-[10px] sm:text-[11px]">
+      <div class="hidden sm:flex items-center space-x-1.5 text-emerald-300 bg-emerald-950/50 px-2 sm:px-2.5 py-0.5 rounded border border-emerald-500/30">
         <i class="fa-solid fa-bolt text-emerald-400"></i>
-        <span>Golden-Hour Recovery: <strong class="text-white font-bold">+68%</strong></span>
+        <span>Freeze: <strong class="text-white font-bold">+68%</strong></span>
       </div>
-      <div class="hidden lg:flex items-center space-x-1.5 text-blue-200 bg-blue-950/50 px-2.5 py-0.5 rounded border border-blue-400/30">
+      <div class="hidden sm:flex items-center space-x-1.5 text-blue-200 bg-blue-950/50 px-2 sm:px-2.5 py-0.5 rounded border border-blue-400/30">
         <i class="fa-solid fa-stopwatch text-blue-300"></i>
-        <span>Intake Velocity: <strong class="text-white font-bold">45m → 90s</strong></span>
+        <span>Intake: <strong class="text-white font-bold">45m → 90s</strong></span>
       </div>
-      <button onclick="launchInteractiveTour()" class="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-bold px-3 py-1 rounded-lg shadow-sm border border-amber-300/40 transition flex items-center space-x-1.5 cursor-pointer">
+      <button onclick="launchInteractiveTour()" class="w-full sm:w-auto bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-bold px-3 py-1 rounded-lg shadow-sm border border-amber-300/40 transition flex items-center justify-center space-x-1.5 cursor-pointer text-xs">
         <i class="fa-solid fa-play text-[10px]"></i>
         <span>⚡ 1-Click Interactive Demo Tour</span>
       </button>
@@ -171,11 +171,21 @@
   <main class="flex-1 flex overflow-hidden relative">
 
     <!-- VIEW 1: OPERATOR TERMINAL -->
-    <div id="view-operator" class="flex-1 flex overflow-hidden">
+    <div id="view-operator" class="flex-1 flex flex-col lg:flex-row overflow-hidden">
+      <!-- Mobile Column Switcher (Visible only on screens < lg) -->
+      <div class="lg:hidden flex bg-slate-200/90 p-1 border-b border-slate-300 text-xs shrink-0">
+        <button id="mobile-tab-queue" onclick="setMobileOperatorTab('queue')" class="flex-1 py-1.5 rounded-lg font-bold bg-[#0A2540] text-white shadow-sm text-center">
+          <i class="fa-solid fa-list mr-1"></i> Live Queue (<span id="mobile-queue-count">0</span>)
+        </button>
+        <button id="mobile-tab-inspector" onclick="setMobileOperatorTab('inspector')" class="flex-1 py-1.5 rounded-lg font-medium text-slate-700 text-center">
+          <i class="fa-solid fa-file-shield mr-1"></i> Case Dossier
+        </button>
+      </div>
+
       <!-- Left Column: Priority Triage Queue -->
-      <div class="w-7/12 border-r border-slate-200 flex flex-col bg-white">
+      <div id="operator-queue-col" class="w-full lg:w-7/12 border-b lg:border-b-0 lg:border-r border-slate-200 flex flex-col bg-white overflow-hidden flex-1">
         <!-- Filter Toolbar -->
-        <div class="p-3.5 border-b border-slate-200 flex items-center justify-between bg-slate-50/80">
+        <div class="p-2.5 sm:p-3.5 border-b border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between bg-slate-50/80 gap-2">
           <div class="flex items-center space-x-3">
             <span class="text-xs font-bold text-slate-800 uppercase tracking-wider flex items-center">
               <i class="fa-solid fa-inbox text-[#0A2540] mr-2"></i> Live Triage Queue
@@ -183,16 +193,16 @@
             <span id="case-count-badge" class="bg-[#0A2540] text-[11px] font-bold px-2 py-0.5 rounded-full text-white">0</span>
           </div>
 
-          <div class="flex items-center space-x-2 text-xs">
-            <div class="relative">
+          <div class="flex flex-wrap items-center gap-1.5 sm:gap-2 text-xs">
+            <div class="relative flex-1 sm:flex-none">
               <i class="fa-solid fa-magnifying-glass absolute left-2.5 top-2.5 text-slate-400 text-xs"></i>
-              <input type="text" id="filter-search" oninput="filterCases()" placeholder="Search Ref, Phone, UPI..." class="bg-white border border-slate-200 text-slate-800 text-xs rounded-lg pl-8 pr-3 py-1.5 w-48 focus:outline-none focus:border-blue-500 shadow-sm">
+              <input type="text" id="filter-search" oninput="filterCases()" placeholder="Search Ref, Phone, UPI..." class="bg-white border border-slate-200 text-slate-800 text-xs rounded-lg pl-8 pr-3 py-1.5 w-full sm:w-44 focus:outline-none focus:border-blue-500 shadow-sm">
             </div>
 
-            <select id="filter-urgency" onchange="loadCases()" class="bg-white border border-slate-200 text-slate-700 rounded-lg px-3 py-1.5 focus:outline-none text-xs shadow-sm font-medium">
+            <select id="filter-urgency" onchange="loadCases()" class="bg-white border border-slate-200 text-slate-700 rounded-lg px-2.5 py-1.5 focus:outline-none text-xs shadow-sm font-medium">
               <option value="">All Priorities</option>
-              <option value="CRITICAL">Critical (Golden Hour)</option>
-              <option value="HIGH">High Urgency</option>
+              <option value="CRITICAL">Critical</option>
+              <option value="HIGH">High</option>
               <option value="NORMAL">Normal</option>
             </select>
 
@@ -202,13 +212,13 @@
           </div>
         </div>
 
-        <!-- Cases Table -->
-        <div class="flex-1 overflow-y-auto scrollbar-thin">
-          <table class="w-full text-left text-xs text-slate-700">
+        <!-- Cases Table (Responsive Table Container) -->
+        <div class="flex-1 overflow-x-auto overflow-y-auto scrollbar-thin">
+          <table class="w-full text-left text-xs text-slate-700 min-w-[580px]">
             <thead class="bg-slate-100 uppercase text-[10px] text-slate-500 font-bold sticky top-0 border-b border-slate-200 z-10 tracking-wider">
               <tr>
                 <th class="px-4 py-3">Case Reference & Urgency</th>
-                <th class="px-3 py-3">Category / Modus Operandi</th>
+                <th class="px-3 py-3">Category / Modus</th>
                 <th class="px-3 py-3">Disputed Amount</th>
                 <th class="px-3 py-3">Incident Time</th>
                 <th class="px-3 py-3">Status</th>
@@ -223,8 +233,8 @@
       </div>
 
       <!-- Right Column: Case Inspection Drawer -->
-      <div class="w-5/12 flex flex-col bg-slate-50/60 overflow-y-auto scrollbar-thin p-5 space-y-4" id="case-inspector">
-        <div class="text-center py-28 text-slate-400">
+      <div id="case-inspector" class="w-full lg:w-5/12 bg-slate-50/60 overflow-y-auto scrollbar-thin p-4 sm:p-5 space-y-4 hidden lg:flex lg:flex-col flex-1">
+        <div class="text-center py-20 sm:py-28 text-slate-400">
           <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-white shadow-sm flex items-center justify-center border border-slate-200">
             <i class="fa-solid fa-folder-open text-3xl text-slate-400"></i>
           </div>
@@ -235,17 +245,17 @@
     </div>
 
     <!-- VIEW 2: CITIZEN WHATSAPP SIMULATOR -->
-    <div id="view-simulator" class="hidden flex-1 flex items-center justify-center bg-slate-100 p-4">
-      <!-- Simulated Phone Shell (Light / Clean) -->
-      <div class="w-[420px] h-[750px] bg-white rounded-[38px] shadow-xl border border-slate-300 flex flex-col overflow-hidden relative">
+    <div id="view-simulator" class="hidden flex-1 flex items-center justify-center bg-slate-100 p-2 sm:p-4 overflow-y-auto">
+      <!-- Simulated Phone Shell (Light / Clean & Responsive) -->
+      <div class="w-full max-w-[420px] h-[720px] sm:h-[750px] max-h-full bg-white rounded-2xl sm:rounded-[38px] shadow-xl border border-slate-300 flex flex-col overflow-hidden relative">
         <!-- Phone Top Notch Header -->
-        <div class="w-full bg-[#008069] pt-3.5 pb-2.5 px-4 flex items-center justify-between text-white shrink-0 shadow-md">
-          <div class="flex items-center space-x-3">
-            <div class="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center font-bold text-sm shadow">
+        <div class="w-full bg-[#008069] pt-3 pb-2 px-3 sm:px-4 flex items-center justify-between text-white shrink-0 shadow-md">
+          <div class="flex items-center space-x-2.5 sm:space-x-3">
+            <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/20 flex items-center justify-center font-bold text-xs sm:text-sm shadow">
               <i class="fa-solid fa-shield-halved text-amber-300 text-xs"></i>
             </div>
             <div>
-              <div class="font-bold text-xs flex items-center tracking-tight">
+              <div class="font-bold text-xs flex items-center tracking-tight truncate max-w-[190px] sm:max-w-none">
                 SurakshaVani Maharashtra
                 <i class="fa-solid fa-circle-check text-blue-200 text-[11px] ml-1.5" title="Verified Govt Bot"></i>
               </div>
@@ -393,7 +403,7 @@
       </div>
 
       <!-- State Level KPI Ribbon -->
-      <div class="grid grid-cols-4 gap-4">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-4">
         <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm">
           <div class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">30-Day Disputed Siphoned</div>
           <div class="text-lg font-bold text-amber-700 mt-0.5">₹3,96,00,000</div>
@@ -419,15 +429,15 @@
       </div>
 
       <!-- Interactive District Grid & Command Profile -->
-      <div class="grid grid-cols-3 gap-5">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
         <!-- District Cards (2 Columns) -->
-        <div class="col-span-2 space-y-2.5">
+        <div class="lg:col-span-2 space-y-2.5">
           <div class="flex items-center justify-between">
             <span class="text-xs font-bold text-slate-800 uppercase tracking-wider">Maharashtra Priority Cyber Zones</span>
             <span class="text-[11px] text-slate-500">Click district card to load command profile</span>
           </div>
 
-          <div class="grid grid-cols-2 gap-3" id="district-grid-cards">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="district-grid-cards">
             <!-- Mumbai Card -->
             <div onclick="selectDistrictCard('MUM')" id="dist-card-MUM" class="district-card cursor-pointer bg-white p-3.5 rounded-xl border-2 border-[#0A2540] shadow-sm hover:shadow transition">
               <div class="flex items-center justify-between">
@@ -546,58 +556,58 @@
     </div>
 
     <!-- VIEW 3: THREAT INTELLIGENCE -->
-    <div id="view-intel" class="hidden flex-1 flex flex-col bg-slate-50 p-6 overflow-y-auto scrollbar-thin space-y-6">
-      <div class="flex items-center justify-between border-b border-slate-200 pb-4">
+    <div id="view-intel" class="hidden flex-1 flex flex-col bg-slate-50 p-3.5 sm:p-6 overflow-y-auto scrollbar-thin space-y-5 sm:space-y-6">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-200 pb-3 sm:pb-4 gap-2">
         <div>
-          <h2 class="text-base font-bold text-slate-900 flex items-center">
-            <i class="fa-solid fa-network-wired text-blue-600 mr-2.5"></i>
+          <h2 class="text-sm sm:text-base font-bold text-slate-900 flex items-center">
+            <i class="fa-solid fa-network-wired text-blue-600 mr-2 sm:mr-2.5"></i>
             Financial Crime Threat Intelligence & Mule Syndicates
           </h2>
-          <p class="text-xs text-slate-500 mt-0.5">Automated cross-complaint pattern clustering, repeat identifier graph discovery, and weekly police directives.</p>
+          <p class="text-[11px] sm:text-xs text-slate-500 mt-0.5">Automated cross-complaint pattern clustering, repeat identifier graph discovery, and weekly police directives.</p>
         </div>
-        <button onclick="loadIntel()" class="px-4 py-2 bg-[#0A2540] hover:bg-[#16385C] text-white rounded-lg text-xs font-semibold shadow-sm transition">
+        <button onclick="loadIntel()" class="w-full sm:w-auto px-3.5 sm:px-4 py-2 bg-[#0A2540] hover:bg-[#16385C] text-white rounded-lg text-xs font-semibold shadow-sm transition flex items-center justify-center shrink-0">
           <i class="fa-solid fa-arrows-rotate mr-1.5"></i> Re-Run Clustering Pipeline
         </button>
       </div>
 
       <!-- Intel Clusters Grid -->
-      <div class="grid grid-cols-2 gap-5" id="intel-clusters-container">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5" id="intel-clusters-container">
         <!-- Dynamically injected -->
       </div>
 
       <!-- Weekly Leads Card -->
-      <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm">
+      <div class="bg-white border border-slate-200 rounded-xl p-4 sm:p-5 shadow-sm">
         <h3 class="text-xs font-bold text-[#0A2540] uppercase tracking-wider mb-2 flex items-center">
           <i class="fa-solid fa-file-shield text-amber-600 mr-2"></i> Weekly Directives for Maharashtra Cyber Cell & I4C
         </h3>
-        <div id="intel-report-box" class="text-xs text-slate-700 space-y-3 font-mono bg-slate-50 p-4 rounded-lg border border-slate-200">
+        <div id="intel-report-box" class="text-[11px] sm:text-xs text-slate-700 space-y-3 font-mono bg-slate-50 p-3 sm:p-4 rounded-lg border border-slate-200 overflow-x-auto whitespace-pre-wrap">
           Loading threat report...
         </div>
       </div>
     </div>
 
     <!-- VIEW 4: AUDIT LEDGER -->
-    <div id="view-audit" class="hidden flex-1 flex flex-col bg-slate-50 p-6 overflow-y-auto scrollbar-thin space-y-5">
-      <div class="flex items-center justify-between border-b border-slate-200 pb-4">
+    <div id="view-audit" class="hidden flex-1 flex flex-col bg-slate-50 p-3.5 sm:p-6 overflow-y-auto scrollbar-thin space-y-4 sm:space-y-5">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-200 pb-3 sm:pb-4 gap-2">
         <div>
-          <h2 class="text-base font-bold text-slate-900 flex items-center">
-            <i class="fa-solid fa-shield-halved text-purple-600 mr-2.5"></i>
+          <h2 class="text-sm sm:text-base font-bold text-slate-900 flex items-center">
+            <i class="fa-solid fa-shield-halved text-purple-600 mr-2 sm:mr-2.5"></i>
             Cryptographically Tamper-Evident Audit Ledger
           </h2>
-          <p class="text-xs text-slate-500 mt-0.5">Immutable SHA-256 hash chaining of all operator actions, handoffs, and DPDP consent modifications.</p>
+          <p class="text-[11px] sm:text-xs text-slate-500 mt-0.5">Immutable SHA-256 hash chaining of all operator actions, handoffs, and DPDP consent modifications.</p>
         </div>
-        <div class="flex items-center space-x-3">
-          <button onclick="runRetentionPurge()" class="px-3.5 py-1.5 bg-red-50 hover:bg-red-100 border border-red-200 text-red-700 rounded-lg text-xs font-semibold transition">
-            <i class="fa-solid fa-trash-can mr-1.5"></i> Run DPDP Retention Purge
+        <div class="flex flex-wrap items-center gap-2">
+          <button onclick="runRetentionPurge()" class="flex-1 sm:flex-none px-3 py-1.5 bg-red-50 hover:bg-red-100 border border-red-200 text-red-700 rounded-lg text-xs font-semibold transition text-center">
+            <i class="fa-solid fa-trash-can mr-1.5"></i> DPDP Retention Purge
           </button>
-          <button onclick="loadAuditLogs()" class="px-3.5 py-1.5 bg-[#0A2540] hover:bg-[#16385C] text-white rounded-lg text-xs font-semibold shadow-sm transition">
+          <button onclick="loadAuditLogs()" class="flex-1 sm:flex-none px-3.5 py-1.5 bg-[#0A2540] hover:bg-[#16385C] text-white rounded-lg text-xs font-semibold shadow-sm transition text-center">
             <i class="fa-solid fa-rotate-right mr-1.5"></i> Refresh Audit Trail
           </button>
         </div>
       </div>
 
-      <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm">
-        <table class="w-full text-left text-xs text-slate-700">
+      <div class="bg-white border border-slate-200 rounded-xl overflow-x-auto shadow-sm">
+        <table class="w-full text-left text-xs text-slate-700 min-w-[620px]">
           <thead class="bg-slate-100 uppercase text-[10px] text-slate-500 font-bold border-b border-slate-200 tracking-wider">
             <tr>
               <th class="px-4 py-3">Timestamp / Actor</th>
@@ -698,9 +708,36 @@
       renderCasesTable(filtered);
     }
 
+    function setMobileOperatorTab(tab) {
+      const queueCol = document.getElementById('operator-queue-col');
+      const inspCol = document.getElementById('case-inspector');
+      const btnQ = document.getElementById('mobile-tab-queue');
+      const btnI = document.getElementById('mobile-tab-inspector');
+
+      if (!queueCol || !inspCol) return;
+
+      if (tab === 'queue') {
+        queueCol.classList.remove('hidden');
+        inspCol.classList.add('hidden');
+        inspCol.classList.remove('flex');
+        if (btnQ) btnQ.className = "flex-1 py-1.5 rounded-lg font-bold bg-[#0A2540] text-white shadow-sm text-center";
+        if (btnI) btnI.className = "flex-1 py-1.5 rounded-lg font-medium text-slate-700 text-center";
+      } else {
+        queueCol.classList.add('hidden');
+        inspCol.classList.remove('hidden');
+        inspCol.classList.add('flex');
+        inspCol.classList.add('flex-col');
+        if (btnI) btnI.className = "flex-1 py-1.5 rounded-lg font-bold bg-[#0A2540] text-white shadow-sm text-center";
+        if (btnQ) btnQ.className = "flex-1 py-1.5 rounded-lg font-medium text-slate-700 text-center";
+      }
+    }
+
     function renderCasesTable(cases) {
       const tbody = document.getElementById('cases-tbody');
-      document.getElementById('case-count-badge').innerText = cases.length;
+      const badge = document.getElementById('case-count-badge');
+      if (badge) badge.innerText = cases.length;
+      const mobileBadge = document.getElementById('mobile-queue-count');
+      if (mobileBadge) mobileBadge.innerText = cases.length;
       tbody.innerHTML = '';
 
       if (cases.length === 0) {
@@ -755,6 +792,9 @@
 
     async function selectCase(caseId) {
       activeCaseId = caseId;
+      if (window.innerWidth < 1024) {
+        setMobileOperatorTab('inspector');
+      }
       const inspector = document.getElementById('case-inspector');
       inspector.innerHTML = `<div class="text-center py-24 text-slate-400"><i class="fa-solid fa-spinner fa-spin text-2xl text-[#0A2540]"></i><p class="mt-2 text-xs font-medium">Decrypting AES-256-GCM Complaint Dossier...</p></div>`;
 
@@ -806,13 +846,18 @@
 
       inspector.innerHTML = `
         <!-- Case Header -->
-        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center justify-between">
-          <div>
-            <div class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">OFFICIAL INCIDENT DOSSIER</div>
-            <span class="font-mono font-bold text-base text-slate-900">${c.ref_no}</span>
-            <div class="text-xs text-slate-500 capitalize mt-0.5">Subtype: <span class="text-slate-800 font-semibold">${c.subtype.replace(/_/g, ' ')}</span></div>
+        <div class="bg-white p-3.5 sm:p-4 rounded-xl border border-slate-200 shadow-sm flex items-center justify-between">
+          <div class="flex items-center space-x-2.5">
+            <button onclick="setMobileOperatorTab('queue')" class="lg:hidden w-8 h-8 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center shrink-0 border border-slate-200 cursor-pointer" title="Back to Queue">
+              <i class="fa-solid fa-arrow-left text-xs"></i>
+            </button>
+            <div>
+              <div class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">OFFICIAL INCIDENT DOSSIER</div>
+              <span class="font-mono font-bold text-sm sm:text-base text-slate-900">${c.ref_no}</span>
+              <div class="text-xs text-slate-500 capitalize mt-0.5">Subtype: <span class="text-slate-800 font-semibold">${c.subtype.replace(/_/g, ' ')}</span></div>
+            </div>
           </div>
-          <span class="text-xs font-bold px-3 py-1 rounded-full ${c.urgency === 'CRITICAL' ? 'bg-red-50 text-red-700 border border-red-300' : 'bg-slate-100 text-slate-700'}">
+          <span class="text-xs font-bold px-2.5 sm:px-3 py-1 rounded-full ${c.urgency === 'CRITICAL' ? 'bg-red-50 text-red-700 border border-red-300' : 'bg-slate-100 text-slate-700'} shrink-0">
             ${c.urgency} PRIORITY
           </span>
         </div>
