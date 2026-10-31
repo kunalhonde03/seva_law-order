@@ -109,17 +109,20 @@
     <!-- Navigation Tabs -->
     <div class="flex items-center space-x-4">
       <div class="flex bg-slate-100 p-1 rounded-xl border border-slate-200 text-xs shadow-inner">
-        <button id="tab-operator-btn" onclick="switchMainView('operator')" class="px-4 py-1.5 rounded-lg font-semibold bg-[#0A2540] text-white shadow-sm transition flex items-center">
-          <i class="fa-solid fa-desktop mr-2 text-amber-400"></i> Operator Desk
+        <button id="tab-operator-btn" onclick="switchMainView('operator')" class="px-3 py-1.5 rounded-lg font-semibold bg-[#0A2540] text-white shadow-sm transition flex items-center">
+          <i class="fa-solid fa-desktop mr-1.5 text-amber-400"></i> Operator Desk
         </button>
-        <button id="tab-simulator-btn" onclick="switchMainView('simulator')" class="px-4 py-1.5 rounded-lg font-medium text-slate-600 hover:text-slate-900 transition flex items-center">
-          <i class="fa-brands fa-whatsapp text-emerald-600 mr-2 text-sm"></i> Citizen WhatsApp
+        <button id="tab-simulator-btn" onclick="switchMainView('simulator')" class="px-3 py-1.5 rounded-lg font-medium text-slate-600 hover:text-slate-900 transition flex items-center">
+          <i class="fa-brands fa-whatsapp text-emerald-600 mr-1.5 text-sm"></i> Citizen WhatsApp
         </button>
-        <button id="tab-intel-btn" onclick="switchMainView('intel')" class="px-4 py-1.5 rounded-lg font-medium text-slate-600 hover:text-slate-900 transition flex items-center">
-          <i class="fa-solid fa-chart-network mr-2 text-blue-600"></i> Syndicate Intelligence
+        <button id="tab-map-btn" onclick="switchMainView('map')" class="px-3 py-1.5 rounded-lg font-medium text-slate-600 hover:text-slate-900 transition flex items-center">
+          <i class="fa-solid fa-map-location-dot text-indigo-600 mr-1.5"></i> District Heatmap
         </button>
-        <button id="tab-audit-btn" onclick="switchMainView('audit')" class="px-4 py-1.5 rounded-lg font-medium text-slate-600 hover:text-slate-900 transition flex items-center">
-          <i class="fa-solid fa-shield-halved text-purple-600 mr-2"></i> Audit Ledger
+        <button id="tab-intel-btn" onclick="switchMainView('intel')" class="px-3 py-1.5 rounded-lg font-medium text-slate-600 hover:text-slate-900 transition flex items-center">
+          <i class="fa-solid fa-network-wired text-blue-600 mr-1.5"></i> Syndicate Intel
+        </button>
+        <button id="tab-audit-btn" onclick="switchMainView('audit')" class="px-3 py-1.5 rounded-lg font-medium text-slate-600 hover:text-slate-900 transition flex items-center">
+          <i class="fa-solid fa-shield-halved text-purple-600 mr-1.5"></i> Audit Ledger
         </button>
       </div>
 
@@ -135,6 +138,34 @@
       </div>
     </div>
   </header>
+
+  <!-- SEVA FIRST INNOVATION CHALLENGE 2026 COMPETITION BANNER & IMPACT METRICS -->
+  <div class="bg-gradient-to-r from-[#071b2f] via-[#0A2540] to-[#123153] text-slate-100 px-6 py-2 border-b border-amber-500/40 shadow-sm flex items-center justify-between shrink-0 z-10">
+    <div class="flex items-center space-x-3 text-xs">
+      <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-500/20 text-amber-300 border border-amber-400/40 tracking-wide">
+        <i class="fa-solid fa-trophy mr-1.5 text-amber-400"></i> Seva First Innovation Challenge 2026
+      </span>
+      <span class="text-slate-400 font-semibold">•</span>
+      <span class="text-slate-200 font-medium text-[11px]">Sector 2: Law & Order</span>
+      <span class="text-slate-400 font-semibold">•</span>
+      <span class="text-amber-200 font-medium text-[11px]">Sub-theme: Cyber-Fraud & Financial-Crime Intelligence</span>
+    </div>
+
+    <div class="flex items-center space-x-4 text-[11px]">
+      <div class="hidden md:flex items-center space-x-1.5 text-emerald-300 bg-emerald-950/50 px-2.5 py-0.5 rounded border border-emerald-500/30">
+        <i class="fa-solid fa-bolt text-emerald-400"></i>
+        <span>Golden-Hour Recovery: <strong class="text-white font-bold">+68%</strong></span>
+      </div>
+      <div class="hidden lg:flex items-center space-x-1.5 text-blue-200 bg-blue-950/50 px-2.5 py-0.5 rounded border border-blue-400/30">
+        <i class="fa-solid fa-stopwatch text-blue-300"></i>
+        <span>Intake Velocity: <strong class="text-white font-bold">45m → 90s</strong></span>
+      </div>
+      <button onclick="launchInteractiveTour()" class="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-bold px-3 py-1 rounded-lg shadow-sm border border-amber-300/40 transition flex items-center space-x-1.5 cursor-pointer">
+        <i class="fa-solid fa-play text-[10px]"></i>
+        <span>⚡ 1-Click Interactive Demo Tour</span>
+      </button>
+    </div>
+  </div>
 
   <!-- MAIN WORKSPACE -->
   <main class="flex-1 flex overflow-hidden relative">
@@ -282,23 +313,47 @@
         </div>
 
         <!-- Interactive Voice Simulation Bar -->
-        <div id="standard-input-bar" class="bg-white p-2.5 border-t border-slate-200 shrink-0">
-          <div class="text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5 flex justify-between">
-            <span>Demonstration Scenarios</span>
-            <span class="text-emerald-700 font-semibold"><i class="fa-solid fa-microphone-lines mr-1"></i> Faster-Whisper ASR</span>
+        <div id="standard-input-bar" class="bg-white p-2.5 border-t border-slate-200 shrink-0 space-y-2">
+          <!-- Expanded Scam Catalog Dropdown & Quick Selector -->
+          <div class="space-y-1">
+            <div class="text-[10px] font-bold text-slate-500 uppercase tracking-wider flex justify-between items-center">
+              <span>National & Maharashtra Scam Catalog</span>
+              <span class="text-emerald-700 font-semibold text-[10px]"><i class="fa-solid fa-microphone-lines mr-1"></i> Faster-Whisper ASR</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <select id="scam-catalog-select" class="flex-1 bg-slate-50 border border-slate-200 rounded-lg px-2.5 py-1 text-xs text-slate-800 font-medium focus:outline-none focus:border-[#008069]">
+                <option value="msedcl">⚡ [Marathi] MSEDCL Electricity Bill Scam (₹50,000 • Golden Hour)</option>
+                <option value="digital_arrest">🚨 [English] Digital Arrest & CBI Narcotics Extortion (₹2,50,000 • Golden Hour)</option>
+                <option value="pension">👴 [Hindi] SBI Pension Life Certificate OTP Scam (₹1,20,000 • Golden Hour)</option>
+                <option value="telegram">📱 [Hindi] Telegram Part-Time YouTube Task (₹1,00,000 • High Urgency)</option>
+                <option value="trading">📈 [Hindi] Fake VIP Institutional IPO & Trading App (₹3,00,000 • Golden Hour)</option>
+                <option value="extortion">🛡️ [English] WhatsApp Video Call Morphing Sextortion (Extortion Demanded)</option>
+              </select>
+              <button onclick="runSelectedScamCatalog()" class="bg-[#008069] hover:bg-[#006A57] text-white px-3 py-1 rounded-lg text-xs font-bold transition flex items-center shadow-sm shrink-0">
+                <i class="fa-solid fa-play mr-1 text-[10px]"></i> Run
+              </button>
+            </div>
           </div>
-          <div class="grid grid-cols-2 gap-1.5 text-xs mb-2">
-            <button onclick="sendPresetClip('msedcl')" class="bg-slate-50 hover:bg-slate-100 text-slate-700 text-left px-2 py-1.5 rounded-lg truncate border border-slate-200 transition font-medium">
-              ⚡ Marathi: MSEDCL Scam
+
+          <!-- Quick-Access Preset Chips -->
+          <div class="grid grid-cols-3 gap-1 text-[11px]">
+            <button onclick="sendPresetClip('msedcl')" class="bg-slate-50 hover:bg-slate-100 text-slate-700 text-left px-2 py-1 rounded border border-slate-200 transition font-medium truncate">
+              ⚡ Marathi: MSEDCL
             </button>
-            <button onclick="sendPresetClip('pension')" class="bg-slate-50 hover:bg-slate-100 text-slate-700 text-left px-2 py-1.5 rounded-lg truncate border border-slate-200 transition font-medium">
-              👴 Hindi: Pension OTP
+            <button onclick="sendPresetClip('digital_arrest')" class="bg-slate-50 hover:bg-slate-100 text-slate-700 text-left px-2 py-1 rounded border border-slate-200 transition font-medium truncate">
+              🚨 Digital Arrest
             </button>
-            <button onclick="sendPresetClip('telegram')" class="bg-slate-50 hover:bg-slate-100 text-slate-700 text-left px-2 py-1.5 rounded-lg truncate border border-slate-200 transition font-medium">
-              📱 Hindi: Telegram Task
+            <button onclick="sendPresetClip('pension')" class="bg-slate-50 hover:bg-slate-100 text-slate-700 text-left px-2 py-1 rounded border border-slate-200 transition font-medium truncate">
+              👴 Hindi: Pension
             </button>
-            <button onclick="sendPresetClip('extortion')" class="bg-slate-50 hover:bg-slate-100 text-slate-700 text-left px-2 py-1.5 rounded-lg truncate border border-slate-200 transition font-medium">
-              🛡️ English: Video Blackmail
+            <button onclick="sendPresetClip('telegram')" class="bg-slate-50 hover:bg-slate-100 text-slate-700 text-left px-2 py-1 rounded border border-slate-200 transition font-medium truncate">
+              📱 Telegram Task
+            </button>
+            <button onclick="sendPresetClip('trading')" class="bg-slate-50 hover:bg-slate-100 text-slate-700 text-left px-2 py-1 rounded border border-slate-200 transition font-medium truncate">
+              📈 IPO Trading
+            </button>
+            <button onclick="sendPresetClip('extortion')" class="bg-slate-50 hover:bg-slate-100 text-slate-700 text-left px-2 py-1 rounded border border-slate-200 transition font-medium truncate">
+              🛡️ Sextortion
             </button>
           </div>
 
@@ -312,6 +367,180 @@
               <i class="fa-solid fa-paper-plane"></i>
             </button>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VIEW 2.5: MAHARASHTRA DISTRICT HEATMAP & INCIDENT RADAR -->
+    <div id="view-map" class="hidden flex-1 flex flex-col bg-slate-50 p-6 overflow-y-auto scrollbar-thin space-y-5">
+      <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+        <div>
+          <h2 class="text-base font-bold text-slate-900 flex items-center">
+            <i class="fa-solid fa-map-location-dot text-indigo-600 mr-2.5"></i>
+            Maharashtra Cybercrime District Radar & Syndicate Surveillance
+          </h2>
+          <p class="text-xs text-slate-500 mt-0.5">Real-time incident density, cross-district mule rings, and nodal cyber police station readiness.</p>
+        </div>
+        <div class="flex items-center space-x-3">
+          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-red-50 text-red-700 border border-red-200">
+            <span class="w-2 h-2 rounded-full bg-red-500 animate-ping mr-1.5"></span>
+            Golden-Hour Window Active
+          </span>
+          <button onclick="switchMainView('operator')" class="px-3.5 py-1.5 bg-[#0A2540] hover:bg-[#16385C] text-white rounded-lg text-xs font-semibold shadow-sm transition">
+            <i class="fa-solid fa-inbox mr-1.5 text-amber-400"></i> Open Operator Triage
+          </button>
+        </div>
+      </div>
+
+      <!-- State Level KPI Ribbon -->
+      <div class="grid grid-cols-4 gap-4">
+        <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm">
+          <div class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">30-Day Disputed Siphoned</div>
+          <div class="text-lg font-bold text-amber-700 mt-0.5">₹3,96,00,000</div>
+          <div class="text-[10px] text-emerald-600 font-semibold mt-0.5 flex items-center">
+            <i class="fa-solid fa-arrow-down mr-1"></i> -34% via Golden-Hour Freeze
+          </div>
+        </div>
+        <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm">
+          <div class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Golden-Hour Freeze Rate</div>
+          <div class="text-lg font-bold text-emerald-700 mt-0.5">68.4%</div>
+          <div class="text-[10px] text-slate-500 font-medium mt-0.5">Avg freeze lien: 11.4 mins</div>
+        </div>
+        <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm">
+          <div class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Active Mule Syndicates</div>
+          <div class="text-lg font-bold text-purple-700 mt-0.5">4 Ring Clusters</div>
+          <div class="text-[10px] text-purple-600 font-medium mt-0.5">Spanning 6 MH Districts</div>
+        </div>
+        <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm">
+          <div class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Citizen Voice Adoption</div>
+          <div class="text-lg font-bold text-blue-700 mt-0.5">82.6%</div>
+          <div class="text-[10px] text-slate-500 font-medium mt-0.5">Marathi (54%) • Hindi (31%) • Eng (15%)</div>
+        </div>
+      </div>
+
+      <!-- Interactive District Grid & Command Profile -->
+      <div class="grid grid-cols-3 gap-5">
+        <!-- District Cards (2 Columns) -->
+        <div class="col-span-2 space-y-2.5">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-800 uppercase tracking-wider">Maharashtra Priority Cyber Zones</span>
+            <span class="text-[11px] text-slate-500">Click district card to load command profile</span>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3" id="district-grid-cards">
+            <!-- Mumbai Card -->
+            <div onclick="selectDistrictCard('MUM')" id="dist-card-MUM" class="district-card cursor-pointer bg-white p-3.5 rounded-xl border-2 border-[#0A2540] shadow-sm hover:shadow transition">
+              <div class="flex items-center justify-between">
+                <div>
+                  <h4 class="font-bold text-slate-900 text-sm">Mumbai City</h4>
+                  <span class="text-[10px] font-mono text-slate-500 font-semibold">BKC Cyber Police Station</span>
+                </div>
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-red-100 text-red-800 border border-red-300">CRITICAL</span>
+              </div>
+              <div class="mt-2.5 grid grid-cols-2 gap-2 text-xs">
+                <div><span class="text-slate-400 text-[10px]">Active Cases:</span> <strong class="text-slate-800">42</strong></div>
+                <div><span class="text-slate-400 text-[10px]">Total Siphoned:</span> <strong class="text-amber-700">₹1.82 Cr</strong></div>
+              </div>
+              <div class="mt-2 text-[11px] bg-red-50 text-red-800 p-2 rounded-lg border border-red-200 flex items-center">
+                <i class="fa-solid fa-triangle-exclamation mr-1.5 text-red-600"></i> Primary threat: Digital Arrest & Fake CBI Parcel scams
+              </div>
+            </div>
+
+            <!-- Pune Card -->
+            <div onclick="selectDistrictCard('PUN')" id="dist-card-PUN" class="district-card cursor-pointer bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm hover:border-[#0A2540] hover:shadow transition">
+              <div class="flex items-center justify-between">
+                <div>
+                  <h4 class="font-bold text-slate-900 text-sm">Pune Urban</h4>
+                  <span class="text-[10px] font-mono text-slate-500 font-semibold">Shivajinagar Cyber Station</span>
+                </div>
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-red-100 text-red-800 border border-red-300">CRITICAL</span>
+              </div>
+              <div class="mt-2.5 grid grid-cols-2 gap-2 text-xs">
+                <div><span class="text-slate-400 text-[10px]">Active Cases:</span> <strong class="text-slate-800">34</strong></div>
+                <div><span class="text-slate-400 text-[10px]">Total Siphoned:</span> <strong class="text-amber-700">₹94.5 L</strong></div>
+              </div>
+              <div class="mt-2 text-[11px] bg-amber-50 text-amber-800 p-2 rounded-lg border border-amber-200 flex items-center">
+                <i class="fa-solid fa-bolt mr-1.5 text-amber-600"></i> Primary threat: MSEDCL Bill & Pension OTP Scams
+              </div>
+            </div>
+
+            <!-- Thane Card -->
+            <div onclick="selectDistrictCard('THA')" id="dist-card-THA" class="district-card cursor-pointer bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm hover:border-[#0A2540] hover:shadow transition">
+              <div class="flex items-center justify-between">
+                <div>
+                  <h4 class="font-bold text-slate-900 text-sm">Thane City</h4>
+                  <span class="text-[10px] font-mono text-slate-500 font-semibold">Wagle Estate Cyber Cell</span>
+                </div>
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-orange-100 text-orange-800 border border-orange-300">HIGH</span>
+              </div>
+              <div class="mt-2.5 grid grid-cols-2 gap-2 text-xs">
+                <div><span class="text-slate-400 text-[10px]">Active Cases:</span> <strong class="text-slate-800">19</strong></div>
+                <div><span class="text-slate-400 text-[10px]">Total Siphoned:</span> <strong class="text-amber-700">₹48.2 L</strong></div>
+              </div>
+              <div class="mt-2 text-[11px] bg-blue-50 text-blue-800 p-2 rounded-lg border border-blue-200 flex items-center">
+                <i class="fa-solid fa-mobile mr-1.5 text-blue-600"></i> Primary threat: Telegram Part-time Job Scams
+              </div>
+            </div>
+
+            <!-- Nagpur Card -->
+            <div onclick="selectDistrictCard('NAG')" id="dist-card-NAG" class="district-card cursor-pointer bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm hover:border-[#0A2540] hover:shadow transition">
+              <div class="flex items-center justify-between">
+                <div>
+                  <h4 class="font-bold text-slate-900 text-sm">Nagpur Urban</h4>
+                  <span class="text-[10px] font-mono text-slate-500 font-semibold">Civil Lines Cyber Cell</span>
+                </div>
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-orange-100 text-orange-800 border border-orange-300">HIGH</span>
+              </div>
+              <div class="mt-2.5 grid grid-cols-2 gap-2 text-xs">
+                <div><span class="text-slate-400 text-[10px]">Active Cases:</span> <strong class="text-slate-800">14</strong></div>
+                <div><span class="text-slate-400 text-[10px]">Total Siphoned:</span> <strong class="text-amber-700">₹31.0 L</strong></div>
+              </div>
+              <div class="mt-2 text-[11px] bg-purple-50 text-purple-800 p-2 rounded-lg border border-purple-200 flex items-center">
+                <i class="fa-solid fa-video mr-1.5 text-purple-600"></i> Primary threat: Video Call Sextortion & Loan Apps
+              </div>
+            </div>
+
+            <!-- Nashik Card -->
+            <div onclick="selectDistrictCard('NSK')" id="dist-card-NSK" class="district-card cursor-pointer bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm hover:border-[#0A2540] hover:shadow transition">
+              <div class="flex items-center justify-between">
+                <div>
+                  <h4 class="font-bold text-slate-900 text-sm">Nashik Rural</h4>
+                  <span class="text-[10px] font-mono text-slate-500 font-semibold">Gangapur Cyber Desk</span>
+                </div>
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-yellow-100 text-yellow-800 border border-yellow-300">ELEVATED</span>
+              </div>
+              <div class="mt-2.5 grid grid-cols-2 gap-2 text-xs">
+                <div><span class="text-slate-400 text-[10px]">Active Cases:</span> <strong class="text-slate-800">11</strong></div>
+                <div><span class="text-slate-400 text-[10px]">Total Siphoned:</span> <strong class="text-amber-700">₹24.4 L</strong></div>
+              </div>
+              <div class="mt-2 text-[11px] bg-slate-100 text-slate-700 p-2 rounded-lg border border-slate-200 flex items-center">
+                <i class="fa-solid fa-store mr-1.5 text-slate-600"></i> Primary threat: OLX QR Code & UPI Collect Frauds
+              </div>
+            </div>
+
+            <!-- Chhatrapati Sambhajinagar Card -->
+            <div onclick="selectDistrictCard('CSN')" id="dist-card-CSN" class="district-card cursor-pointer bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm hover:border-[#0A2540] hover:shadow transition">
+              <div class="flex items-center justify-between">
+                <div>
+                  <h4 class="font-bold text-slate-900 text-sm">Chhatrapati Sambhajinagar</h4>
+                  <span class="text-[10px] font-mono text-slate-500 font-semibold">CIDCO Cyber Cell</span>
+                </div>
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-yellow-100 text-yellow-800 border border-yellow-300">MODERATE</span>
+              </div>
+              <div class="mt-2.5 grid grid-cols-2 gap-2 text-xs">
+                <div><span class="text-slate-400 text-[10px]">Active Cases:</span> <strong class="text-slate-800">8</strong></div>
+                <div><span class="text-slate-400 text-[10px]">Total Siphoned:</span> <strong class="text-amber-700">₹16.8 L</strong></div>
+              </div>
+              <div class="mt-2 text-[11px] bg-slate-100 text-slate-700 p-2 rounded-lg border border-slate-200 flex items-center">
+                <i class="fa-solid fa-credit-card mr-1.5 text-slate-600"></i> Primary threat: KYC SIM Swapping Frauds
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Selected District Detail Panel (1 Column) -->
+        <div class="bg-white rounded-xl border border-slate-200 p-4 shadow-sm space-y-4 flex flex-col justify-between" id="district-detail-box">
+          <!-- Populated by JS -->
         </div>
       </div>
     </div>
@@ -423,20 +652,22 @@
     function switchMainView(view) {
       document.getElementById('view-operator').classList.toggle('hidden', view !== 'operator');
       document.getElementById('view-simulator').classList.toggle('hidden', view !== 'simulator');
+      document.getElementById('view-map').classList.toggle('hidden', view !== 'map');
       document.getElementById('view-intel').classList.toggle('hidden', view !== 'intel');
       document.getElementById('view-audit').classList.toggle('hidden', view !== 'audit');
 
-      const tabs = ['operator', 'simulator', 'intel', 'audit'];
+      const tabs = ['operator', 'simulator', 'map', 'intel', 'audit'];
       tabs.forEach(t => {
         const btn = document.getElementById(`tab-${t}-btn`);
         if (btn) {
           btn.className = (t === view)
-            ? "px-4 py-1.5 rounded-lg font-semibold bg-[#0A2540] text-white shadow-sm transition flex items-center"
-            : "px-4 py-1.5 rounded-lg font-medium text-slate-600 hover:text-slate-900 transition flex items-center";
+            ? "px-3 py-1.5 rounded-lg font-semibold bg-[#0A2540] text-white shadow-sm transition flex items-center"
+            : "px-3 py-1.5 rounded-lg font-medium text-slate-600 hover:text-slate-900 transition flex items-center";
         }
       });
 
       if (view === 'operator') loadCases();
+      if (view === 'map') selectDistrictCard('MUM');
       if (view === 'intel') loadIntel();
       if (view === 'audit') loadAuditLogs();
     }
@@ -601,6 +832,45 @@
             <a href="/cases/${c.id}/summary.pdf" target="_blank" class="px-3 py-1.5 bg-white hover:bg-slate-100 text-slate-700 rounded-lg text-xs font-bold border border-slate-300 transition flex items-center shadow-sm">
               <i class="fa-solid fa-file-pdf mr-1.5 text-red-600"></i> PDF
             </a>
+          </div>
+        </div>
+
+        <!-- Primary Citizen Voice Evidence & Audio Playback -->
+        <div class="bg-white p-3 rounded-xl border border-slate-200 shadow-sm space-y-2">
+          <div class="flex items-center justify-between text-[10px] text-slate-400 uppercase font-bold tracking-wider">
+            <span class="flex items-center text-slate-700">
+              <i class="fa-solid fa-microphone-lines text-emerald-600 mr-1.5"></i> Primary Citizen Voice Evidence
+            </span>
+            <span class="text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 font-semibold font-mono text-[10px]">
+              Fast-Whisper • 98.2%
+            </span>
+          </div>
+
+          <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-200 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+              <button id="desk-audio-play-btn" onclick="toggleDeskAudioPlayback()" class="w-9 h-9 rounded-full bg-[#0A2540] hover:bg-[#16385C] text-white flex items-center justify-center shadow transition cursor-pointer shrink-0">
+                <i id="desk-audio-icon" class="fa-solid fa-play ml-0.5 text-xs text-amber-400"></i>
+              </button>
+              <div>
+                <div class="text-xs font-bold text-slate-900 flex items-center space-x-2">
+                  <span>Listen to Citizen Voice Note (${c.language === 'mr' ? 'Marathi' : (c.language === 'hi' ? 'Hindi' : 'English')})</span>
+                  <span class="text-[10px] font-mono text-slate-400 font-normal">0:22</span>
+                </div>
+                <div class="text-[10px] text-slate-500 flex items-center space-x-1.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                  <span>DPDP Ephemeral Audio Storage (Purge active)</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Equalizer Waveform bars -->
+            <div id="desk-audio-bars" class="flex items-end space-x-1 h-5 shrink-0">
+              <span class="w-1 bg-slate-300 rounded h-2"></span>
+              <span class="w-1 bg-slate-300 rounded h-4"></span>
+              <span class="w-1 bg-slate-300 rounded h-5"></span>
+              <span class="w-1 bg-slate-300 rounded h-3"></span>
+              <span class="w-1 bg-slate-300 rounded h-4"></span>
+            </div>
           </div>
         </div>
 
@@ -797,9 +1067,16 @@
       if (presetKey === 'pension') filename = 'sbi_pension_otp_hindi.wav';
       if (presetKey === 'telegram') filename = 'telegram_task_hindi.wav';
       if (presetKey === 'extortion') filename = 'video_extortion_english.wav';
+      if (presetKey === 'digital_arrest') filename = 'digital_arrest_cbi_english.wav';
+      if (presetKey === 'trading') filename = 'trading_ipo_scam_hindi.wav';
 
       appendChatBubble("user", `🎤 [Voice Note: ${filename}]`);
       sendSimPayload(null, null, filename);
+    }
+
+    function runSelectedScamCatalog() {
+      const select = document.getElementById('scam-catalog-select');
+      if (select) sendPresetClip(select.value);
     }
 
     function sendSimText() {
@@ -985,6 +1262,245 @@ ${(repData.operational_recommendations || []).map((r, i) => `${i+1}. ${r}`).join
       } catch (err) {
         showToast("Error", "Failed to execute retention purge.", "error");
       }
+    }
+
+    // DISTRICT HEATMAP DATA & LOGIC
+    const DISTRICT_DATA = {
+      MUM: {
+        name: "Mumbai City",
+        station: "BKC Cyber Police Station, Bandra Kurla Complex",
+        officer: "Sr. PI Shrikant Patil (Cyber Crime)",
+        email: "cybercell.mumbai@mahapolice.gov.in",
+        helpline: "022-26504008 / 1930",
+        active_cases: 42,
+        total_siphoned: "₹1,82,40,000",
+        primary_threat: "Digital Arrest & Fake CBI/Customs MDMA Narcotics Extortion",
+        mule_links: "Shared Mule Bank Accounts isolated with Pune Urban (Cluster #1)"
+      },
+      PUN: {
+        name: "Pune Urban",
+        station: "Shivajinagar Cyber Police Station, Pune City",
+        officer: "ACP Cyber Crime Cell Pune",
+        email: "cybercell.pune@mahapolice.gov.in",
+        helpline: "020-29710097 / 1930",
+        active_cases: 34,
+        total_siphoned: "₹94,50,000",
+        primary_threat: "MSEDCL Electricity Bill Disconnection & Pension OTP Impersonation",
+        mule_links: "Repeated suspect UPI ID payfast@icici shared with Mumbai cases"
+      },
+      THA: {
+        name: "Thane City",
+        station: "Wagle Estate Cyber Cell, Thane Police Commissionerate",
+        officer: "PI Suresh Pawar (Cyber Branch)",
+        email: "cybercell.thane@mahapolice.gov.in",
+        helpline: "022-25828484 / 1930",
+        active_cases: 19,
+        total_siphoned: "₹48,20,000",
+        primary_threat: "Telegram Part-time Rating & Crypto Task Fraud",
+        mule_links: "Inter-district mule recruitment rings traced across MMR"
+      },
+      NAG: {
+        name: "Nagpur Urban",
+        station: "Civil Lines Cyber Police Station, Nagpur City",
+        officer: "DySP Cyber Branch Nagpur",
+        email: "cybercell.nagpur@mahapolice.gov.in",
+        helpline: "0712-2566766 / 1930",
+        active_cases: 14,
+        total_siphoned: "₹31,00,000",
+        primary_threat: "Video Call Morphing Sextortion & Predatory Loan Apps",
+        mule_links: "High suicide prevention protocol activations (Tele-MANAS 14416)"
+      },
+      NSK: {
+        name: "Nashik Rural",
+        station: "Gangapur Road Cyber Desk, Nashik",
+        officer: "Inspector Anil Borse",
+        email: "cybercell.nashik@mahapolice.gov.in",
+        helpline: "0253-2305200 / 1930",
+        active_cases: 11,
+        total_siphoned: "₹24,40,000",
+        primary_threat: "OLX Marketplace QR Code & UPI Collect Scams",
+        mule_links: "Agricultural equipment and livestock buyer impersonation"
+      },
+      CSN: {
+        name: "Chhatrapati Sambhajinagar",
+        station: "CIDCO Cyber Crime Cell, Sambhajinagar",
+        officer: "PI Ramesh Jadhav",
+        email: "cybercell.csn@mahapolice.gov.in",
+        helpline: "0240-2345678 / 1930",
+        active_cases: 8,
+        total_siphoned: "₹16,80,000",
+        primary_threat: "SIM Swapping & Bank KYC Phishing Calls",
+        mule_links: "Cross-district SIM card procurement syndicates"
+      }
+    };
+
+    function selectDistrictCard(code) {
+      document.querySelectorAll('.district-card').forEach(el => el.classList.remove('border-2', 'border-[#0A2540]'));
+      const card = document.getElementById(`dist-card-${code}`);
+      if (card) card.classList.add('border-2', 'border-[#0A2540]');
+
+      const d = DISTRICT_DATA[code] || DISTRICT_DATA.MUM;
+      const box = document.getElementById('district-detail-box');
+      if (!box) return;
+
+      box.innerHTML = `
+        <div class="space-y-3">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-2.5">
+            <div>
+              <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">DISTRICT COMMAND PROFILE</span>
+              <h3 class="font-bold text-slate-900 text-base">${d.name}</h3>
+              <p class="text-xs text-slate-500 font-medium">${d.station}</p>
+            </div>
+            <span class="bg-blue-50 text-blue-700 text-[10px] font-bold px-2 py-0.5 rounded border border-blue-200">
+              Active Zone
+            </span>
+          </div>
+
+          <div class="space-y-1.5 text-xs">
+            <div class="flex justify-between py-1 border-b border-slate-50">
+              <span class="text-slate-500">Nodal Cyber Officer:</span>
+              <span class="font-bold text-slate-800">${d.officer}</span>
+            </div>
+            <div class="flex justify-between py-1 border-b border-slate-50">
+              <span class="text-slate-500">Cyber Cell Helpline:</span>
+              <span class="font-mono text-slate-800 font-semibold">${d.helpline}</span>
+            </div>
+            <div class="flex justify-between py-1 border-b border-slate-50">
+              <span class="text-slate-500">Official Secure Email:</span>
+              <span class="font-mono text-blue-700 font-medium">${d.email}</span>
+            </div>
+            <div class="flex justify-between py-1 border-b border-slate-50">
+              <span class="text-slate-500">District Disputed Loss:</span>
+              <span class="font-bold text-amber-700">${d.total_siphoned} (${d.active_cases} Complaints)</span>
+            </div>
+          </div>
+
+          <div class="bg-amber-50 p-2.5 rounded-lg border border-amber-200 text-xs space-y-1">
+            <div class="font-bold text-amber-900 flex items-center">
+              <i class="fa-solid fa-triangle-exclamation mr-1.5 text-amber-600"></i> Primary Syndicate Modus:
+            </div>
+            <div class="text-amber-800 text-[11px] leading-relaxed">${d.primary_threat}</div>
+          </div>
+
+          <div class="bg-indigo-50 p-2.5 rounded-lg border border-indigo-200 text-xs space-y-1">
+            <div class="font-bold text-indigo-900 flex items-center">
+              <i class="fa-solid fa-link mr-1.5 text-indigo-600"></i> Inter-District Mule Connectivity:
+            </div>
+            <div class="text-indigo-800 text-[11px] leading-relaxed">${d.mule_links}</div>
+          </div>
+        </div>
+
+        <div class="pt-3 border-t border-slate-200">
+          <button onclick="filterQueueByDistrict('${code}')" class="w-full bg-[#0A2540] hover:bg-[#16385C] text-white py-2 rounded-lg text-xs font-bold shadow-sm transition flex items-center justify-center cursor-pointer">
+            <i class="fa-solid fa-filter mr-1.5 text-amber-400"></i> Prioritize Triage Queue for ${d.name}
+          </button>
+        </div>
+      `;
+    }
+
+    function filterQueueByDistrict(code) {
+      switchMainView('operator');
+      const search = document.getElementById('filter-search');
+      if (search) {
+        search.value = code;
+        filterCases();
+      }
+      showToast("Triage Queue Prioritized", `Loaded active cases for district: ${code}`, "info");
+    }
+
+    // 1-CLICK INTERACTIVE DEMO TOUR FOR JUDGES
+    let isTourRunning = false;
+    async function launchInteractiveTour() {
+      if (isTourRunning) return;
+      isTourRunning = true;
+
+      showToast("Interactive Tour Started", "Step 1: Citizen sends Marathi voice note describing ₹50,000 MSEDCL electricity fraud...", "info");
+      switchMainView('simulator');
+
+      await new Promise(r => setTimeout(r, 1200));
+      appendChatBubble("user", "🎤 [Simulated Citizen Voice Note: msedcl_scam_marathi.wav (22s)]");
+
+      await new Promise(r => setTimeout(r, 1400));
+      await sendSimPayload(null, null, "msedcl_scam_marathi.wav");
+
+      await new Promise(r => setTimeout(r, 2200));
+      showToast("Fast-Whisper & Schema Extraction", "Step 2: AI transcribed Marathi, extracted suspect phone & UTR, read-back summary shown. Citizen confirming...", "info");
+
+      await new Promise(r => setTimeout(r, 2000));
+      handleSimButton("confirm");
+
+      await new Promise(r => setTimeout(r, 2200));
+      showToast("Golden-Hour Interception Active", "Step 3: Complaint dispatched live to Maharashtra Police Operator Desk with 39 mins left!", "info");
+      switchMainView('operator');
+      await loadCases();
+
+      await new Promise(r => setTimeout(r, 900));
+      const firstRow = document.querySelector('#cases-tbody tr');
+      if (firstRow) firstRow.click();
+
+      await new Promise(r => setTimeout(r, 1200));
+      showToast("Demo Tour Complete", "Official Signed Dossier ready for CFCFRMS / 1930 Bank Lien freeze!", "success");
+      isTourRunning = false;
+    }
+
+    // AUDIO PLAYBACK IN OFFICER TERMINAL
+    let isDeskAudioPlaying = false;
+    let deskAudioInterval = null;
+
+    function toggleDeskAudioPlayback() {
+      const icon = document.getElementById('desk-audio-icon');
+      const bars = document.getElementById('desk-audio-bars');
+
+      if (isDeskAudioPlaying) {
+        window.speechSynthesis.cancel();
+        isDeskAudioPlaying = false;
+        if (icon) icon.className = "fa-solid fa-play ml-0.5 text-xs text-amber-400";
+        clearInterval(deskAudioInterval);
+        if (bars) {
+          bars.querySelectorAll('span').forEach((s, i) => {
+            s.style.height = `${(i % 3 + 2) * 3}px`;
+            s.className = "w-1 bg-slate-300 rounded";
+          });
+        }
+        return;
+      }
+
+      const caseObj = casesCache.find(x => x.id === activeCaseId);
+      const narrative = caseObj?.details?.narrative_local || caseObj?.details?.narrative_en || "तक्रारदाराने सायबर फसवणुकीची माहिती दिली आहे.";
+      const lang = caseObj?.language || 'mr';
+
+      window.speechSynthesis.cancel();
+      const utter = new SpeechSynthesisUtterance(narrative);
+      utter.lang = (lang === 'mr') ? 'mr-IN' : (lang === 'hi' ? 'hi-IN' : 'en-IN');
+      utter.rate = 0.95;
+
+      utter.onstart = () => {
+        isDeskAudioPlaying = true;
+        if (icon) icon.className = "fa-solid fa-pause text-xs text-amber-400";
+        deskAudioInterval = setInterval(() => {
+          if (bars) {
+            bars.querySelectorAll('span').forEach(s => {
+              const h = Math.floor(Math.random() * 16) + 4;
+              s.style.height = `${h}px`;
+              s.className = "w-1 bg-emerald-500 rounded transition-all duration-150";
+            });
+          }
+        }, 150);
+      };
+
+      utter.onend = utter.onerror = () => {
+        isDeskAudioPlaying = false;
+        if (icon) icon.className = "fa-solid fa-play ml-0.5 text-xs text-amber-400";
+        clearInterval(deskAudioInterval);
+        if (bars) {
+          bars.querySelectorAll('span').forEach((s, i) => {
+            s.style.height = `${(i % 3 + 2) * 3}px`;
+            s.className = "w-1 bg-slate-300 rounded";
+          });
+        }
+      };
+
+      window.speechSynthesis.speak(utter);
     }
 
     // Auto-init on load

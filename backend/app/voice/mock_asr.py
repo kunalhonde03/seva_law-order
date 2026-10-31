@@ -33,6 +33,20 @@ class MockASRProvider(BaseASRProvider):
                 "confidence": 0.95,
                 "duration_seconds": 16.0
             }
+        elif "digital_arrest" in fn_lower or "cbi" in fn_lower or "fedex" in fn_lower:
+            return {
+                "text": "Hello, I received a call claiming to be from Mumbai Cyber Crime Branch and CBI. They claimed a FedEx parcel under my Aadhaar containing MDMA contraband was intercepted at Mumbai Airport. They forced me onto a Skype video Digital Arrest and coerced me to transfer ₹2,50,000 as RBI security clearance via UTR 910283746152 to suspect account at HDFC Bank. The suspect number was +91 9811002233.",
+                "language": "en",
+                "confidence": 0.97,
+                "duration_seconds": 24.5
+            }
+        elif "trading" in fn_lower or "stock" in fn_lower:
+            return {
+                "text": "मुझे एक WhatsApp VIP Institutional Stock Trading group me add kiya gaya tha. Ek fake trading app download karwaya aur IPO allotment ke naam par ₹3,00,000 transfer karwaye UPI ID groww-invest@hdfcbank par. Jab paise nikalne chahe to account freeze bata rahe hain.",
+                "language": "hi",
+                "confidence": 0.96,
+                "duration_seconds": 19.8
+            }
         else:
             # Default Canonical Marathi MSEDCL Scam
             return {
